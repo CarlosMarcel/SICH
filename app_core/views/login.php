@@ -3,11 +3,9 @@ require(__CTR_PATH . "ctr_login.php");
     //Declaramos el controlador de la vista actual el cual contiene las acciones a ejecutar
 $ctr_Login=new ctr_Login();
 ?>
-
 <main>
-
     <nav>
-        <div class="nav-wrapper blue">
+        <div class="nav-wrapper blue" style='margin-top: -22px;''>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <div class="container">
                 <div class="col s12 m12 l12">
@@ -15,8 +13,14 @@ $ctr_Login=new ctr_Login();
                     <ul class="right hide-on-med-and-down">
                         <li><a href="app_core/views/consultarHorasEstudiante.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
                     </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="app_core/views/consultarHorasEstudiante.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">info_outline</i>Acerca de</a></li>
+                    </ul>
                     <ul class="side-nav" id="mobile-demo">
                         <li><a href="app_core/views/consultarHorasEstudiante.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="app_core/views/consultarHorasEstudiante.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">info_outline</i>Acerca de</a></li>
                     </ul>
                 </div>
             </div>
@@ -28,7 +32,7 @@ $ctr_Login=new ctr_Login();
         <div class="col s12 m12 l12">
           <div class="container">
             <div class="widget-box z-depth-1">
-                <div class="center" id="logo_una"><img src="app_design/img/logoLogin.gif" alt="" id="imagenlogo" width="30%" height="30%">
+                <div class="center" id="logo_una"><img src="app_design/img/loginCasa.png" alt="" id="imagenlogo" width="30%" height="30%">
                 
                 </div>
                 <br><br>
