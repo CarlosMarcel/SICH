@@ -12,7 +12,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="title" content="Sistema de Control al Hogar" />
-    <meta name="description" content="Sistema Horas Colaboracion" />
+    <meta name="description" content="Sistema de domótica" />
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="Network, HTML5, PHP, MySQL, jquery" />
     <meta name="language" content="es" />
