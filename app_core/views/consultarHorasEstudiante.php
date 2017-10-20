@@ -1,8 +1,5 @@
 <?php
-require_once("../models/mdl_html.php");
-  //require(__CTR_PATH . "ctr_login.php"); //Agregamos la referencia al controlador respectivo
-
-$HTML = new mdl_Html();
+require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
   //$ctr_Login = new ctr_Login(); //variable del Controlador
 
   /*if(isset($_POST['btn_logout'])){ 
@@ -26,11 +23,11 @@ $HTML = new mdl_Html();
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <?php
-    echo $HTML->html_js_header("../../app_design/js/jquery-2.1.1.min.js");
-    echo $HTML->html_js_header("../../app_design/js/materialize.min.js");
-    echo $HTML->html_js_header("../../app_design/js/funciones.js");
-    echo $HTML->html_css_header("../../app_design/css/materialize.min.css","screen");
-    echo $HTML->html_css_header("../../app_design/css/style.css","screen");
+    echo "<script src='".__JS_PATH."jquery-3.2.1.min.js' type='text/javascript'></script>";
+    echo "<script src='".__JS_PATH."materialize.min.js' type='text/javascript'></script>";
+    echo "<script src='".__JS_PATH."funciones.js' type='text/javascript'></script>";
+    echo "<link type='text/css' href='" . __CSS_PATH . "materialize.css' rel='stylesheet' media='screen' />";
+    echo "<link type='text/css' href='" . __CSS_PATH . "style.css' rel='stylesheet' media='screen' />";
     ?>
     <title>Sistema Registro</title>
   </head>
