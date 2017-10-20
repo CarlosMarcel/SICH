@@ -11,7 +11,7 @@ $ctr_Login=new ctr_Login();
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <div class="container">
                 <div class="col s12 m12 l12">
-                    <a href="#!" class="brand-logo">SISTEMA DE REGISTRO DE HORAS</a>
+                    <a href="#!" class="brand-logo"><i class="material-icons left">home</i>SICH</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="app_core/views/consultarHorasEstudiante.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
                     </ul>
@@ -32,7 +32,7 @@ $ctr_Login=new ctr_Login();
                 
                 </div>
                 <br><br>
-                <b class="center">LOGIN</b>
+                <b class="center">Iniciar Sesion</b>
                 <div>
 
                   <div class="row">
@@ -56,7 +56,7 @@ $ctr_Login=new ctr_Login();
             </form>
         </div>
         <br>
-        <h6 class="center">Horas colaboración Campus Coto</h6>
+        <h6 class="center">BIENVENIDO AL GESTOR DE SU HOGAR</h6>
     </div>  
 </div>
 </div>

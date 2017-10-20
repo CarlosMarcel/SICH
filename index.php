@@ -28,7 +28,7 @@
           echo $HTML->html_css_header(__CSS_PATH . "materialize.css","screen");
           echo $HTML->html_css_header(__CSS_PATH . "style.css","screen");
       ?>
-    <title>Sistema Registro</title>
+    <title>SICH</title>
   </head>
 
   <body>
