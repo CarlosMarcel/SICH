@@ -1,6 +1,5 @@
 <?php
   require_once("../models/mdl_modulo_tutor.php");
-  //require_once("../models/mdl_message.php");
 
   class ctr_Tutor {
     private $postdata;

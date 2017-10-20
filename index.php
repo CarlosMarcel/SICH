@@ -2,8 +2,6 @@
   //Inicio de la sesión, ubicados antes que cualquier salida HTML
 
   require_once("global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
-  require_once(__MDL_PATH . "mdl_html.php");
-  $HTML = new mdl_Html();
 ?>
 
 <!DOCTYPE HTML>
@@ -22,11 +20,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
       <?php
-          echo $HTML->html_js_header(__JS_PATH . "jquery-3.2.1.min.js");
-          echo $HTML->html_js_header(__JS_PATH . "materialize.min.js");
-          echo $HTML->html_js_header(__JS_PATH . "funciones.js");
-          echo $HTML->html_css_header(__CSS_PATH . "materialize.css","screen");
-          echo $HTML->html_css_header(__CSS_PATH . "style.css","screen");
+          echo "<script src='".__JS_PATH."jquery-3.2.1.min.js' type='text/javascript'></script>";
+          echo "<script src='".__JS_PATH."materialize.min.js' type='text/javascript'></script>";
+          echo "<script src='".__JS_PATH."funciones.js' type='text/javascript'></script>";
+          echo "<link type='text/css' href='" . __CSS_PATH . "materialize.css' rel='stylesheet' media='screen' />";
+          echo "<link type='text/css' href='" . __CSS_PATH . "style.css' rel='stylesheet' media='screen' />";
       ?>
     <title>SICH</title>
   </head>

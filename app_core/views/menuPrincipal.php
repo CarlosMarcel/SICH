@@ -1,8 +1,5 @@
 <?php
-require_once(__MDL_PATH . "mdl_html.php");
   require(__CTR_PATH . "ctr_login.php"); //Agregamos la referencia al controlador respectivo
-
-  $HTML = new mdl_Html();
   $ctr_Login = new ctr_Login(); //variable del Controlador
 
 

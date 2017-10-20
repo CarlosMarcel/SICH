@@ -1,15 +1,12 @@
 <?php
 
 	require_once(__MDL_PATH . "mdl_login.php");
-	require_once(__MDL_PATH . "mdl_message.php");
 
 	class ctr_Login {
 		private $login_exec;
-		var $MSSG;
 
 		public function __construct(){
 			$this->login_exec = new mdl_Login();
-			$this->MSSG = new mdl_Message();
 		}
 
 		function btn_login_click(){
@@ -26,7 +23,6 @@
 				echo "<script>$('#login').css('display','none');location.href='';</script>";
 			}else{
 				$_SESSION['MYAPP']="NO";
-				$this->MSSG->show_message("","warning","fail_auth");
 			}
 		}
 
