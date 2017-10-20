@@ -28,7 +28,7 @@ $ctr_Login=new ctr_Login();
         <div class="col s12 m12 l12">
           <div class="container">
             <div class="widget-box z-depth-1">
-                <div class="center" id="logo_una"><img src="app_design/img/logoLogin.gif" alt="" id="imagenlogo" width="30%" height="30%">
+                <div class="center" id="logo_una"><img src="app_design/img/loginCasa.png" alt="" id="imagenlogo" width="30%" height="30%">
                 
                 </div>
                 <br><br>

@@ -22,10 +22,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
       <?php
-          echo $HTML->html_js_header(__JS_PATH . "jquery-2.1.1.min.js");
+          echo $HTML->html_js_header(__JS_PATH . "jquery-3.2.1.min.js");
           echo $HTML->html_js_header(__JS_PATH . "materialize.min.js");
           echo $HTML->html_js_header(__JS_PATH . "funciones.js");
-          echo $HTML->html_css_header(__CSS_PATH . "materialize.min.css","screen");
+          echo $HTML->html_css_header(__CSS_PATH . "materialize.css","screen");
           echo $HTML->html_css_header(__CSS_PATH . "style.css","screen");
       ?>
     <title>Sistema Registro</title>

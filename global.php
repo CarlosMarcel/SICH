@@ -5,7 +5,7 @@ ARCHIVO DE CONFIGURACIÓN GLOBAL.
 --------------------------------------------
 */
 // ------ Variables que definen el nombre actual del hosting -------
-  $myhost="http://localhost:8080/";
+  $myhost="http://localhost:8080";
   $myproject="SICH";
   $mysite=$myhost . "/" . $myproject;
 
