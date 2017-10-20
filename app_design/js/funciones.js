@@ -2,6 +2,7 @@ $(document).ready(function(){
       cargar_dias_taller($('#user_cedula').text());
 
 });
+///QUI ESTA la wea jajaja
 
 function cargar_dias_taller(cedula){
 	$.ajax({

@@ -28,10 +28,9 @@ $ctr_Login=new ctr_Login();
         <div class="col s12 m12 l12">
           <div class="container">
             <div class="widget-box z-depth-1">
-                <div class="center" id="logo_una"><img src="app_design/img/loginCasa.png" alt="" id="imagenlogo" width="30%" height="30%">
+                <div class="center" id="logo_una"><img src="app_design/img/loginCasa.png" alt="" id="imagenlogo" width="20%" height="20%">
                 
                 </div>
-                <br><br>
                 <b class="center">Iniciar Sesion</b>
                 <div>
 
@@ -49,14 +48,12 @@ $ctr_Login=new ctr_Login();
                         <label for="txt_pssw">Contraseña</label>
                     </div>
                     <div class="center">
-                        <button class="btn waves-effect waves light blue" name="btn_login" id="btn_login" type="submit">Login<i class="material-icons right">lock_open</i></button>
+                        <button class="btn-large waves-effect waves light blue" name="btn_login" id="btn_login" type="submit">Login<i class="material-icons right">lock_open</i></button>
                     </div>
                     
                 </div>
             </form>
         </div>
-        <br>
-        <h6 class="center">BIENVENIDO AL GESTOR DE SU HOGAR</h6>
     </div>  
 </div>
 </div>
@@ -66,13 +63,6 @@ $ctr_Login=new ctr_Login();
 
 
 </main>
-<footer class="page-footer grey darken-1">
-  <div class="footer-copyright">
-    <div class="container">
-      © 2016 Designed By Tec-Solutions
-  </div>
-</div>
-</footer>
 
 <script type="text/javascript">
   $(document).ready(function(){
