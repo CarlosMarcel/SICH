@@ -19,7 +19,7 @@
 			$this->servidor = "localhost";
 			$this->usuario = "root";
 			$this->clave = "";
-			$this->base_datos = "registrohorascolaboracion";
+			$this->base_datos = "sich";
 			$this->conectar_base_datos();
 		}
 

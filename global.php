@@ -11,7 +11,7 @@ ARCHIVO DE CONFIGURACIÓN GLOBAL.
 
   //$myhost="http://carlosquesadalab6.esy.es/";
   $myhost="http://localhost:8080/";
-  $myproject="SistemaHoras";
+  $myproject="SICH";
   $mysite=$myhost . "/" . $myproject;
 
   date_default_timezone_set('America/Costa_Rica');
@@ -42,7 +42,7 @@ ARCHIVO DE CONFIGURACIÓN GLOBAL.
 
   set_error_handler("my_error_handler", E_ALL);
 
-  require_once(__MDL_PATH . "mdl_message.php");
+ // require_once(__MDL_PATH . "mdl_message.php");
 
   /*my_error_handler: Maneja globalmente los warnings y excepciones de PHP y los muestra en
   un message box personalizado.*/
