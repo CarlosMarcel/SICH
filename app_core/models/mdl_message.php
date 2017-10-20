@@ -1,5 +1,5 @@
 ﻿<?php
-    require_once(__MDL_PATH . "mdl_html.php");
+    //require_once(__MDL_PATH . "mdl_html.php");
     
     class mdl_Message {
 
