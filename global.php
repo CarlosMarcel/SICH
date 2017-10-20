@@ -1,17 +1,12 @@
 <?php
-/*          _\|/_
-            (0 0)
---------o00o-{_}-o00o-----------------------
-
+/*
+--------------------------------------------
 ARCHIVO DE CONFIGURACIÓN GLOBAL.
 --------------------------------------------
 */
-
-  // ------ Variables que definen el nombre actual del hosting -------
-
-  //$myhost="http://carlosquesadalab6.esy.es/";
+// ------ Variables que definen el nombre actual del hosting -------
   $myhost="http://localhost:8080/";
-  $myproject="SistemaHoras";
+  $myproject="SICH";
   $mysite=$myhost . "/" . $myproject;
 
   date_default_timezone_set('America/Costa_Rica');
