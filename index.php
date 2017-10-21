@@ -38,7 +38,7 @@
            if($_SESSION['SICH']!="YES"){
             include_once(__VWS_PATH . "login.php");
            }else{
-            include_once(__VWS_PATH . "menuPrincipal.php");
+            include_once(__VWS_PATH . "home.php");
            }
         }else{
             include_once(__VWS_PATH . "login.php");     

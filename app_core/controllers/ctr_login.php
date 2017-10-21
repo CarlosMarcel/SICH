@@ -10,8 +10,8 @@
 		}
 
 		function btn_login_click(){
-			$cedula = trim($_POST['txt_user']);
-			$password = trim($_POST['txt_pssw']);
+			$cedula = trim($_POST['txt_cedula']);
+			$password = trim($_POST['txt_pass']);
 
 			$this->login_exec->login($cedula, $password);
 
