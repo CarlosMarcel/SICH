@@ -37,7 +37,7 @@
 		public function logout(){
 			unset($this->conexion);
 			$this->conn_status= false;
-			unset($_SESSION['MYAPP']);
+			unset($_SESSION['SICH']);
 		}
 	}
 ?>

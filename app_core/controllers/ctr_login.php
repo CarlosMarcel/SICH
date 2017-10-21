@@ -16,7 +16,7 @@
 			$this->login_exec->login($username, $password);
 
 			if($this->login_exec->conn_status){
-				$_SESSION['MYAPP']="YES";
+				$_SESSION['SICH']="YES";
 				$_SESSION['USERNAME']=$this->login_exec->get_username();
 				$_SESSION['USERCEDULA']= $this->login_exec->get_usercedula();
 

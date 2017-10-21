@@ -1,4 +1,4 @@
-<?php session_name("MYAPP"); session_start(); 
+<?php session_name("SICH"); session_start(); 
   //Inicio de la sesión, ubicados antes que cualquier salida HTML
 
   require_once("global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
@@ -34,8 +34,8 @@
     <div id="main_box">
       <?php
              
-       if(isset($_SESSION['MYAPP'])){
-           if($_SESSION['MYAPP']!="YES"){
+       if(isset($_SESSION['SICH'])){
+           if($_SESSION['SICH']!="YES"){
             include_once(__VWS_PATH . "login.php");
            }else{
             include_once(__VWS_PATH . "menuPrincipal.php");
