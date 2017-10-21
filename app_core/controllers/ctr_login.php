@@ -19,6 +19,13 @@
 				$_SESSION['SICH']="YES";
 				$_SESSION['CEDULA']=$this->login_exec->get_cedula();
 				$_SESSION['NOMBRE']= $this->login_exec->get_nombre();
+				$_SESSION['APELLIDO1']= $this->login_exec->get_apellido1();
+				$_SESSION['APELLIDO2']= $this->login_exec->get_apellido2();
+				$_SESSION['CORREO']= $this->login_exec->get_correo();
+				$_SESSION['TELEFONO']= $this->login_exec->get_telefono();
+				$_SESSION['DIRECCION']= $this->login_exec->get_direccion();
+				$_SESSION['TIPOROL']= $this->login_exec->get_tipoRol();
+
 
 				//Aqui se oculta el login que es el id del div o main que tiene cada view.
 				//Y se retorna al inicio para que ya teniendo la session lista permita entrar.
