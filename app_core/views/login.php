@@ -13,10 +13,10 @@ $ctr_Login=new ctr_Login();
                 <div class="col s12 m12 l12">
                     <a href="#!" class="brand-logo"><i class="material-icons left">home</i>SICH</a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="app_core/views/consultarHorasEstudiante.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
+                        <li><a href="app_core/views/accesoHogar.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
-                        <li><a href="app_core/views/consultarHorasEstudiante.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
+                        <li><a href="app_core/views/accesoHogar.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
                     </ul>
                 </div>
             </div>
