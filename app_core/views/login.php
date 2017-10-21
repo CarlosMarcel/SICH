@@ -3,8 +3,6 @@
 require(__CTR_PATH . "ctr_login.php");
 $ctr_Login=new ctr_Login();
 ?>
-
-<<<<<<< HEAD
 <main id="login">
 
   <nav>
@@ -40,23 +38,6 @@ $ctr_Login=new ctr_Login();
               <div class="center">
                 <button class="btn-large waves-effect waves light blue" name="btn_login" id="btn_login" type="submit">Login<i class="material-icons right">lock_open</i></button>
               </div>
-=======
-<main>
-
-    <nav>
-        <div class="nav-wrapper blue">
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <div class="container">
-                <div class="col s12 m12 l12">
-                    <a href="#!" class="brand-logo"><i class="material-icons left">home</i>SICH</a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="app_core/views/accesoHogar.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo">
-                        <li><a href="app_core/views/accesoHogar.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">date_range</i>Ver mis horas</a></li>
-                    </ul>
-                </div>
->>>>>>> 437ab34fbf1ad98a388bda790552caca39b7d074
             </div>
           </form>
         </div>
