@@ -13,7 +13,7 @@ $ctr_Login=new ctr_Login();
         <li><a href="app_core/views/accesoHogar.php"><i class="material-icons left" id="btn_login_hogar" name="btn_login_hogar">home</i>LOGIN HOGAR</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="#"><i class="material-icons left" id="btn_login_hogar" name="btn_login_hogar">home</i>LOGIN HOGAR</a></li>
+        <li><a href="app_core/views/accesoHogar.php"><i class="material-icons left" id="btn_login_hogar" name="btn_login_hogar">home</i>LOGIN HOGAR</a></li>
       </ul>
     </div>
   </nav>
