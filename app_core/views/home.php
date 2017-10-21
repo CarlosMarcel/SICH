@@ -21,7 +21,7 @@ if(isset($_POST['btn_logout'])){
 						<li><a href="#">Perfil</a></li>
 						<li>
 							<form action="" name="frm_app" method="post">
-								<button class="btn-large waves-effect waves light blue" name="btn_logout" id="btn_logout" type="submit">Salir<i class="material-icons right">exit_to_app</i></button> 	
+								<button class="btn-large waves-effect waves black" name="btn_logout" id="btn_logout" type="submit">Salir<i class="material-icons right">exit_to_app</i></button> 	
 							</form>
 						</li>
 					</ul>

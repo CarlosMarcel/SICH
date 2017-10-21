@@ -65,7 +65,7 @@ nav{
 
 /*STYLE SICH*/
 
-.container {
+.home {
   padding-left: 300px;
 }
 
@@ -91,13 +91,9 @@ main .container {
   margin-bottom: 10px;
 }
 
-.dropdown-content {
-  min-width: 120px;
-}
-
 @media only screen and (max-width : 992px) {
-  header, main, footer {
-    padding-left: 0;
+  header, .home , footer {
+    padding-left: 0px;
     padding-bottom: 10px;
 
   }
@@ -120,11 +116,6 @@ main .container {
 
   main .container {
     margin-top: 0rem;
-  }
-
-  .login{
-    margin: 0 auto;
-    width: 98%;
   }
 }
 
