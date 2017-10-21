@@ -153,6 +153,7 @@ html{
   box-shadow: none;
 }
 
+<<<<<<< HEAD
 .card .card-title .foto{
   border-radius: 50%;
   width: 60px;
@@ -227,4 +228,8 @@ nav .brand-logo {
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.4);
+=======
+#user_cedula{
+	display: none;
+>>>>>>> 437ab34fbf1ad98a388bda790552caca39b7d074
 }
