@@ -25,10 +25,10 @@ require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
                 <div class="col s12 m12 l12">
                     <a href="#!" class="brand-logo"><i class="material-icons left">home</i>SICH</a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="app_core/views/login.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">arrow_back</i>Login</a></li>
+                        <li><a href="../../" id="btn_consulta" name="btn_consulta"><i class="material-icons left">arrow_back</i>Login</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
-                        <li><a href="app_core/views/login.php" id="btn_consulta" name="btn_consulta"><i class="material-icons left">arrow_back</i>Login</a></li>
+                        <li><a href="../../" id="btn_consulta" name="btn_consulta"><i class="material-icons left">arrow_back</i>Login</a></li>
                     </ul>
                 </div>
             </div>
