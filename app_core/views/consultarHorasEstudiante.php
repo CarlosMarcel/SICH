@@ -1,6 +1,6 @@
 <?php
 require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
-  //$ctr_Login = new ctr_Login(); //variable del Controlador
+ //$ctr_Login = new ctr_Login(); //variable del Controlador
 
   /*if(isset($_POST['btn_logout'])){ 
       $ctr_Login->btn_logout_click();
@@ -169,4 +169,5 @@ require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
 </body>
 </html>
 <?php
+
 ?>

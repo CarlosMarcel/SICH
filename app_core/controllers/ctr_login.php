@@ -20,6 +20,8 @@
 				$_SESSION['USERNAME']=$this->login_exec->get_username();
 				$_SESSION['USERCEDULA']= $this->login_exec->get_usercedula();
 
+				//Aqui se oculta el login que es el id del div o main que tiene cada view.
+				//Y se retorna al inicio para que ya teniendo la session lista permita entrar.
 				echo "<script>$('#login').css('display','none');location.href='';</script>";
 			}else{
 				$_SESSION['MYAPP']="NO";
