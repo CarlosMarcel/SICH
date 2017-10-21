@@ -26,7 +26,7 @@
             <div class="col s12 m12 l12">
                 <div class="widget-box-menu z-depth-1">
                     <div>
-                        <h5 class="center-align">Bienvenido <?php echo $_SESSION['USERNAME']."!";?></h5>
+                        <h5 class="center-align">Bienvenido <?php echo $_SESSION['NOMBRE']."!";?></h5>
                     </div>
                     
                 </div>

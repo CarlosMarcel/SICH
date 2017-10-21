@@ -1,6 +1,6 @@
 <?php
+//Llamado de su respectivo controlador.
 require(__CTR_PATH . "ctr_login.php");
-    //Declaramos el controlador de la vista actual el cual contiene las acciones a ejecutar
 $ctr_Login=new ctr_Login();
 ?>
 
