@@ -190,6 +190,20 @@ DELIMITER |
 		VALUES(administradorCedulaPersona,administradorRolFamiliar,'A');
 	END |
 DELIMITER ;
+---------------------------------------------------------------------
+
+DROP PROCEDURE if exists loginSICH;
+DELIMITER |
+	CREATE PROCEDURE loginSICH(
+		loginCedulaPersona int (11),
+		loginpass char (128))
+	BEGIN		
+		SELECT tbl_persona.cedulaPersona, tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2, tbl_persona.correo,
+		tbl_persona.telefono, tbl_persona.direccion, tbl_persona.tipoRol
+        FROM tbl_persona inner join tbl_login on tbl_persona.cedulaPersona= tbl_login.cedulaPersona 
+        WHERE tbl_persona.estado ='A' AND tbl_login.cedulaPersona = loginCedulaPersona AND tbl_login.pass = md5(loginpass);
+    END |
+DELIMITER ;
 
 
 
