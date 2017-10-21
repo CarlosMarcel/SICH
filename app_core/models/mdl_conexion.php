@@ -11,15 +11,10 @@
 
 		function __construct()
 		{
-			/*$this->servidor = "mysql.hostinger.es";
-			$this->usuario = "u947677759_cmcq";
-			$this->clave = "123456";
-			$this->base_datos = "u947677759_ccq";*/
-
 			$this->servidor = "localhost";
 			$this->usuario = "root";
 			$this->clave = "";
-			$this->base_datos = "registrohorascolaboracion";
+			$this->base_datos = "sich";
 			$this->conectar_base_datos();
 		}
 
