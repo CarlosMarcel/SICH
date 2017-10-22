@@ -1,4 +1,22 @@
 -- --------------------------------------------
+-- Procedimiento almacenado para LOGIN 
+-- --------------------------------------------
+DROP PROCEDURE if exists loginSICH;
+DELIMITER |
+	CREATE PROCEDURE loginSICH(
+		loginCedulaPersona int (11),
+		loginpass char (128))
+	BEGIN		
+		SELECT tbl_persona.cedulaPersona, tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2, tbl_persona.correo,
+		tbl_persona.telefono, tbl_persona.direccion, tbl_persona.tipoRol
+        FROM tbl_persona inner join tbl_login on tbl_persona.cedulaPersona= tbl_login.cedulaPersona 
+        WHERE tbl_persona.estado ='A' AND tbl_login.cedulaPersona = loginCedulaPersona AND tbl_login.pass = md5(loginpass);
+    END |
+DELIMITER ;
+
+
+
+-- --------------------------------------------
 -- Procedimientos almacenados para Persona
 -- --------------------------------------------
 DROP PROCEDURE if exists insertarPersona;
@@ -54,7 +72,7 @@ DELIMITER |
 		UPDATE tbl_persona set estado = 'I' WHERE tbl_persona.cedulaPersona = personaCedula;
 	END |
 DELIMITER ;
----------------------------------------------------------------
+-----------------------------------------------------------
 DROP PROCEDURE if exists personasXcedula;
 DELIMITER |
 	CREATE PROCEDURE personasXcedula(
@@ -69,39 +87,58 @@ DELIMITER |
 	
     END |
 DELIMITER ;
+
+
+
+
+
 -- --------------------------------------------
 -- Procedimientos almacenados para Empleado
 -- --------------------------------------------
-
 DROP PROCEDURE if exists insertarEmpleado;
-DELIMITER |
-	CREATE PROCEDURE insertarEmpleado(
-		empleadocedulaPersona int(11),
-		empleadoPuesto varchar(45),
-		empleadoSalario varchar(45),
-		empleadoFechaIngreso date,
-		empleadoHorario varchar(45))
-	BEGIN		
-		INSERT INTO tbl_empleado(cedulaPersona,puesto,salario,fechaIngreso,horario,estado)
-		VALUES(empleadocedulaPersona,empleadoPuesto,empleadoSalario,empleadoFechaIngreso,empleadoHorario,'A');
-	END |
+DELIMITER //
+CREATE PROCEDURE insertarEmpleado(
+  cedulaPersona int(11), nombre varchar(45), apellido varchar(45), apellido2 varchar(45),
+  telefono int(8), correo varchar(50), fechaNacimiento date, direccion varchar(45),
+  codigoAcceso int(11), tipoRol enum('Administrador','Usuarios','Empleado'), 
+  puesto varchar(45), salario varchar(45), fechaIngreso date, horario varchar(45))
+BEGIN
+START TRANSACTION;
+   INSERT INTO tbl_persona(cedulaPersona, nombre, apellido, apellido2, telefono,
+   						   correo, fechaNacimiento, direccion, codigoAcceso, tipoRol,
+   						   estado)
+   VALUES(cedulaPersona, nombre, apellido,apellido2,telefono,
+   						   correo, fechaNacimiento, direccion, codigoAcceso, tipoRol,
+   						   'A');
+   INSERT INTO tbl_empleado (cedulaPersona,puesto, salario, fechaIngreso, horario,estado) 
+   VALUES(cedulaPersona,puesto,salario,fechaIngreso,horario,'A');
+COMMIT;
+END//
 DELIMITER ;
 ------------------------------------------------------
 DROP PROCEDURE if exists modificarEmpleado;
-DELIMITER |
-	CREATE PROCEDURE modificarEmpleado(
-	    actualiza_empleadocedulaPersona int(11),
-		actualiza_empleadoPuesto varchar(45),
-		actualiza_empleadoSalario varchar(45),
-		actualiza_empleadoFechaIngreso date,
-		actualiza_empleadoHorario varchar(45))
-	BEGIN		
-		UPDATE tbl_empleado set puesto = actualiza_empleadoPuesto, salario = actualiza_empleadoSalario, fechaIngreso = actualiza_empleadoFechaIngreso,
-		horario = actualiza_empleadoHorario
-		 WHERE tbl_empleado.cedulaPersona = actualiza_empleadocedulaPersona;
-	END |
+DELIMITER //
+CREATE PROCEDURE modificarEmpleado(
+  cedulaPersona int(11), nombre varchar(45), apellido varchar(45), apellido2 varchar(45),
+  telefono int(8), correo varchar(50), fechaNacimiento date, direccion varchar(45),
+  codigoAcceso int(11), tipoRol enum('Administrador','Usuarios','Empleado'), 
+  puesto varchar(45), salario varchar(45), fechaIngreso date, horario varchar(45))
+BEGIN
+START TRANSACTION;
+   UPDATE tbl_persona set nombre = nombre, apellido = apellido, apellido2 = apellido2,
+    telefono = telefono, correo = correo, fechaNacimiento = fechaNacimiento,
+    direccion = direccion, codigoAcceso = codigoAcceso, tipoRol = tipoRol
+     WHERE tbl_persona.cedulaPersona = cedulaPersona;
+
+   UPDATE tbl_empleado set puesto = puesto, salario = salario, fechaIngreso = fechaIngreso,
+    horario = horario
+     WHERE tbl_empleado.cedulaPersona = cedulaPersona;
+
+COMMIT;
+END//
 DELIMITER ;
 ---------------------------------------------------------
+
 DROP PROCEDURE if exists consultarEmpleado;
 DELIMITER |
 	CREATE PROCEDURE consultarEmpleado()
@@ -112,7 +149,9 @@ DELIMITER |
 		WHERE tbl_empleado.estado = 'A' AND tbl_persona.cedulaPersona = tbl_empleado.cedulaPersona GROUP BY tbl_persona.cedulaPersona;
 	END |
 DELIMITER ;
+
 ---------------------------------------------------------
+
 DROP PROCEDURE if exists inactivarEmpleado;
 DELIMITER |
 	CREATE PROCEDURE inactivarEmpleado(
@@ -121,6 +160,10 @@ DELIMITER |
 		UPDATE tbl_empleado set estado = 'I' WHERE tbl_empleado.cedulaPersona = empleadocedulaPersona;
 	END |
 DELIMITER ;
+
+
+
+
 -- --------------------------------------------
 -- Procedimientos almacenados para Tareas
 -- --------------------------------------------
@@ -178,36 +221,101 @@ DELIMITER |
         WHERE tbl_tareas.estado ='A' AND tbl_tareas.cedulaPersona = tareacedulaPersona GROUP BY fecha;
     END |
 DELIMITER ;
-----------------------------------------------------------------
+
+
+-- --------------------------------------------
+-- Procedimientos almacenados para Administrador
+-- --------------------------------------------
+
+
 DROP PROCEDURE if exists insertarAdministrador;
-DELIMITER |
-	CREATE PROCEDURE insertarAdministrador(
-		administradorCedulaPersona int(11),
-		administradorRolFamiliar varchar (45)
-		)
-	BEGIN		
-		INSERT INTO tbl_administrador(cedulaPersona,rolFamilia,estado)
-		VALUES(administradorCedulaPersona,administradorRolFamiliar,'A');
-	END |
+DELIMITER //
+CREATE PROCEDURE insertarAdministrador(
+  cedulaPersona int(11), nombre varchar(45), apellido varchar(45), apellido2 varchar(45),
+  telefono int(8), correo varchar(50), fechaNacimiento date, direccion varchar(45),
+  codigoAcceso int(11), tipoRol enum('Administrador','Usuarios','Empleado'), 
+  rolFamilia varchar(45))
+BEGIN
+START TRANSACTION;
+   INSERT INTO tbl_persona(cedulaPersona, nombre, apellido, apellido2, telefono,
+   						   correo, fechaNacimiento, direccion, codigoAcceso, tipoRol,
+   						   estado)
+   VALUES(cedulaPersona, nombre, apellido,apellido2,telefono,
+   						   correo, fechaNacimiento, direccion, codigoAcceso, tipoRol,
+   						   'A');
+   INSERT INTO tbl_administrador (cedulaPersona,rolFamilia,estado) 
+   VALUES(cedulaPersona,rolFamilia,'A');
+COMMIT;
+END//
 DELIMITER ;
 ---------------------------------------------------------------------
 
-DROP PROCEDURE if exists loginSICH;
-DELIMITER |
-	CREATE PROCEDURE loginSICH(
-		loginCedulaPersona int (11),
-		loginpass char (128))
-	BEGIN		
-		SELECT tbl_persona.cedulaPersona, tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2, tbl_persona.correo,
-		tbl_persona.telefono, tbl_persona.direccion, tbl_persona.tipoRol
-        FROM tbl_persona inner join tbl_login on tbl_persona.cedulaPersona= tbl_login.cedulaPersona 
-        WHERE tbl_persona.estado ='A' AND tbl_login.cedulaPersona = loginCedulaPersona AND tbl_login.pass = md5(loginpass);
-    END |
+
+DROP PROCEDURE if exists modificarAdministrador;
+DELIMITER //
+CREATE PROCEDURE modificarAdministrador(
+  cedulaPersona int(11), nombre varchar(45), apellido varchar(45), apellido2 varchar(45),
+  telefono int(8), correo varchar(50), fechaNacimiento date, direccion varchar(45),
+  codigoAcceso int(11), tipoRol enum('Administrador','Usuarios','Empleado'), 
+  rolFamilia varchar(45))
+BEGIN
+START TRANSACTION;
+   UPDATE tbl_persona set nombre = nombre, apellido = apellido, apellido2 = apellido2,
+    telefono = telefono, correo = correo, fechaNacimiento = fechaNacimiento,
+    direccion = direccion, codigoAcceso = codigoAcceso, tipoRol = tipoRol
+     WHERE tbl_persona.cedulaPersona = cedulaPersona;
+
+   UPDATE tbl_administrador set rolFamilia = rolFamilia
+     WHERE tbl_administrador.cedulaPersona = cedulaPersona;
+
+COMMIT;
+END//
 DELIMITER ;
 
+------------------------------------------------------------------------
 
+DROP PROCEDURE if exists inactivarAdministrador;
+DELIMITER |
+	CREATE PROCEDURE inactivarAdministrador(
+    	admincedulaPersona int(11))
+	BEGIN		
+		UPDATE tbl_administrador set estado = 'I' WHERE tbl_administrador.cedulaPersona = admincedulaPersona;
+	END |
+DELIMITER ;
+-- --------------------------------------------
+-- Procedimientos almacenados para Bitacora
+-- --------------------------------------------
 
+DROP PROCEDURE if exists insertarPersonaBitacora;
+DELIMITER |
+	CREATE PROCEDURE insertarPersonaBitacora()
+	BEGIN		
+		INSERT INTO tbl_bitacora(cedulaPersona, fecha, hora, estado)
+		VALUES(bitacoraCedPersona, CURDATE(), CURTIME(), 'A');
+	END |
+DELIMITER ;
 
+------------------------------------------------------------------------
 
+DROP PROCEDURE if exists consultarBitacora;
+DELIMITER |
+	CREATE PROCEDURE consultarBitacora()
+	BEGIN
+		SELECT tbl_persona.cedulaPersona, tbl_persona.nombre, tbl_persona.apellido,tbl_persona.apellido2, fecha, hora
+        FROM tbl_persona inner join tbl_bitacora on tbl_persona.cedulaPersona = tbl_bitacora.cedulaPersona 
+        WHERE tbl_bitacora.estado ='A'  GROUP BY fecha;
+    END |
+    DELIMITER ;
+
+    -----------------------------------------------------------------
+
+DROP PROCEDURE if exists inactivarPersonaBitacora;
+DELIMITER |
+	CREATE PROCEDURE inactivarPersonaBitacora(
+    	BitacoraCedulaPersona int(11))
+	BEGIN		
+		UPDATE tbl_bitacora set estado = 'I' WHERE tbl_bitacora.cedulaPersona = bitacoraCedPersona;
+	END |
+DELIMITER ;
 
 
