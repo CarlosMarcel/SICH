@@ -52,6 +52,14 @@
 </html>
 <?php 
 
+  /*
+  Funcionalidad de cada uno de los enlaces o llamados a nuestras vistas.
+  Primero crear los input submit y despues cada uno de estos if para los
+  botones y llamar la vista respectiva y ocultando el main tag con el id vistas.
+  Sin embargo aqui solo se oculta vistas, para llamarlas se debe hacer el include 
+  dentro del div home en la vista principal o vista home.
+  */
+
   if(isset($_POST['btn_registrarEstudiantes'])){ 
       include_once(__VWS_PATH . "registrarEstudiante.php");
       echo "<script>$('#menu_principal').css('display','none');</script>";
@@ -66,4 +74,16 @@
     include_once(__VWS_PATH . "registrarHoras.php");
     echo "<script>$('#menu_principal').css('display','none');</script>";
   }
+
+
+  if(isset($_POST['btn_aja'])){ 
+        //include_once(__VWS_PATH . "registrarHoras.php");
+        echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+
+  if(isset($_POST['btn_aja2'])){ 
+        //include_once(__VWS_PATH . "registrarHoras.php");
+        echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+  
 ?>

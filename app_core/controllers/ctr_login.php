@@ -32,6 +32,7 @@
 				echo "<script>$('#login').css('display','none');location.href='';</script>";
 			}else{
 				$_SESSION['SICH']="NO";
+				echo "<script>Materialize.toast('Datos incorrectos!', 4000);</script>";
 			}
 		}
 

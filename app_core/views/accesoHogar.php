@@ -20,7 +20,7 @@ require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
   ?>
 
 
-  <main id="login">
+  <div id="login">
 
   <nav>
     <div class="nav-wrapper">
@@ -45,7 +45,7 @@ require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
               <div class="input-field col s12">
                 <i class="material-icons prefix">https</i>
                 <input type="password" id="txt_pass" name="txt_pass" class="validate" required="">
-                <label for="txt_pass">Pin</label>
+                <label for="txt_pass">PIN</label>
               </div>
               <div class="center">
                 <button class="btn  waves-effect waves light blue" name="btn_login" id="btn_login" type="submit">Entrar<i class="material-icons right">vpn_key</i></button>
@@ -57,7 +57,7 @@ require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
     </div>
   </div>
 
-</main>
+</div>
 
   <?php
   //Eventos click de los botones de acciÃ³n

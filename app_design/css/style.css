@@ -50,29 +50,87 @@ nav{
 }
 
 @media only screen and (min-width : 992px) {
-  main .container_login{
+  div .container_login{
     width: 40%;
   }
 }
 
-#head_login{
-	margin-top: 130px;
+.head{
+	color: #fff;
+  font-size: 34px;
+  font-weight: normal;
+  padding: 45px 0;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+form#frm_login{
+  overflow: hidden;
+  position: relative;
+  padding: 40px;
+}
+
+.form-box{
+  background: #fff;
+  margin: 30px auto;
+  max-width: 500px;
+  box-shadow: 0 3px 6px 0px rgba(0,0,0,0.16), 0 3px 6px 0px rgba(0,0,0,0.23);
 }
 
 #btn_login{
 	width: 95%;
 }
 
+.boton {
+  height: 64px;
+  width: 64px;
+  border: none;
+  color: #FFF;
+  font-size: 1rem;
+}
+
+.boton_link {
+  height: 48px;
+  width: 100%;
+  border: none;
+  color: #000;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.boton_link_logout {
+  height: 48px;
+  width: 100%;
+  border: none;
+  color: #000;
+  font-size: 1rem;
+  text-align: left;
+  padding: 0px 0px;
+  padding-left: 56px;
+}
+
+#vistas{
+  display: block;
+}
 /*STYLE SICH*/
 
-.home {
+
+main {
   padding-left: 300px;
 }
 
 main .container{
   margin-top: 1.75rem;
 }
+.side-nav{
+  margin-top: 56px;
+  height: 100%;
+}
 
+.navbar-fixed {
+    z-index: 1000;
+}
 
 @media only screen and (max-width : 552px) {
   header .nav-wrapper{
@@ -103,7 +161,7 @@ main .container {
   }
   header .side-nav{
     z-index: 999;
-    margin-top: 0px;
+    margin-top: 56px;
   }
   header .nav-wrapper #titulo {
     font-size: 14px;
@@ -186,17 +244,17 @@ h4 {
   background-color: #ffffff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  /*border-top: 3px solid rgb(0, 23, 255);*/
+  border-top: 3px solid rgb(0, 23, 255);
 }
 
 nav .brand-logo {
   margin: 5px auto;
 } 
 
-::-webkit-scrollbar {
+::-webkit-scrollbar{
   width: 5px;
   height: 0px;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb{
   background: rgba(0,0,0,0.4);
 }
