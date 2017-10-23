@@ -41,8 +41,11 @@ require_once("global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
       <div id="caja">
         <div class="row">
           <h5 class="center">Bienvenido al Hogar</h5> 
-          
-          <h5><?php echo $_SESSION['NOMBRE'] ." ". $_SESSION['APELLIDO1'] ." ". $_SESSION['APELLIDO2'] ." ". $_SESSION['TIPOROL'];?></h5>
+            <hr></hr><br>
+          <h5 class="center"><?php echo $_SESSION['NOMBRE'] ." ". $_SESSION['APELLIDO1'] ." ". $_SESSION['APELLIDO2'] ?>
+            <br><br>
+            <?php echo $_SESSION['TIPOROL'];?>
+          </h5>
             <form class="col s12" name="frm_login" method="post">            
             <div class="row"> 
               <div class="input-field col s12">

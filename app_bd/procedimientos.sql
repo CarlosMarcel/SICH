@@ -323,7 +323,7 @@ DELIMITER |
     END |
     DELIMITER ;
 
-    -----------------------------------------------------------------
+-----------------------------------------------------------------
 
 DROP PROCEDURE if exists inactivarPersonaBitacora;
 DELIMITER |
@@ -333,5 +333,72 @@ DELIMITER |
 		UPDATE tbl_bitacora set estado = 'I' WHERE tbl_bitacora.cedulaPersona = BitacoraCedulaPersona;
 	END |
 DELIMITER ;
+-- --------------------------------------------
+-- Procedimientos almacenados para Llamas a La Policia
+-- --------------------------------------------
 
+DROP PROCEDURE if exists insertarLlamadaPolicia;
+DELIMITER |
+	CREATE PROCEDURE insertarLlamadaPolicia()
+	BEGIN		
+		INSERT INTO tbl_llamadaspolicia(fecha, hora, estado)
+		VALUES(CURDATE(), CURTIME(), 'A');
+	END |
+DELIMITER ;
+---------------------------------------------------
 
+DROP PROCEDURE if exists consultarLlamadaspolicia;
+DELIMITER |
+	CREATE PROCEDURE consultarLlamadaspolicia()
+	BEGIN
+		SELECT fecha, hora
+        FROM tbl_llamadaspolicia
+        WHERE estado ='A'  GROUP BY fecha;
+    END |
+    DELIMITER ;
+-----------------------------------------------------
+DROP PROCEDURE if exists inactivarLLamadaPolicia;
+DELIMITER |
+	CREATE PROCEDURE inactivarLlamadaPolicia()
+	BEGIN		
+		UPDATE tbl_llamadaspolicia set estado = 'I';
+	END |
+DELIMITER ;
+
+-- --------------------------------------------
+-- Procedimientos almacenados para Bitacora
+-- --------------------------------------------
+
+DROP PROCEDURE if exists insertarHoraLuz;
+DELIMITER |
+	CREATE PROCEDURE insertarHoraLuz(
+		ubicacionDeLuz varchar (45),
+		horaEncendido time,
+		horaApagado time)
+	BEGIN		
+		INSERT INTO tbl_luces(ubicacionDeLuz, horaEncendido, horaApagado, estado)
+		VALUES(ubicacionDeLuz,horaEncendido,horaApagado, 'A');
+	END |
+DELIMITER ;
+-------------------------------------------------
+DROP PROCEDURE if exists inactivarLuz;
+DELIMITER |
+	CREATE PROCEDURE inactivarLuz(
+		ubicacionDeLuz varchar(45))
+	BEGIN		
+		UPDATE tbl_luces set estado = 'I' WHERE tbl_luces.ubicacionDeLuz = ubicacionDeLuz;
+	END |
+DELIMITER ;
+---------------------------------------------------
+
+DROP PROCEDURE if exists modificarLuz;
+DELIMITER |
+	CREATE PROCEDURE modificarluz(
+	    actualiza_ubicacionDeLuz varchar(45),
+		actualiza_horaEncendido varchar(45),
+		actualiza_horaApagado varchar(45))
+	BEGIN		
+		UPDATE tbl_luces set ubicacionDeLuz = actualiza_ubicacionDeLuz, horaEncendido = actualiza_horaEncendido, horaApagado = actualiza_horaApagado
+		 WHERE tbl_luces.ubicacionDeLuz = actualiza_ubicacionDeLuz;
+	END |
+DELIMITER ;
