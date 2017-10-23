@@ -1,8 +1,57 @@
 $(document).ready(function(){
-      cargar_dias_taller($('#user_cedula').text());
-
+    //cargar_dias_taller($('#user_cedula').text());
 });
-///QUI ESTA la wea jajaja
+
+
+//Codigo de la aplicacion AJAX
+
+function registrar_empleado(){
+	if ($('#txt_cedula').val().trim() == "") {
+		Materialize.toast('Ingrese la cédula!', 4000);
+		$('#txt_cedula').focus();
+	}else if ($('#txt_nombre').val().trim() == "") {
+		Materialize.toast('Ingrese el Nombre!', 4000);
+		$('#txt_nombre').focus();
+	}else if ($('#txt_apellido1').val().trim() == "") {
+		Materialize.toast('Ingrese el primer apellido!', 4000);
+		$('#txt_apellido1').focus();
+	}else if ($('#txt_apellido2').val().trim() == "") {
+		Materialize.toast('Ingrese el segundo apellido!', 4000);
+		$('#txt_apellido2').focus();
+	else if($('#txt_apellido2').val().trim() == ""){
+
+		
+	}else{
+		$.ajax({
+			type: 'GET',
+			dataType: "json",
+			url: 'app_core/controllers/ctr_controlador_tutor.php',
+			data: {verificarEst: $('#CedulaEstudiante').val()}
+		}).done(function(datos){
+			var ced = $('#CedulaEstudiante').val();
+			var nom = $('#NombreEstudiante').val();
+			var ap1 = $('#Apellido1Estudiante').val();
+			var ap2 = $('#Apellido2Estudiante').val();
+			var resultado = datos.valor;
+			if (resultado == 1) {
+				Materialize.toast('Ya existe el estudiante!', 4000);
+			}else{
+				guardar_estudiante(ced, nom, ap1, ap2);
+			}
+			enlaceTallerEstudiante(ced);
+			//$("#btn_registrarAtras").click();
+			$('#CedulaEstudiante').val("");
+			$('#NombreEstudiante').val("");
+			$('#Apellido1Estudiante').val("");
+			$('#Apellido2Estudiante').val("");
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			//Error y notificacion.
+		});
+	}
+}
+
+//
+
 
 function cargar_dias_taller(cedula){
 	$.ajax({

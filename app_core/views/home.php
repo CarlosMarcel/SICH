@@ -67,7 +67,7 @@
 							<li class="bold"><a class="collapsible-header active waves-effect waves-teal">Empleados<i class="material-icons">people</i></a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a href=""><input name="btn_aja" id="btn_aja" class="boton_link transparent" value="Registar Empleados" tabindex="" type="submit"></a></li>
+										<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Registar Empleados" tabindex="" type="submit"></a></li>
 									</ul>
 								</div>
 							</li>
@@ -91,8 +91,8 @@
     		include_once(__VWS_PATH . "registrarHoras.php");
   		}
 
-  		if(isset($_POST['btn_aja'])){ 
-    		include_once(__VWS_PATH . "view_plantilla.php");
+  		if(isset($_POST['link_registarEmpleado'])){ 
+    		include_once(__VWS_PATH . "view_registrar_empleados.php");
   		}
 	?>
 	<div id="vistas">

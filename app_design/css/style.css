@@ -67,6 +67,15 @@ nav{
 
 }
 
+.nombre_form{
+  font-size: 34px;
+  font-weight: normal;
+  padding: 20px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 2px solid #F0F0F0;
+}
+
 form#frm_login{
   overflow: hidden;
   position: relative;

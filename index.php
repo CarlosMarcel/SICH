@@ -76,7 +76,7 @@
   }
 
 
-  if(isset($_POST['btn_aja'])){ 
+  if(isset($_POST['link_registarEmpleado'])){ 
         //include_once(__VWS_PATH . "registrarHoras.php");
         echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }
