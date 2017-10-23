@@ -1,9 +1,8 @@
 $(document).ready(function(){
-    //cargar_dias_taller($('#user_cedula').text());
+
 });
 
-
-//Codigo de la aplicacion AJAX
+/*Funciones de Empleado*/
 
 function registrar_empleado(){
 	//Variables para el registro del empleado
@@ -70,13 +69,27 @@ function registrar_empleado(){
 			empleado_salario:salario, empleado_fechaIngreso:fechaIngreso, empleado_horario:horario}
 		}).done(function(datos){
 			Materialize.toast('Registro Empleado Exitoso!', 4000);
+			//Variables para el registro del empleado
+			$('#txt_cedula').val("");
+			$('#txt_nombre').val("");
+			$('#txt_apellido1').val("");
+			$('#txt_apellido2').val("");
+			$('#txt_telefono').val("");
+			$('#txt_correo').val("");
+			$('#dtp_fecha_nacimiento').val("");
+			$('#txt_direccion').val("");
+			$('#txt_codigo_acceso').val("");
+			$('#txt_puesto').val("");
+			$('#txt_salario').val("");
+			$('#dtp_fecha_ingreso').val("");
+			$('#txt_horario').val("");
 		}).fail(function(jqXHR, textStatus, errorThrown){
 			Materialize.toast('Error al intentar registrar el empleado!', 4000);
 		});
 	}
 }
 
-//
+/*Funciones de ---*/
 
 
 function cargar_dias_taller(cedula){

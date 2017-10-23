@@ -7,10 +7,10 @@
 			</div>
 			
 			<div class="row">
-				<form class="col s12">
+				<form class="col s12" name="frm_registro_empleado" method="post">
 					<div class="row">
 						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">perm_identity</i>
+							<i class="material-icons prefix">person</i>
 							<input id="txt_cedula" type="text" class="validate">
 							<label for="txt_cedula">Cédula</label>
 						</div>
