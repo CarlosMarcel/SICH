@@ -56,12 +56,14 @@ nav{
 }
 
 .head{
-	color: #fff;
   font-size: 34px;
   font-weight: normal;
-  padding: 45px 0;
+  padding: 20px 35px;
   text-align: center;
   text-transform: uppercase;
+  /*border-top: 4px solid rgba(30, 136, 229, 1);*/
+  border-bottom: 1px solid #F0F0F0;
+  background-color: #FCFCFC;
 
 }
 
@@ -74,8 +76,8 @@ form#frm_login{
 .form-box{
   background: #fff;
   margin: 30px auto;
-  max-width: 500px;
-  box-shadow: 0 3px 6px 0px rgba(0,0,0,0.16), 0 3px 6px 0px rgba(0,0,0,0.23);
+  width: 420px;
+  max-width: 98%;
 }
 
 #btn_login{

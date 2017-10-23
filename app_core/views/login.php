@@ -24,9 +24,9 @@ $ctr_Login=new ctr_Login();
   
   <div class="container_login" id="form_login">
     <div class="row">
-      <div id="" class="form-box">
+      <div id="" class="form-box z-depth-1">
         <div class="row">
-          <div class="center head blue">LOGIN</div>          
+          <div class="center head">LOGIN</div>          
           <form class="col s12" name="frm_login" id="frm_login" method="post">            
             <div class="row"> 
               <div class="input-field col s12">

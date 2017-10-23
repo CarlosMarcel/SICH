@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div id="cajas" class="z-depth-1">
-			<div class="row">
+			<div class="row head">
 				<h5 class="center-align">FORMULARIO  REGISTRO EMPLEADOS</h5>
 			</div>
 			
