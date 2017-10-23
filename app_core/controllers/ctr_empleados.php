@@ -5,7 +5,7 @@
     private $postdata;
 
     public function __construct(){
-
+      $this->postdata = new mdl_Empleados();
     }
 
     public function registrar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario){

@@ -11,7 +11,7 @@
 		}
 
 		public function insertar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario){
-			$this->conexion->consulta("CALL insertarEstudiante('".$cedula."','".$nombre."','".$ap1."','".$ap2."')");
+			$this->conexion->consulta("CALL insertarEmpleado('".$cedula."','".$nombre."','".$ap1."','".$ap2."','".$tel."','".$correo."','".$fechaNacimiento."','".$direccion."','".$codigoAcceso."','Empleado','".$puesto."','".$salario."','".$fechaIngreso."','".$horario."')");
 		}
 	}
 ?>
