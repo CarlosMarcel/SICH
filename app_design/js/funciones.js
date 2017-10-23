@@ -103,6 +103,21 @@ function registrar_empleado(){
 	}
 }
 
+
+function listar_empleados(){
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_empleados.php',
+		data: {listar_empleados: "lol"}
+	}).done(function(datos){
+		$("#grid_empleados").html(datos.tabla); //Carga los datos en la tabla.
+
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+	});
+}
+
 /* Funciones de ---*/
 
 

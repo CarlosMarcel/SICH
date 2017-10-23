@@ -14,12 +14,20 @@
     public function comprobar_empleado($ced){
       return $this->postdata->comprobar_Empleado($ced);
     }
+
+    public function listar_empleados(){
+        return $this->postdata->listar_empleados();
+    }
   }
 
   $ctr_Empleados = new ctr_Empleados();
   //keys de los distintos eventos GET.
     if (isset($_GET['comprobar_empleado'])) {
       $ctr_Empleados->comprobar_empleado($_GET['comprobar_empleado']);
+    }
+
+    if (isset($_GET['listar_empleados'])) {
+      $ctr_Empleados->listar_empleados();
     }
 
   //Keys de los distintos eventos POST.

@@ -23,6 +23,19 @@
 			}
 			echo json_encode($listaDatos);
 		}
+
+		public function listar_empleados(){
+			$this->conexion->consulta("CALL consultarEmpleado");
+			$datos="";
+			$listaDatos = array();
+
+			while ($fila = $this->conexion->extraer_registro()) {
+				$datos.= "<tr><td>$fila[0]</td><td>$fila[1]</td><td>$fila[2]</td><td>$fila[3]</td><td>$fila[4]</td><td>$fila[5]</td><td>$fila[6]</td></tr>";
+			}
+
+			$listaDatos['tabla']=$datos;
+			echo json_encode($listaDatos);
+		}
 	}
 
 ?>
