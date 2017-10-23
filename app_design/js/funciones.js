@@ -61,35 +61,49 @@ function registrar_empleado(){
 		$('#txt_horario').focus();
 	}else{
 		$.ajax({
-			type: 'POST',
+			type: 'GET',
+			dataType: "json",
 			url: 'app_core/controllers/ctr_empleados.php',
-			data: {key: 'registrar_empleado', empleado_ced:cedula,empleado_nombre:nombre,empleado_ap1:ap1,
-			empleado_ap2:ap2, empleado_tel:tel, empleado_correo:correo, empleado_fechaNacimiento:fechaNacimiento,
-			empleado_direccion:direccion, empleado_codigoAcceso:codigoAcceso, empleado_puesto:puesto,
-			empleado_salario:salario, empleado_fechaIngreso:fechaIngreso, empleado_horario:horario}
+			data: {comprobar_empleado: $('#txt_cedula').val()}
 		}).done(function(datos){
-			Materialize.toast('Registro Empleado Exitoso!', 4000);
-			//Variables para el registro del empleado
-			$('#txt_cedula').val("");
-			$('#txt_nombre').val("");
-			$('#txt_apellido1').val("");
-			$('#txt_apellido2').val("");
-			$('#txt_telefono').val("");
-			$('#txt_correo').val("");
-			$('#dtp_fecha_nacimiento').val("");
-			$('#txt_direccion').val("");
-			$('#txt_codigo_acceso').val("");
-			$('#txt_puesto').val("");
-			$('#txt_salario').val("");
-			$('#dtp_fecha_ingreso').val("");
-			$('#txt_horario').val("");
+			var resultado = datos.valor;
+			if (resultado == 1) {
+				Materialize.toast('Ya existe el empleado!', 4000);
+			}else{
+				$.ajax({
+					type: 'POST',
+					url: 'app_core/controllers/ctr_empleados.php',
+					data: {key: 'registrar_empleado', empleado_ced:cedula,empleado_nombre:nombre,empleado_ap1:ap1,
+					empleado_ap2:ap2, empleado_tel:tel, empleado_correo:correo, empleado_fechaNacimiento:fechaNacimiento,
+					empleado_direccion:direccion, empleado_codigoAcceso:codigoAcceso, empleado_puesto:puesto,
+					empleado_salario:salario, empleado_fechaIngreso:fechaIngreso, empleado_horario:horario}
+				}).done(function(datos){
+					Materialize.toast('Registro Empleado Exitoso!', 4000);
+					//Variables para el registro del empleado
+					$('#txt_cedula').val("");
+					$('#txt_nombre').val("");
+					$('#txt_apellido1').val("");
+					$('#txt_apellido2').val("");
+					$('#txt_telefono').val("");
+					$('#txt_correo').val("");
+					$('#dtp_fecha_nacimiento').val("");
+					$('#txt_direccion').val("");
+					$('#txt_codigo_acceso').val("");
+					$('#txt_puesto').val("");
+					$('#txt_salario').val("");
+					$('#dtp_fecha_ingreso').val("");
+					$('#txt_horario').val("");
+				}).fail(function(jqXHR, textStatus, errorThrown){
+					Materialize.toast('Error al intentar registrar el empleado!', 4000);
+				});
+			}
 		}).fail(function(jqXHR, textStatus, errorThrown){
-			Materialize.toast('Error al intentar registrar el empleado!', 4000);
+			//Error y notificacion.
 		});
 	}
 }
 
-/*Funciones de ---*/
+/* Funciones de ---*/
 
 
 function cargar_dias_taller(cedula){
@@ -262,10 +276,10 @@ function cargarTalleresEstudiante(cedulaEstudiante){
 	if(filtro != 1){
 		//document.getElementById("talleresEstudiante").setAttribute("disabled", false);
 		$.ajax({
-		type: 'GET',
-		dataType: "json",
-		url: '../controllers/ctr_controlador_tutor.php',
-		data: {cargarTalleresE: cedulaEstudiante}
+			type: 'GET',
+			dataType: "json",
+			url: '../controllers/ctr_controlador_tutor.php',
+			data: {cargarTalleresE: cedulaEstudiante}
 		}).done(function(datos){
 			//Cargar Talleres de Estudiante
 			$("#talleresEstudiante").html(datos.combo); //Carga los datos en el combo.
@@ -277,11 +291,11 @@ function cargarTalleresEstudiante(cedulaEstudiante){
 	}else{
 		
 		$.ajax({
-		type: 'GET',
-		dataType: "json",
-		url: '../controllers/ctr_controlador_tutor.php',
-		data: {cedEstudiante: cedulaEstudiante}
-	}).done(function(datos){
+			type: 'GET',
+			dataType: "json",
+			url: '../controllers/ctr_controlador_tutor.php',
+			data: {cedEstudiante: cedulaEstudiante}
+		}).done(function(datos){
 		$("#gridEstudiantes").html(datos.tabla); //Carga los datos en la tabla.
 		//Cargar Datos de Estudiante
 		document.getElementById("cedula").innerHTML = datos.cedula;
@@ -299,7 +313,7 @@ function cargarTalleresEstudiante(cedulaEstudiante){
 	}).fail(function(jqXHR, textStatus, errorThrown){
 		//Error y notificacion.
 	});
-	}
+}
 }
 
 function comprobarEstudiante(){

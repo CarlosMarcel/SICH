@@ -11,9 +11,16 @@
     public function registrar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario){
       return $this->postdata->insertar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario);
     }
+    public function comprobar_empleado($ced){
+      return $this->postdata->comprobar_Empleado($ced);
+    }
   }
 
   $ctr_Empleados = new ctr_Empleados();
+  //keys de los distintos eventos GET.
+    if (isset($_GET['comprobar_empleado'])) {
+      $ctr_Empleados->comprobar_empleado($_GET['comprobar_empleado']);
+    }
 
   //Keys de los distintos eventos POST.
   if(isset($_POST['key'])){
