@@ -30,7 +30,7 @@ $ctr_Login=new ctr_Login();
           <form class="col s12" name="frm_login" id="frm_login" method="post">            
             <div class="row"> 
               <div class="input-field col s12">
-                <!--<i class="material-icons prefix">account_circle</i>-->
+                <!-- <i class="material-icons prefix">account_circle</i> -->
                 <input type="text" id="txt_cedula" name="txt_cedula" class="validate" tabindex="1" required="">
                 <label for="txt_cedula">Cédula</label>
               </div>
