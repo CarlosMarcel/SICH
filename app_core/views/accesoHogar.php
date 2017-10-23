@@ -1,11 +1,12 @@
 <?php
-require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
- //$ctr_Login = new ctr_Login(); //variable del Controlador
+require_once("global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
+ require(__CTR_PATH . "ctr_login.php");
+    //variable del Controlador
+  $ctr_Login = new ctr_Login(); 
 
-  /*if(isset($_POST['btn_logout'])){ 
-      $ctr_Login->btn_logout_click();
+  if(isset($_POST['btn_logout'])){ 
+      $ctr_Login->btn_logout_hogar_click();
   }
-*/
   ?>
 
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,7 +15,7 @@ require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
   <?php
   echo "<script src='".__JS_PATH."jquery-3.2.1.min.js' type='text/javascript'></script>"."\n";
   echo "<script src='".__JS_PATH."materialize.min.js' type='text/javascript'></script>"."\n";
-  echo "<script src='".__JS_PATH."funciones.js' type='text/javascript'></script>"."\n";
+ // echo "<script src='".__JS_PATH."funciones.js' type='text/javascript'></script>"."\n";
   echo "<link type='text/css' href='" . __CSS_PATH . "materialize.css' rel='stylesheet' media='screen' />"."\n";
   echo "<link type='text/css' href='" . __CSS_PATH . "style.css' rel='stylesheet' media='screen' />"."\n";
   ?>
@@ -39,16 +40,15 @@ require_once("../../global.php"); //ARCHIVO BÁSICO GLOBAL DE CONFIGURACIÓN
     <div class="row">
       <div id="caja">
         <div class="row">
-          <h5 class="center">Digite el código de acceso</h5>          
-          <form class="col s12" name="frm_login" method="post">            
+          <h5 class="center">Bienvenido al Hogar</h5> 
+          
+          <h5><?php echo $_SESSION['NOMBRE'] ." ". $_SESSION['APELLIDO1'] ." ". $_SESSION['APELLIDO2'] ." ". $_SESSION['TIPOROL'];?></h5>
+            <form class="col s12" name="frm_login" method="post">            
             <div class="row"> 
               <div class="input-field col s12">
-                <i class="material-icons prefix">https</i>
-                <input type="password" id="txt_pass" name="txt_pass" class="validate" required="">
-                <label for="txt_pass">PIN</label>
               </div>
               <div class="center">
-                <button class="btn  waves-effect waves light blue" name="btn_login" id="btn_login" type="submit">Entrar<i class="material-icons right">vpn_key</i></button>
+                <button class="btn  waves-effect waves light blue" name="btn_logout" id="btn_logout" type="submit">Aceptar<i class="material-icons right">check</i></button>
               </div>
             </div>
           </form>

@@ -69,10 +69,33 @@
 			}
 		}
 
+		public function login_hogar($ced, $pin){
+			$this->conexion->consulta("CALL `loginCodigoAccesoSICH`('".$ced."','".$pin."')");
+
+			$fila = $this->conexion->extraer_registro();
+
+			if(count($fila)>1){
+				$this->conn_status = true;
+				$this->cedula = $fila[0];
+				$this->nombre = $fila[1];
+				$this->apellido1 = $fila[2];
+				$this->apellido2 = $fila[3];
+				$this->tipoRol = $fila[4];
+			}else{
+				$this->conn_status = false;
+			}
+		}
+
 		public function logout(){
 			unset($this->conexion);
 			$this->conn_status= false;
 			unset($_SESSION['SICH']);
+		}
+
+		public function logout_hogar(){
+			unset($this->conexion);
+			$this->conn_status= false;
+			unset($_SESSION['SICH_HOGAR']);
 		}
 	}
 ?>

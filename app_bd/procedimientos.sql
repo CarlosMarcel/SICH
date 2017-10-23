@@ -14,6 +14,21 @@ DELIMITER |
     END |
 DELIMITER ;
 
+-- --------------------------------------------
+-- Procedimiento almacenado para LOGIN CODIGO ACCESO
+-- --------------------------------------------
+DROP PROCEDURE if exists loginCodigoAccesoSICH;
+DELIMITER |
+	CREATE PROCEDURE loginCodigoAccesoSICH(
+		loginCedulaPersona int (11),
+		loginCodigoAcceso int (11))
+	BEGIN		
+		SELECT tbl_persona.cedulaPersona, tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2, tbl_persona.tipoRol
+        FROM tbl_persona 
+        WHERE tbl_persona.estado ='A' AND tbl_persona.cedulaPersona = loginCedulaPersona AND tbl_persona.codigoAcceso = loginCodigoAcceso;
+    END |
+DELIMITER ;
+
 
 
 -- --------------------------------------------
@@ -288,10 +303,11 @@ DELIMITER ;
 
 DROP PROCEDURE if exists insertarPersonaBitacora;
 DELIMITER |
-	CREATE PROCEDURE insertarPersonaBitacora()
+	CREATE PROCEDURE insertarPersonaBitacora(
+		codigoAcceso int(11))
 	BEGIN		
 		INSERT INTO tbl_bitacora(cedulaPersona, fecha, hora, estado)
-		VALUES(bitacoraCedPersona, CURDATE(), CURTIME(), 'A');
+		VALUES(codigoAcceso, CURDATE(), CURTIME(), 'A');
 	END |
 DELIMITER ;
 
@@ -314,7 +330,7 @@ DELIMITER |
 	CREATE PROCEDURE inactivarPersonaBitacora(
     	BitacoraCedulaPersona int(11))
 	BEGIN		
-		UPDATE tbl_bitacora set estado = 'I' WHERE tbl_bitacora.cedulaPersona = bitacoraCedPersona;
+		UPDATE tbl_bitacora set estado = 'I' WHERE tbl_bitacora.cedulaPersona = BitacoraCedulaPersona;
 	END |
 DELIMITER ;
 
