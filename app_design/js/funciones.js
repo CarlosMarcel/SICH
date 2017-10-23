@@ -6,6 +6,21 @@ $(document).ready(function(){
 //Codigo de la aplicacion AJAX
 
 function registrar_empleado(){
+	//Variables para el registro del empleado
+	var cedula = $('#txt_cedula').val();
+	var nombre = $('#txt_nombre').val();
+	var ap1 = $('#txt_apellido1').val();
+	var ap2 = $('#txt_apellido2').val();
+	var tel = $('#txt_telefono').val();
+	var correo = $('#txt_correo').val();
+	var fechaNacimiento = $('#dtp_fecha_nacimiento').val();
+	var direccion = $('#txt_direccion').val();
+	var codigoAcceso = $('#txt_codigo_acceso').val();
+	var puesto = $('#txt_puesto').val();
+	var salario = $('#txt_salario').val();
+	var fechaIngreso = $('#dtp_fecha_ingreso').val();
+	var horario = $('#txt_horario').val();
+
 	if ($('#txt_cedula').val().trim() == "") {
 		Materialize.toast('Ingrese la cédula!', 4000);
 		$('#txt_cedula').focus();
@@ -18,34 +33,45 @@ function registrar_empleado(){
 	}else if ($('#txt_apellido2').val().trim() == "") {
 		Materialize.toast('Ingrese el segundo apellido!', 4000);
 		$('#txt_apellido2').focus();
-	else if($('#txt_apellido2').val().trim() == ""){
-
-		
+	}else if($('#txt_telefono').val().trim() == ""){
+		Materialize.toast('Ingrese el Teléfono!', 4000);
+		$('#txt_telefono').focus();
+	}else if($('#txt_correo').val().trim() == ""){
+		Materialize.toast('Ingrese el Correo!', 4000);
+		$('#txt_correo').focus();
+	}else if($('#dtp_fecha_nacimiento').val().trim() == ""){
+		Materialize.toast('Ingrese la Fceha de Nacimiento!', 4000);
+		$('#dtp_fecha_nacimiento').focus();
+	}else if($('#txt_direccion').val().trim() == ""){
+		Materialize.toast('Ingrese la dirección!', 4000);
+		$('#txt_direccion').focus();
+	}else if($('#txt_codigo_acceso').val().trim() == ""){
+		Materialize.toast('Ingrese el código de acceso para el empleado!', 4000);
+		$('#txt_codigo_acceso').focus();
+	}else if($('#txt_puesto').val().trim() == ""){
+		Materialize.toast('Ingrese el puesto!', 4000);
+		$('#txt_puesto').focus();
+	}else if($('#txt_salario').val().trim() == ""){
+		Materialize.toast('Ingrese el salario!', 4000);
+		$('#txt_salario').focus();
+	}else if($('#dtp_fecha_ingreso').val().trim() == ""){
+		Materialize.toast('Ingrese la fecha de ingreso!', 4000);
+		$('#dtp_fecha_ingreso').focus();
+	}else if($('#txt_horario').val().trim() == ""){
+		Materialize.toast('Ingrese el horario!', 4000);
+		$('#txt_horario').focus();
 	}else{
 		$.ajax({
-			type: 'GET',
-			dataType: "json",
-			url: 'app_core/controllers/ctr_controlador_tutor.php',
-			data: {verificarEst: $('#CedulaEstudiante').val()}
+			type: 'POST',
+			url: 'app_core/controllers/ctr_empleados.php',
+			data: {key: 'registrar_empleado', empleado_ced:cedula,empleado_nombre:nombre,empleado_ap1:ap1,
+			empleado_ap2:ap2, empleado_tel:tel, empleado_correo:correo, empleado_fechaNacimiento:fechaNacimiento,
+			empleado_direccion:direccion, empleado_codigoAcceso:codigoAcceso, empleado_puesto:puesto,
+			empleado_salario:salario, empleado_fechaIngreso:fechaIngreso, empleado_horario:horario}
 		}).done(function(datos){
-			var ced = $('#CedulaEstudiante').val();
-			var nom = $('#NombreEstudiante').val();
-			var ap1 = $('#Apellido1Estudiante').val();
-			var ap2 = $('#Apellido2Estudiante').val();
-			var resultado = datos.valor;
-			if (resultado == 1) {
-				Materialize.toast('Ya existe el estudiante!', 4000);
-			}else{
-				guardar_estudiante(ced, nom, ap1, ap2);
-			}
-			enlaceTallerEstudiante(ced);
-			//$("#btn_registrarAtras").click();
-			$('#CedulaEstudiante').val("");
-			$('#NombreEstudiante').val("");
-			$('#Apellido1Estudiante').val("");
-			$('#Apellido2Estudiante').val("");
+			Materialize.toast('Registro Empleado Exitoso!', 4000);
 		}).fail(function(jqXHR, textStatus, errorThrown){
-			//Error y notificacion.
+			Materialize.toast('Error al intentar registrar el empleado!', 4000);
 		});
 	}
 }
