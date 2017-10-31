@@ -123,6 +123,11 @@ form#frm_login{
 #vistas{
   display: block;
 }
+
+.modal .modal-footer {
+    text-align: center;
+}
+
 /*STYLE SICH*/
 
 

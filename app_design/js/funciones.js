@@ -162,6 +162,41 @@ function listar_empleados(){
 	});
 }
 
+//Funcion de eliminar Empleado
+function desactivar_empleado(cedula){
+	if($('#txt_cedula_buscar').val().trim() == "")
+	{
+		Materialize.toast('Debe ingrear realizar una busqueda antes de eliminar!', 4000);
+	}
+	else
+	{
+		$.ajax({
+			type: 'POST',
+			url: 'app_core/controllers/ctr_empleados.php',
+			data: {key: 'desactivar_empleado', cedula_empleado:cedula }
+		}).done(function(datos){
+			Materialize.toast('Empleado eliminado exitosamente!', 4000);
+			$('#modal1').modal('close');
+			$('#txt_cedula_buscar').val("");
+			$('#txt_nombre_upd').val("");
+			$('#txt_apellido1_upd').val("");
+			$('#txt_apellido2_upd').val("");
+			$('#txt_telefono_upd').val("");
+			$('#txt_correo_upd').val("");
+			$('#dtp_fecha_nacimiento_upd').val("");
+			$('#txt_direccion_upd').val("");
+			$('#txt_codigo_acceso_upd').val("");
+			$('#txt_puesto_upd').val("");
+			$('#txt_salario_upd').val("");
+			$('#dtp_fecha_ingreso_upd').val("");
+			$('#txt_horario_upd').val("");
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			Materialize.toast('Error al intentar eliminar el empleado!', 4000);
+		});
+	}
+}
+
+
 /* Funciones de ---*/
 
 

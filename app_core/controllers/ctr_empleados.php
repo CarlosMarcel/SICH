@@ -22,6 +22,10 @@
     public function buscar_empleado($ced){
         return $this->postdata->buscar_empleado($ced);
     }
+
+    public function desactivar_empleado($ced){
+        return $this->postdata->desactivar_empleado($ced);
+    }
   }
 
   $ctr_Empleados = new ctr_Empleados();
@@ -56,6 +60,11 @@
       $fechaIngreso = $_POST['empleado_fechaIngreso'];
       $horario = $_POST['empleado_horario'];
       $ctr_Empleados->registrar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario);
+    }
+
+    if($_POST['key']=='desactivar_empleado'){
+      $cedula = $_POST['cedula_empleado'];
+      $ctr_Empleados->desactivar_empleado($cedula);
     }
   }
 ?>

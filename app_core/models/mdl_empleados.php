@@ -58,10 +58,13 @@
 				$listaDatos['fechaIngreso'] = $fila[12];
 				$listaDatos['horario'] = $fila[13];
 				$listaDatos['existe'] = 1;
-
 			}
 			 
 			echo json_encode($listaDatos);
+		}
+
+		public function desactivar_empleado($cedula){
+			$this->conexion->consulta("CALL inactivarEmpleado('".$cedula."')");
 		}
 	}
 
