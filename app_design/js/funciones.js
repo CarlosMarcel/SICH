@@ -121,19 +121,19 @@ function buscar_empleado(){
 			var existe = datos.existe;
 			if (existe == 1) {
 				Materialize.toast('Datos cargados correctamente!', 4000);
-				$('#txt_cedula').val("");
-				$('#txt_nombre').val("");
-				$('#txt_apellido1').val("");
-				$('#txt_apellido2').val("");
-				$('#txt_telefono').val("");
-				$('#txt_correo').val("");
-				$('#dtp_fecha_nacimiento').val("");
-				$('#txt_direccion').val("");
-				$('#txt_codigo_acceso').val("");
-				$('#txt_puesto').val("");
-				$('#txt_salario').val("");
-				$('#dtp_fecha_ingreso').val("");
-				$('#txt_horario').val("");
+				$('#txt_cedula_upd').val(datos.cedula);
+				$('#txt_nombre_upd').val(datos.nombre);
+				$('#txt_apellido1_upd').val(datos.ap1);
+				$('#txt_apellido2_upd').val(datos.ap2);
+				$('#txt_telefono_upd').val(datos.telefono);
+				$('#txt_correo_upd').val(datos.correo);
+				$('#dtp_fecha_nacimiento_upd').val(datos.fechaNacimiento);
+				$('#txt_direccion_upd').val(datos.direccion);
+				$('#txt_codigo_acceso_upd').val(datos.codigoAcceso);
+				$('#txt_puesto_upd').val(datos.puesto);
+				$('#txt_salario_upd').val(datos.salario);
+				$('#dtp_fecha_ingreso_upd').val(datos.fechaIngreso);
+				$('#txt_horario_upd').val(datos.horario);
 			}
 			else
 			{

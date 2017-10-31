@@ -25,79 +25,79 @@
 								<h4 class="center">Eliminar Empleado</h4>
 								<p>¿Desea eliminar el empleado consultado?</p>
 							</div>
-							<div class="modal-footer">
-								<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">delete</i>Eliminar</button>
-								
-								<button class="btn waves-effect waves-light blue btn modal-action modal-close" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">reply</i>Cancelar</button>
-							</div>
+						<div class="modal-footer">
+							<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">delete</i>Eliminar</button>
+	
+							<button class="btn waves-effect waves-light blue btn modal-action modal-close" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">reply</i>Cancelar</button>
+						</div>
 					</div>
 					<div class="row">
 						<h5 class="center-align">DATOS DEL EMPLEADO</h5>
 					</div>
 					<div class="row">
-						<div class="input-field col s12 m12 l6">
+							<div class="input-field col s12 m12 l6 ">
 							<i class="material-icons prefix">person</i>
-							<input id="txt_cedula_upd" type="text" class="validate">
-							<label for="txt_cedula_upd">Cédula</label>
+							<input value=" " id="txt_cedula_upd" type="text" class="validate">
+							<label  class="active" for="txt_cedula_upd">Cédula</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">account_circle</i>
-							<input id="txt_nombre_upd" type="text" class="validate">
-							<label for="txt_nombre_upd">Nombre</label>
+							<input value=" " id="txt_nombre_upd" type="text" class="validate">
+							<label class="active" for="txt_nombre_upd">Nombre</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">account_circle</i>
-							<input id="txt_apellido1_upd" type="text" class="validate">
-							<label for="txt_apellido1_upd">Apellido</label>
+							<input value=" " id="txt_apellido1_upd" type="text" class="validate">
+							<label class="active" for="txt_apellido1_upd">Apellido</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">account_circle</i>
-							<input id="txt_apellido2_upd" type="text" class="validate">
+							<input value=" " id="txt_apellido2_upd" type="text" class="validate">
 							<label for="txt_apellido2_upd">Apellido2</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">phone</i>
-							<input id="txt_telefono_upd" type="text" class="validate">
+							<input value=" " id="txt_telefono_upd" type="text" class="validate">
 							<label for="txt_telefono_upd">Teléfono</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">email</i>
-							<input id="txt_correo_upd" type="text" class="validate">
+							<input value=" " id="txt_correo_upd" type="text" class="validate">
 							<label for="txt_correo_upd">Correo</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">date_range</i>
-							<input type="text" class="datepicker" id="dtp_fecha_nacimiento_upd">
+							<input value=" " type="text" class="datepicker" id="dtp_fecha_nacimiento_upd">
 							<label for="dtp_fecha_nacimiento_upd">Fecha Nacimiento</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">home</i>
-							<input id="txt_direccion_upd" type="text" class="validate">
+							<input value=" " id="txt_direccion_upd" type="text" class="validate">
 							<label for="txt_direccion_upd">Dirección</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">fiber_pin</i>
-							<input id="txt_codigo_acceso_upd" type="text" class="validate">
+							<input value=" " id="txt_codigo_acceso_upd" type="text" class="validate">
 							<label for="txt_codigo_acceso_upd">Código Acceso</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">work</i>
-							<input id="txt_puesto_upd" type="text" class="validate">
+							<input value=" " id="txt_puesto_upd" type="text" class="validate">
 							<label for="txt_puesto_upd">Puesto</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">monetization_on</i>
-							<input id="txt_salario_upd" type="text" class="validate">
+							<input value=" " id="txt_salario_upd" type="text" class="validate">
 							<label for="txt_salario_upd">Salario</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">insert_invitation</i>
-							<input type="text" class="datepicker" id="dtp_fecha_ingreso_upd">
+							<input value=" " type="text" class="datepicker" id="dtp_fecha_ingreso_upd">
 							<label for="dtp_fecha_ingreso_upd">Fecha Ingreso</label>
 						</div>
 						<div class="input-field col s12 m12 l12">
 							<i class="material-icons prefix">schedule</i>
-							<input id="txt_horario_upd" type="text" class="validate">
+							<input value=" " id="txt_horario_upd" type="text" class="validate">
 							<label for="txt_horario_upd">Horario</label>
 						</div>
 					</div>
@@ -118,7 +118,9 @@
 </div>
 
 <script type="text/javascript">
-
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
 </script>
 
 <?php ?>

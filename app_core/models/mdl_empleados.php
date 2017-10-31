@@ -55,7 +55,8 @@
 				$listaDatos['tipoRol'] = $fila[9];
 				$listaDatos['puesto'] = $fila[10];
 				$listaDatos['salario'] = $fila[11];
-				$listaDatos['horario'] = $fila[12];
+				$listaDatos['fechaIngreso'] = $fila[12];
+				$listaDatos['horario'] = $fila[13];
 				$listaDatos['existe'] = 1;
 
 			}
