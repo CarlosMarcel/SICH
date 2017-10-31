@@ -17,18 +17,18 @@
 							<button class="btn waves-effect waves-light" type="button" name="btn_buscarEmpleado" id="btn_buscarEmpleado" onclick="buscar_empleado();">BUSCAR<i class="material-icons right">search</i></button>
 						</div>
 						<div class="input-field col s3 m3 l3">
-							<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">delete</i></button>
+						<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">delete</i></button>
 						</div>
 						<!-- Modal Structure -->
 						<div id="modal1" class="modal">
 							<div class="modal-content">
 								<h4 class="center">Eliminar Empleado</h4>
-								<p>¿Desea eliminar el empleado consulado?</p>
+								<p>¿Desea eliminar el empleado consultado?</p>
 							</div>
 							<div class="modal-footer">
 								<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">delete</i>Eliminar</button>
-								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-								<button class="btn waves-effect waves-light red btn modal-action modal-close" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">delete</i>Cancelar</button>
+								
+								<button class="btn waves-effect waves-light blue btn modal-action modal-close" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick=""><i class="material-icons">reply</i>Cancelar</button>
 							</div>
 					</div>
 					<div class="row">
@@ -106,7 +106,9 @@
 							<button class="btn-large waves-effect waves-light" type="button" name="btn_actualizarEmpleado" id="btn_registrarEmpleado" onclick="actualizar_empleado();">ACTUALIZAR<i class="material-icons right">send</i></button>
 						</div>
 						<div class="col s6 m6 l6 center">
-							<button class="btn-large waves-effect waves-light red" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick="registrar_empleado();">ELIMINAR<i class="material-icons right">delete</i></button>
+							<button class="btn-large waves-effect waves-light red modal-trigger" type="button" name="btn_registrarEmpleado" href="#modal1" id="btn_registrarEmpleado" onclick="">ELIMINAR<i class="material-icons right">delete</i></button>
+
+							
 						</div>
                 	</div>
 				</form>
