@@ -196,6 +196,7 @@
 		    format: 'yyyy-mm-dd', //Formato del componente
 		    closeOnSelect: true // Cerrar el componente una vez seleccionada la fecha
 		});
+		 $('.modal').modal();
 	});
 </script>
 
