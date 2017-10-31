@@ -171,8 +171,8 @@ DELIMITER |
 	CREATE PROCEDURE empleadoXcedula(
 		empleadoCedula int(11))
 	BEGIN		
-		SELECT tbl_persona.cedulaPersona, tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2,  tbl_persona.telefono, tbl_persona.correo , tbl_persona.fechaNacimiento , tbl_persona.direccion , tbl_persona.codigoAcceso , tbl_persona.tipoRol , tbl_empleado.puesto, tbl_empleado.salario, tbl_empleado.fechaNacimiento, tbl_empleado.horario
-        FROM tbl_empleado inner join tbl_persona
+		SELECT tbl_persona.cedulaPersona, tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2,  tbl_persona.telefono, tbl_persona.correo , tbl_persona.fechaNacimiento , tbl_persona.direccion , tbl_persona.codigoAcceso , tbl_persona.tipoRol , tbl_empleado.puesto, tbl_empleado.salario,  tbl_empleado.horario
+        FROM tbl_empleado inner join tbl_persona on tbl_empleado.cedulaPersona = tbl_persona.cedulaPersona
         WHERE tbl_empleado.estado='A' AND tbl_empleado.cedulaPersona = empleadoCedula group by empleadoCedula;
 	
     END |
