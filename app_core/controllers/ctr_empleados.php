@@ -18,6 +18,10 @@
     public function listar_empleados(){
         return $this->postdata->listar_empleados();
     }
+
+    public function buscar_empleado($ced){
+        return $this->postdata->buscar_empleado($ced);
+    }
   }
 
   $ctr_Empleados = new ctr_Empleados();
@@ -28,6 +32,10 @@
 
     if (isset($_GET['listar_empleados'])) {
       $ctr_Empleados->listar_empleados();
+    }
+
+    if (isset($_GET['cargar_empleado'])) {
+      $ctr_Empleados->buscar_empleado($_GET['cargar_empleado']);
     }
 
   //Keys de los distintos eventos POST.

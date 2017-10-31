@@ -36,6 +36,32 @@
 			$listaDatos['tabla']=$datos;
 			echo json_encode($listaDatos);
 		}
+
+		public function buscar_empleado($cedula){
+			$this->conexion->consulta("CALL `empleadoXcedula`('".$cedula."')");
+			$listaDatos=array(); //matriz
+			$listaDatos['existe'] = 0;
+
+			while($fila = $this->conexion->extraer_registro()){
+				$listaDatos['cedula'] = $fila[0];
+				$listaDatos['nombre'] = $fila[1];
+				$listaDatos['ap1'] = $fila[2];
+				$listaDatos['ap2'] = $fila[3];
+				$listaDatos['telefono'] = $fila[4];
+				$listaDatos['correo'] = $fila[5];
+				$listaDatos['fechaNacimiento'] = $fila[6];
+				$listaDatos['direccion'] = $fila[7];
+				$listaDatos['codigoAcceso'] = $fila[8];
+				$listaDatos['tipoRol'] = $fila[9];
+				$listaDatos['puesto'] = $fila[10];
+				$listaDatos['salario'] = $fila[11];
+				$listaDatos['horario'] = $fila[12];
+				$listaDatos['existe'] = 1;
+
+			}
+			 
+			echo json_encode($listaDatos);
+		}
 	}
 
 ?>

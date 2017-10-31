@@ -102,8 +102,52 @@ function registrar_empleado(){
 		});
 	}
 }
+//Buscar Empleado por cedula y cargar datos
+function buscar_empleado(){
+	
+	if($('#txt_cedula_buscar').val().trim() == "")
+	{
+		Materialize.toast('Debe ingrear una cédula antes de realizar una busqueda!', 4000);
+	}
+	else
+	{
+		var buscar_cedula = $('#txt_cedula_buscar').val();
+		$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_empleados.php',
+		data: {cargar_empleado: buscar_cedula}
+		}).done(function(datos){
+			var existe = datos.existe;
+			if (existe == 1) {
+				Materialize.toast('Datos cargados correctamente!', 4000);
+				$('#txt_cedula').val("");
+				$('#txt_nombre').val("");
+				$('#txt_apellido1').val("");
+				$('#txt_apellido2').val("");
+				$('#txt_telefono').val("");
+				$('#txt_correo').val("");
+				$('#dtp_fecha_nacimiento').val("");
+				$('#txt_direccion').val("");
+				$('#txt_codigo_acceso').val("");
+				$('#txt_puesto').val("");
+				$('#txt_salario').val("");
+				$('#dtp_fecha_ingreso').val("");
+				$('#txt_horario').val("");
+			}
+			else
+			{
+				Materialize.toast('No se ha encontrado coincidencias!', 4000);
+			}
 
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			//Error y notificacion.
+		});
+	}
+	
+}
 
+//Vista de consultar todos los empleados en la tabla
 function listar_empleados(){
 	$.ajax({
 		type: 'GET',
