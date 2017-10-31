@@ -9,7 +9,7 @@
 			<div class="row">
 				<form class="col s12" name="frm_registro_empleado" method="post">
 					<div class="row">
-						<table>
+						<table class="striped">
 					        <thead>
 					          <tr>
 					              <th>Cedula</th>
