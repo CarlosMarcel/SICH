@@ -82,8 +82,12 @@
   }
 
   if(isset($_POST['link_consultarEmpleado'])){ 
-        echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
-      }
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+
+  if(isset($_POST['link_mantenimientoEmpleado'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
 
   if(isset($_POST['btn_aja2'])){ 
         //include_once(__VWS_PATH . "registrarHoras.php");

@@ -69,6 +69,7 @@
 									<ul>
 										<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Registar Empleados" tabindex="" type="submit"></a></li>
 										<li><a href=""><input name="link_consultarEmpleado" id="link_consultarEmpleado" class="boton_link transparent" value="Consultar Empleados" tabindex="" type="submit"></a></li>
+										<li><a href=""><input name="link_mantenimientoEmpleado" id="link_mantenimientoEmpleado" class="boton_link transparent" value="Mantenimiento Empleados" tabindex="" type="submit"></a></li>
 									</ul>
 								</div>
 							</li>
@@ -98,6 +99,10 @@
 
   		if(isset($_POST['link_consultarEmpleado'])){ 
     		include_once(__VWS_PATH . "view_consultar_empleados.php");
+  		}
+
+  		if(isset($_POST['link_mantenimientoEmpleado'])){ 
+    		include_once(__VWS_PATH . "view_mantenimiento_empleados.php");
   		}
 	?>
 	<div id="vistas">

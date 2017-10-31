@@ -3,7 +3,7 @@
 	<div class="row">
 		<div id="caja" class="z-depth-1">
 			<div class="row nombre_form">
-				<h5 class="center-align">FORMULARIO  REGISTRO EMPLEADOS</h5>
+				<h5 class="center-align">FORMULARIO REGISTRO EMPLEADOS</h5>
 			</div>
 			
 			<div class="row">
