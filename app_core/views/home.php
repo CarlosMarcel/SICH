@@ -60,7 +60,7 @@
 							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Seguridad<i class="material-icons">security</i></a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a href=""><input name="btn_aja2" id="btn_aja2" class="boton_link transparent" value="-NOMRE VISTA-" tabindex="" type="submit"></a></li>
+										<li><a href=""><input name="link_luces" id="link_luces" class="boton_link transparent" value="Luces" tabindex="" type="submit"></a></li>
 									</ul>
 								</div>
 							</li>
@@ -103,6 +103,10 @@
 
   		if(isset($_POST['link_mantenimientoEmpleado'])){ 
     		include_once(__VWS_PATH . "view_mantenimiento_empleados.php");
+  		}
+
+  		if(isset($_POST['link_luces'])){ 
+    		include_once(__VWS_PATH . "view_luces.php");
   		}
 	?>
 	<div id="vistas">

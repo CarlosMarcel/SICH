@@ -89,6 +89,10 @@
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }
 
+  if(isset($_POST['link_luces'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+
   if(isset($_POST['btn_aja2'])){ 
         //include_once(__VWS_PATH . "registrarHoras.php");
         echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
