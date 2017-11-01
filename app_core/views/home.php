@@ -57,6 +57,13 @@
 									</ul>
 								</div> 
 							</li>
+							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Alimentos<i class="material-icons">kitchen</i></a>
+								<div class="collapsible-body">
+									<ul>
+										<li><a href=""><input name="link_registrarAlimentos" id="link_registrarAlimentos" class="boton_link transparent" value="Registrar Alimentos" tabindex="" type="submit"></a></li>
+									</ul>
+								</div>
+							</li>
 							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Seguridad<i class="material-icons">security</i></a>
 								<div class="collapsible-body">
 									<ul>
@@ -107,6 +114,10 @@
 
   		if(isset($_POST['link_luces'])){ 
     		include_once(__VWS_PATH . "view_luces.php");
+  		}
+
+  		if(isset($_POST['link_registrarAlimentos'])){ 
+    		include_once(__VWS_PATH . "view_registrar_alimentos.php");
   		}
 	?>
 	<div id="vistas">

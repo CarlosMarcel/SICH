@@ -286,17 +286,60 @@ function desactivar_empleado(cedula){
 	}
 }
 
+function registrar_alimento(){
+	//Variables para el registro del alimento
+	var nombre = $('#txt_nombreAlimento').val();
+	var peso = $('#txt_peso').val();
+	var puntoReorden = $('#txt_puntoReorden').val();
+	var cantidad = $('#txt_cantidad').val();
+	var tipoMedida = $('#txt_tipoMedida').val();
 
-/* Funciones de ---*/
+	if ($('#txt_nombreAlimento').val().trim() == "") {
+		Materialize.toast('Ingrese el nombre de alimento!', 4000);
+		$('#txt_nombreAlimento').focus();
+	}else if ($('#txt_peso').val().trim() == "") {
+		Materialize.toast('Ingrese el peso!', 4000);
+		$('#txt_peso').focus();
+	}else if ($('#txt_puntoReorden').val().trim() == "") {
+		Materialize.toast('Ingrese el punto de reorden!', 4000);
+		$('#txt_puntoReorden').focus();
+	}else if ($('#txt_cantidad').val().trim() == "") {
+		Materialize.toast('Ingrese la cantidad!', 4000);
+		$('#txt_cantidad').focus();
+	}else if($('#txt_tipoMedida').val().trim() == ""){
+		Materialize.toast('Ingrese el Tipo de medida!', 4000);
+		$('#txt_tipoMedida').focus();
+	}else{
+		$.ajax({
+			type: 'POST',
+			url: 'app_core/controllers/ctr_alimentos.php',
+			data: {key: 'registrar_alimento', alimento_nombre:nombre,alimento_peso:peso,alimento_puntoReorden:puntoReorden,
+			alimento_cantidad:cantidad, alimento_tipoMedida:tipoMedida}
+		}).done(function(datos){
+			Materialize.toast('Registro Alimento Exitoso!', 4000);
+					//Variables para el registro del empleado
+					$('#txt_nombreAlimento').val("");
+					$('#txt_peso').val("");
+					$('#txt_puntoReorden').val("");
+					$('#txt_cantidad').val("");
+					$('#txt_tipoMedida').val("");
+				}).fail(function(jqXHR, textStatus, errorThrown){
+					Materialize.toast('Error al intentar registrar el nuevo alimento!', 4000);
+				});
+			}
+		}
 
 
-function cargar_dias_taller(cedula){
-	$.ajax({
-		type: 'GET',
-		dataType: "json",
-		url: 'app_core/controllers/ctr_controlador_tutor.php',
-		data: {cedulaTutor: cedula}
-	}).done(function(datos){
+		/* Funciones de ---*/
+
+
+		function cargar_dias_taller(cedula){
+			$.ajax({
+				type: 'GET',
+				dataType: "json",
+				url: 'app_core/controllers/ctr_controlador_tutor.php',
+				data: {cedulaTutor: cedula}
+			}).done(function(datos){
 		$("#combo_dias").html(datos.combo); //Carga los datos en el combo.
 		//Cargar Datos de Estudiante
 		$("#combo_dias").change();

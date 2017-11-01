@@ -438,3 +438,22 @@ DELIMITER |
         WHERE estado ='A' ;
     END |
     DELIMITER ;
+
+-- --------------------------------------------
+-- Procedimientos almacenados para Alimentos
+-- --------------------------------------------
+
+------------------Insertar Alimento------------
+DROP PROCEDURE if exists insertarAlimento;
+DELIMITER |
+	CREATE PROCEDURE insertarAlimento(
+		alimentoNombre varchar(45),
+		alimentoPeso varchar(45),
+		alimentoPuntoReorden varchar(45),
+		alimentoCantidad int(11),
+		alimentoTipoMedida varchar(45))
+	BEGIN		
+		INSERT INTO tbl_alimentos(Nombre, peso, puntoReorden, cantidad,tipoMedida, Estado)
+		VALUES(alimentoNombre, alimentoPeso,alimentoPuntoReorden, alimentoCantidad,alimentoTipoMedida, 'A');
+	END |
+DELIMITER ;
