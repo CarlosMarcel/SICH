@@ -102,6 +102,96 @@ function registrar_empleado(){
 		});
 	}
 }
+
+//Actualizar empleado
+function actualizar_empleado(){
+	//Variables para el registro del empleado
+	var cedula = $('#txt_cedula_buscar').val();
+	var nombre = $('#txt_nombre_upd').val();
+	var ap1 = $('#txt_apellido1_upd').val();
+	var ap2 = $('#txt_apellido2_upd').val();
+	var tel = $('#txt_telefono_upd').val();
+	var correo = $('#txt_correo_upd').val();
+	var fechaNacimiento = $('#dtp_fecha_nacimiento_upd').val();
+	var direccion = $('#txt_direccion_upd').val();
+	var codigoAcceso = $('#txt_codigo_acceso_upd').val();
+	var puesto = $('#txt_puesto_upd').val();
+	var salario = $('#txt_salario_upd').val();
+	var fechaIngreso = $('#dtp_fecha_ingreso_upd').val();
+	var horario = $('#txt_horario_upd').val();
+
+	if ($('#txt_cedula_buscar').val().trim() == "") {
+		Materialize.toast('Ingrese la cédula!', 4000);
+		$('#txt_cedula_buscar').focus();
+	}else if ($('#txt_nombre_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el Nombre!', 4000);
+		$('#txt_nombre_upd').focus();
+	}else if ($('#txt_apellido1_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el primer apellido!', 4000);
+		$('#txt_apellido1_upd').focus();
+	}else if ($('#txt_apellido2_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el segundo apellido!', 4000);
+		$('#txt_apellido2_upd').focus();
+	}else if($('#txt_telefono_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el Teléfono!', 4000);
+		$('#txt_telefono_upd').focus();
+	}else if($('#txt_correo_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el Correo!', 4000);
+		$('#txt_correo_upd').focus();
+	}else if($('#dtp_fecha_nacimiento_upd').val().trim() == ""){
+		Materialize.toast('Ingrese la Fceha de Nacimiento!', 4000);
+		$('#dtp_fecha_nacimiento_upd').focus();
+	}else if($('#txt_direccion_upd').val().trim() == ""){
+		Materialize.toast('Ingrese la dirección!', 4000);
+		$('#txt_direccion_upd').focus();
+	}else if($('#txt_codigo_acceso_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el código de acceso para el empleado!', 4000);
+		$('#txt_codigo_acceso_upd').focus();
+	}else if($('#txt_puesto_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el puesto!', 4000);
+		$('#txt_puesto_upd').focus();
+	}else if($('#txt_salario_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el salario!', 4000);
+		$('#txt_salario_upd').focus();
+	}else if($('#dtp_fecha_ingreso_upd').val().trim() == ""){
+		Materialize.toast('Ingrese la fecha de ingreso!', 4000);
+		$('#dtp_fecha_ingreso_upd').focus();
+	}else if($('#txt_horario_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el horario!', 4000);
+		$('#txt_horario_upd').focus();
+	}else{
+
+		$.ajax({
+			type: 'POST',
+			url: 'app_core/controllers/ctr_empleados.php',
+			data: {key: 'actualizar_empleado', empleado_ced:cedula,empleado_nombre:nombre,empleado_ap1:ap1,
+			empleado_ap2:ap2, empleado_tel:tel, empleado_correo:correo, empleado_fechaNacimiento:fechaNacimiento,
+			empleado_direccion:direccion, empleado_codigoAcceso:codigoAcceso, empleado_puesto:puesto,
+			empleado_salario:salario, empleado_fechaIngreso:fechaIngreso, empleado_horario:horario}
+		}).done(function(datos){
+			Materialize.toast(' Empleado Actualizado!', 4000);
+					//Variables para el registro del empleado
+					$('#txt_cedula_buscar').val("");
+					$('#txt_nombre_upd').val("");
+					$('#txt_apellido1_upd').val("");
+					$('#txt_apellido2_upd').val("");
+					$('#txt_telefono_upd').val("");
+					$('#txt_correo_upd').val("");
+					$('#dtp_fecha_nacimiento_upd').val("");
+					$('#txt_direccion_upd').val("");
+					$('#txt_codigo_acceso_upd').val("");
+					$('#txt_puesto_upd').val("");
+					$('#txt_salario_upd').val("");
+					$('#dtp_fecha_ingreso_upd').val("");
+					$('#txt_horario_upd').val("");
+				}).fail(function(jqXHR, textStatus, errorThrown){
+					Materialize.toast('Error al intentar actualizar el empleado!', 4000);
+				});
+
+			}
+		}
+
+
 //Buscar Empleado por cedula y cargar datos
 function buscar_empleado(){
 	
@@ -113,10 +203,10 @@ function buscar_empleado(){
 	{
 		var buscar_cedula = $('#txt_cedula_buscar').val();
 		$.ajax({
-		type: 'GET',
-		dataType: "json",
-		url: 'app_core/controllers/ctr_empleados.php',
-		data: {cargar_empleado: buscar_cedula}
+			type: 'GET',
+			dataType: "json",
+			url: 'app_core/controllers/ctr_empleados.php',
+			data: {cargar_empleado: buscar_cedula}
 		}).done(function(datos){
 			var existe = datos.existe;
 			if (existe == 1) {

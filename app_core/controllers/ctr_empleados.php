@@ -19,6 +19,10 @@
         return $this->postdata->listar_empleados();
     }
 
+    public function actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario){
+        return $this->postdata->actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario);
+    }
+
     public function buscar_empleado($ced){
         return $this->postdata->buscar_empleado($ced);
     }
@@ -60,6 +64,23 @@
       $fechaIngreso = $_POST['empleado_fechaIngreso'];
       $horario = $_POST['empleado_horario'];
       $ctr_Empleados->registrar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario);
+    }
+
+    if($_POST['key']=='actualizar_empleado'){
+      $cedula = $_POST['empleado_ced'];
+      $nombre = $_POST['empleado_nombre'];
+      $ap1 = $_POST['empleado_ap1'];
+      $ap2 = $_POST['empleado_ap2'];
+      $tel = $_POST['empleado_tel'];
+      $correo = $_POST['empleado_correo'];
+      $fechaNacimiento = $_POST['empleado_fechaNacimiento'];
+      $direccion = $_POST['empleado_direccion'];
+      $codigoAcceso = $_POST['empleado_codigoAcceso'];
+      $puesto = $_POST['empleado_puesto'];
+      $salario = $_POST['empleado_salario'];
+      $fechaIngreso = $_POST['empleado_fechaIngreso'];
+      $horario = $_POST['empleado_horario'];
+      $ctr_Empleados->actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario);
     }
 
     if($_POST['key']=='desactivar_empleado'){

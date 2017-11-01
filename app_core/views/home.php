@@ -55,7 +55,7 @@
 									<ul>
 										<li><a href=""><input name="" id="" class="boton_link transparent" value="-NOMRE VISTA-" tabindex="" type="submit"></a></li>
 									</ul>
-								</div>
+								</div> 
 							</li>
 							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Seguridad<i class="material-icons">security</i></a>
 								<div class="collapsible-body">
