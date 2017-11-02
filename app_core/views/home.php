@@ -62,6 +62,7 @@
 									<ul>
 										<li><a href=""><input name="link_registrarAlimentos" id="link_registrarAlimentos" class="boton_link transparent" value="Registrar Alimentos" tabindex="" type="submit"></a></li>
 										<li><a href=""><input name="link_consultarAlimentos" id="link_consultarAlimentos" class="boton_link transparent" value="Consultar Alimentos" tabindex="" type="submit"></a></li>
+										<li><a href=""><input name="link_mantenimientoAlimentos" id="link_mantenimientoAlimentos" class="boton_link transparent" value="Consultar Alimentos" tabindex="" type="submit"></a></li>
 									</ul>
 								</div>
 							</li>

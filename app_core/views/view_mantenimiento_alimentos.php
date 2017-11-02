@@ -3,11 +3,11 @@
 	<div class="row">
 		<div id="caja" class="z-depth-1">
 			<div class="row nombre_form">
-				<h5 class="center-align">FORMULARIO MANTENIMIENTO EMPLEADOS</h5>
+				<h5 class="center-align">FORMULARIO MANTENIMIENTO ALIMENTOS</h5>
 			</div>
 			
 			<div class="row">
-				<form class="col s12" name="frm_mantenimiento_empleado" method="post">
+				<form class="col s12" name="frm_mantenimiento_alimentos" method="post">
 					<div class="row">
 						<div class="input-field col s9 m9 l9">
 							<input placeholder="Ingrese la Cédula" id="txt_cedula_buscar" type="text" class="validate">
