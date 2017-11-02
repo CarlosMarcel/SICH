@@ -61,6 +61,7 @@
 								<div class="collapsible-body">
 									<ul>
 										<li><a href=""><input name="link_registrarAlimentos" id="link_registrarAlimentos" class="boton_link transparent" value="Registrar Alimentos" tabindex="" type="submit"></a></li>
+										<li><a href=""><input name="link_consultarAlimentos" id="link_consultarAlimentos" class="boton_link transparent" value="Consultar Alimentos" tabindex="" type="submit"></a></li>
 									</ul>
 								</div>
 							</li>
@@ -71,7 +72,7 @@
 									</ul>
 								</div>
 							</li>
-							<li class="bold"><a class="collapsible-header active waves-effect waves-teal">Empleados<i class="material-icons">people</i></a>
+							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Empleados<i class="material-icons">people</i></a>
 								<div class="collapsible-body">
 									<ul>
 										<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Registar Empleados" tabindex="" type="submit"></a></li>
@@ -119,6 +120,15 @@
   		if(isset($_POST['link_registrarAlimentos'])){ 
     		include_once(__VWS_PATH . "view_registrar_alimentos.php");
   		}
+
+  		if(isset($_POST['link_consultarAlimentos'])){ 
+    		include_once(__VWS_PATH . "view_consultar_alimentos.php");
+  		}
+
+  		if(isset($_POST['link_mantenimientoAlimentos'])){ 
+    		include_once(__VWS_PATH . "view_mantenimiento_alimentos.php");
+  		}
+
 	?>
 	<div id="vistas">
 		<div class="container">

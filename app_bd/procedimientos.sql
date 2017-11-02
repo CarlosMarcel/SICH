@@ -159,7 +159,7 @@ DELIMITER |
 	CREATE PROCEDURE consultarEmpleado()
   
 	BEGIN		
-		SELECT tbl_persona.cedulaPersona , tbl_persona.nombre , tbl_persona.apellido , tbl_persona.apellido2 , puesto, salario
+		SELECT tbl_persona.cedulaPersona , tbl_persona.nombre , tbl_persona.apellido , tbl_persona.apellido2,tbl_persona.telefono , puesto, salario
 		FROM tbl_persona inner join tbl_empleado on tbl_persona.cedulaPersona = tbl_empleado.cedulaPersona 
 		WHERE tbl_empleado.estado = 'A' AND tbl_persona.cedulaPersona = tbl_empleado.cedulaPersona GROUP BY tbl_persona.cedulaPersona;
 	END |
@@ -455,5 +455,17 @@ DELIMITER |
 	BEGIN		
 		INSERT INTO tbl_alimentos(Nombre, peso, puntoReorden, cantidad,tipoMedida, Estado)
 		VALUES(alimentoNombre, alimentoPeso,alimentoPuntoReorden, alimentoCantidad,alimentoTipoMedida, 'A');
+	END |
+DELIMITER ;
+
+------------------Consultar Alimento------------
+DROP PROCEDURE if exists consultarAlimento;
+DELIMITER |
+	CREATE PROCEDURE consultarAlimento()
+  
+	BEGIN		
+		SELECT Nombre, peso, puntoReorden, cantidad as Cantidad_Existente, tipoMedida
+		FROM tbl_alimentos 
+		WHERE tbl_alimentos.estado = 'A'  GROUP BY Nombre;
 	END |
 DELIMITER ;

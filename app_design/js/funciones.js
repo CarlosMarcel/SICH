@@ -329,6 +329,19 @@ function registrar_alimento(){
 			}
 		}
 
+function listar_alimentos(){
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_alimentos.php',
+		data: {listar_alimentos: "lol"}
+	}).done(function(datos){
+		$("#grid_alimentos").html(datos.tabla); //Carga los datos en la tabla.
+
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+	});
+}
 
 		/* Funciones de ---*/
 

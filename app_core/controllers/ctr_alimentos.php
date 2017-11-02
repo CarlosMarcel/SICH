@@ -15,8 +15,8 @@
       return $this->postdata->comprobar_Alimento($nom);
     }
 
-    public function listar_empleados(){
-        return $this->postdata->listar_empleados();
+    public function listar_alimentos(){
+        return $this->postdata->listar_alimentos();
     }
 
     public function actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario){
@@ -34,7 +34,9 @@
 
   $ctr_Alimentos = new ctr_Alimentos();
   //keys de los distintos eventos GET.
- 
+ if (isset($_GET['listar_alimentos'])) {
+      $ctr_Alimentos->listar_alimentos();
+    }
 
   //Keys de los distintos eventos POST.
   if(isset($_POST['key'])){
