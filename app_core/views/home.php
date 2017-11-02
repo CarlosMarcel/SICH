@@ -1,13 +1,13 @@
 <?php
   	//Agregamos la referencia al controlador respectivo
-	require(__CTR_PATH . "ctr_login.php");
+require(__CTR_PATH . "ctr_login.php");
   	//variable del Controlador
-	$ctr_Login = new ctr_Login(); 
+$ctr_Login = new ctr_Login(); 
 
 
-	if(isset($_POST['btn_logout'])){ 
-		$ctr_Login->btn_logout_click();
-	}
+if(isset($_POST['btn_logout'])){ 
+	$ctr_Login->btn_logout_click();
+}
 ?>
 
 <header>
@@ -50,7 +50,9 @@
 				<form action="" name="frm_link" method="post">
 					<li class="no-padding">
 						<ul class="collapsible collapsible-accordion">
-							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Hogar<i class="material-icons left">home</i></a>
+
+							<?php if($_SESSION['TIPOROL'] == 'Administrador') : ?>
+								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Hogar<i class="material-icons left">home</i></a>
 								<div class="collapsible-body">
 									<ul>
 										<li><a href=""><input name="" id="" class="boton_link transparent" value="-NOMRE VISTA-" tabindex="" type="submit"></a></li>
@@ -82,6 +84,22 @@
 									</ul>
 								</div>
 							</li>
+							<?php else : ?>
+								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Mis Tareas<i class="material-icons"><i class="material-icons">assignment</i></i></a>
+								<div class="collapsible-body">
+									<ul>
+										<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Consultar tareas" tabindex="" type="submit"></a></li>
+									</ul>
+									<ul>
+										<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Actualizar Tareas" tabindex="" type="submit"></a></li>
+									</ul>
+								</div>
+							</li>
+							<?php endif; ?>
+
+
+							
+							
 							<li><div class="divider"></div></li>
 							<li>
 								<a class="collapsible-header  waves-effect waves-teal"><input name="btn_logout" id="btn_logout" class="boton_link_logout transparent" value="Cerrar Sesión" tabindex="3" type="submit">
@@ -98,37 +116,37 @@
 <main class="home" id="home">
 	<?php 
 		//Hacer aqui los llamados a las vistas y recordar ocultar todo en el index
-		if(isset($_POST['btn_aja2'])){ 
-    		include_once(__VWS_PATH . "registrarHoras.php");
-  		}
+	if(isset($_POST['btn_aja2'])){ 
+		include_once(__VWS_PATH . "registrarHoras.php");
+	}
 
-  		if(isset($_POST['link_registarEmpleado'])){ 
-    		include_once(__VWS_PATH . "view_registrar_empleados.php");
-  		}
+	if(isset($_POST['link_registarEmpleado'])){ 
+		include_once(__VWS_PATH . "view_registrar_empleados.php");
+	}
 
-  		if(isset($_POST['link_consultarEmpleado'])){ 
-    		include_once(__VWS_PATH . "view_consultar_empleados.php");
-  		}
+	if(isset($_POST['link_consultarEmpleado'])){ 
+		include_once(__VWS_PATH . "view_consultar_empleados.php");
+	}
 
-  		if(isset($_POST['link_mantenimientoEmpleado'])){ 
-    		include_once(__VWS_PATH . "view_mantenimiento_empleados.php");
-  		}
+	if(isset($_POST['link_mantenimientoEmpleado'])){ 
+		include_once(__VWS_PATH . "view_mantenimiento_empleados.php");
+	}
 
-  		if(isset($_POST['link_luces'])){ 
-    		include_once(__VWS_PATH . "view_luces.php");
-  		}
+	if(isset($_POST['link_luces'])){ 
+		include_once(__VWS_PATH . "view_luces.php");
+	}
 
-  		if(isset($_POST['link_registrarAlimentos'])){ 
-    		include_once(__VWS_PATH . "view_registrar_alimentos.php");
-  		}
+	if(isset($_POST['link_registrarAlimentos'])){ 
+		include_once(__VWS_PATH . "view_registrar_alimentos.php");
+	}
 
-  		if(isset($_POST['link_consultarAlimentos'])){ 
-    		include_once(__VWS_PATH . "view_consultar_alimentos.php");
-  		}
+	if(isset($_POST['link_consultarAlimentos'])){ 
+		include_once(__VWS_PATH . "view_consultar_alimentos.php");
+	}
 
-  		if(isset($_POST['link_mantenimientoAlimentos'])){ 
-    		include_once(__VWS_PATH . "view_mantenimiento_alimentos.php");
-  		}
+	if(isset($_POST['link_mantenimientoAlimentos'])){ 
+		include_once(__VWS_PATH . "view_mantenimiento_alimentos.php");
+	}
 
 	?>
 	<div id="vistas">
@@ -222,7 +240,7 @@
 		    format: 'yyyy-mm-dd', //Formato del componente
 		    closeOnSelect: true // Cerrar el componente una vez seleccionada la fecha
 		});
-		 $('.modal').modal();
+		$('.modal').modal();
 	});
 </script>
 

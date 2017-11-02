@@ -25,10 +25,10 @@ $ctr_Login=new ctr_Login();
           <a href="" class="brand-logo">SICH</a>
           <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#"><i class="material-icons left" id="btn_login_hogar" name="btn_login_hogar">home</i>VOLVER</a></li>
+            <li><a href="./"><i class="material-icons left" id="btn_login_hogar" name="btn_login_hogar">home</i>VOLVER</a></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
-            <li><a href="#"><i class="material-icons left" id="btn_login_hogar" name="btn_login_hogar">home</i>VOLVER</a></li>
+            <li><a href="./"><i class="material-icons left" id="btn_login_hogar" name="btn_login_hogar">home</i>VOLVER</a></li>
           </ul>
         </div>
       </div>
