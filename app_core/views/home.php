@@ -53,48 +53,48 @@ if(isset($_POST['btn_logout'])){
 
 							<?php if($_SESSION['TIPOROL'] == 'Administrador') : ?>
 								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Hogar<i class="material-icons left">home</i></a>
-								<div class="collapsible-body">
-									<ul>
-										<li><a href=""><input name="" id="" class="boton_link transparent" value="-NOMRE VISTA-" tabindex="" type="submit"></a></li>
-									</ul>
-								</div> 
-							</li>
-							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Alimentos<i class="material-icons">kitchen</i></a>
-								<div class="collapsible-body">
-									<ul>
-										<li><a href=""><input name="link_registrarAlimentos" id="link_registrarAlimentos" class="boton_link transparent" value="Registrar Alimentos" tabindex="" type="submit"></a></li>
-										<li><a href=""><input name="link_consultarAlimentos" id="link_consultarAlimentos" class="boton_link transparent" value="Consultar Alimentos" tabindex="" type="submit"></a></li>
-										<li><a href=""><input name="link_mantenimientoAlimentos" id="link_mantenimientoAlimentos" class="boton_link transparent" value="Gestionar Alimentos" tabindex="" type="submit"></a></li>
-									</ul>
-								</div>
-							</li>
-							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Seguridad<i class="material-icons">security</i></a>
-								<div class="collapsible-body">
-									<ul>
-										<li><a href=""><input name="link_luces" id="link_luces" class="boton_link transparent" value="Luces" tabindex="" type="submit"></a></li>
-									</ul>
-								</div>
-							</li>
-							<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Empleados<i class="material-icons">people</i></a>
-								<div class="collapsible-body">
-									<ul>
-										<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Registar Empleados" tabindex="" type="submit"></a></li>
-										<li><a href=""><input name="link_consultarEmpleado" id="link_consultarEmpleado" class="boton_link transparent" value="Consultar Empleados" tabindex="" type="submit"></a></li>
-										<li><a href=""><input name="link_mantenimientoEmpleado" id="link_mantenimientoEmpleado" class="boton_link transparent" value="Mantenimiento Empleados" tabindex="" type="submit"></a></li>
-									</ul>
-								</div>
-							</li>
+									<div class="collapsible-body">
+										<ul>
+											<li><a href=""><input name="" id="" class="boton_link transparent" value="-NOMRE VISTA-" tabindex="" type="submit"></a></li>
+										</ul>
+									</div> 
+								</li>
+								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Alimentos<i class="material-icons">kitchen</i></a>
+									<div class="collapsible-body">
+										<ul>
+											<li><a href=""><input name="link_registrarAlimentos" id="link_registrarAlimentos" class="boton_link transparent" value="Registrar Alimentos" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_consultarAlimentos" id="link_consultarAlimentos" class="boton_link transparent" value="Consultar Alimentos" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_mantenimientoAlimentos" id="link_mantenimientoAlimentos" class="boton_link transparent" value="Gestionar Alimentos" tabindex="" type="submit"></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Seguridad<i class="material-icons">security</i></a>
+									<div class="collapsible-body">
+										<ul>
+											<li><a href=""><input name="link_luces" id="link_luces" class="boton_link transparent" value="Luces" tabindex="" type="submit"></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Empleados<i class="material-icons">people</i></a>
+									<div class="collapsible-body">
+										<ul>
+											<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Registar Empleados" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_consultarEmpleado" id="link_consultarEmpleado" class="boton_link transparent" value="Consultar Empleados" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_mantenimientoEmpleado" id="link_mantenimientoEmpleado" class="boton_link transparent" value="Mantenimiento Empleados" tabindex="" type="submit"></a></li>
+										</ul>
+									</div>
+								</li>
 							<?php else : ?>
 								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Mis Tareas<i class="material-icons"><i class="material-icons">assignment</i></i></a>
-								<div class="collapsible-body">
-									<ul>
-										<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Consultar tareas" tabindex="" type="submit"></a></li>
-									</ul>
-									<ul>
-										<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Actualizar Tareas" tabindex="" type="submit"></a></li>
-									</ul>
-								</div>
-							</li>
+									<div class="collapsible-body">
+										<ul>
+											<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Consultar tareas" tabindex="" type="submit"></a></li>
+										</ul>
+										<ul>
+											<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Actualizar Tareas" tabindex="" type="submit"></a></li>
+										</ul>
+									</div>
+								</li>
 							<?php endif; ?>
 
 
@@ -152,86 +152,88 @@ if(isset($_POST['btn_logout'])){
 	<div id="vistas">
 		<div class="container">
 			<div class="row">
-				<div id="cajas" class="z-depth-1">
-					<div class="row">
-						<h5 class="center-align">FORMULARIO REGISTRO USUARIOS</h5>
-						<form class="col s12">
-							<div class="row">
-								<div class="input-field col s12 m12 l6">
-									<i class="material-icons prefix">account_circle</i>
-									<input id="icon_prefix" type="text" class="validate">
-									<label for="icon_prefix">Nombre</label>
-								</div>
-								<div class="input-field col s12 m12 l6">
-									<i class="material-icons prefix">date_range</i>
-									<input type="text" class="datepicker" id="fecha">
-									<label for="fecha">Fecha</label>
-								</div>
-								<div class="input-field col s12 m12 l6">
-									<i class="material-icons prefix">account_circle</i>
-									<input id="icon_telephone" type="tel" class="validate">
-									<label for="icon_telephone">Apellido</label>
-								</div>
-
-								<div class="input-field col s12 m12 l6">
-									<i class="material-icons prefix">home</i>
-									<input id="icon_prefix" type="text" class="validate">
-									<label for="icon_prefix">Dirección</label>
-								</div>
-								<div class="input-field col s12 m12 l6">
-									<i class="material-icons prefix">phone</i>
-									<input id="icon_telephone" type="tel" class="validate">
-									<label for="icon_telephone">Teléfono</label>
-								</div>
-
-								<div class="input-field col s12 m12 l6">
-									<i class="material-icons prefix">email</i>
-									<input id="icon_prefix" type="text" class="validate">
-									<label for="icon_prefix">Correo</label>
-								</div>
-								<div class="input-field col s12 m12 l6">
-									<i class="material-icons prefix">link</i>
-									<input id="icon_telephone" type="tel" class="validate">
-									<label for="icon_telephone">Sitio Web</label>
+				<div class="row">
+					<h5 class="center-align">Bienvenido</h5>
+				</div>
+				<div class="row center-align">
+					<div class="col s12 l6 m6 ">
+						<div class="card-panel">
+							<div class="wrap">
+								<div class="widget">
+									<div class="fecha">
+										<p id="diaSemana" class="diaSemana"></p>
+										<p id="dia" class="dia"></p>
+										<p>de </p>
+										<p id="mes" class="mes"></p>
+										<p>del </p>
+										<p id="year" class="year"></p>
+									</div>
+									<div class="reloj">
+										<p id="horas" class="horas"></p>
+										<p>:</p>
+										<p id="minutos" class="minutos"></p>
+										<p>:</p>
+										<div class="caja-segundos">
+											<p id="ampm" class="ampm"></p>
+											<p id="segundos" class="segundos"></p>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div class="row center">
-								<div class="col s12 m12 l2">
-									<a class="waves-effect waves-teal btn-flat grey">DEFAULT</a>
-								</div>
-								<div class="col s12 m12 l2">
-									<a class="waves-effect waves-light btn">PRIMARY</a>
-								</div>
-								<div class="col s12 m12 l2">
-									<a class="waves-effect waves-light btn green">SUCCES</a>
-								</div>
-								<div class="col s12 m12 l2">
-									<a class="waves-effect waves-light btn cyan">INFO</a>
-								</div>
-								<div class="col s12 m12 l2">
-									<a class="waves-effect waves-light btn orange">WARNING</a>
-								</div>
-								<div class="col s12 m12 l2">
-									<a class="waves-effect waves-light btn red">DANGER</a>
+						</div>
+					</div>
+					<div class="col s12 m6 l6 ">
+						<div class="card-panel">
+							<div class="wrap">
+								<div class="widget">
+
 								</div>
 							</div>
-						</form>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 m4 l4 ">
+							<div class="card-panel">
+								<div class="wrap">
+									<div class="widget">
+										
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col s12 m4 l4 ">
+							<div class="card-panel">
+								<div class="wrap">
+									<div class="widget">
+										
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col s12 m4 l4 ">
+							<div class="card-panel">
+								<div class="wrap">
+									<div class="widget">
+										
+									</div>
+								</div>
+							</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-</main>
 
-<!-- Scripts -->
-<script type="text/javascript">
+	</main>
 
-	$( document ).ready(function(){
-		$(".button-collapse").sideNav();
-		$(".dropdown-button").dropdown();
+	<!-- Scripts -->
+	<script type="text/javascript">
 
-		$('.datepicker').pickadate({
+		$( document ).ready(function(){
+			$(".button-collapse").sideNav();
+			$(".dropdown-button").dropdown();
+
+			$('.datepicker').pickadate({
 		    selectMonths: true, // Crea combo de meses
 		    selectYears: 15, // Crea combo con de años con la cantidad especificada,
 		    today: 'Today',
@@ -240,8 +242,75 @@ if(isset($_POST['btn_logout'])){
 		    format: 'yyyy-mm-dd', //Formato del componente
 		    closeOnSelect: true // Cerrar el componente una vez seleccionada la fecha
 		});
-		$('.modal').modal();
-	});
-</script>
+			$('.modal').modal();
+		});
 
-<?php ?>
+		(function(){
+			var actualizarHora = function(){
+				var fecha = new Date(),
+				horas = fecha.getHours(),
+				ampm,
+				minutos = fecha.getMinutes(),
+				segundos = fecha.getSeconds(),
+				diaSemana = fecha.getDay(),
+				dia = fecha.getDate(),
+				mes = fecha.getMonth(),
+				year = fecha.getFullYear();
+
+				var pHoras = document.getElementById('horas'),
+				pAMPM = document.getElementById('ampm'),
+				pMinutos = document.getElementById('minutos'),
+				pSegundos = document.getElementById('segundos'),
+				pDiaSemana = document.getElementById('diaSemana'),
+				pDia = document.getElementById('dia'),
+				pMes = document.getElementById('mes'),
+				pYear = document.getElementById('year');
+
+				var semana = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sabado']
+				pDiaSemana.textContent = semana[diaSemana];
+
+				pDia.textContent = dia;
+
+				var meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
+				pMes.textContent = meses[mes];
+
+				pYear.textContent = year;
+
+				if(horas >= 12) {
+					horas = horas - 12;
+					ampm = 'PM';
+				} else {
+					ampm = 'AM';
+				}
+
+				if (horas == 0) {
+					horas = 12;
+				}
+				if (horas < 10) {
+					horas = "0" + horas;
+				}
+
+				if (minutos < 10) {
+					minutos = "0" + minutos;
+				}
+
+				if (segundos < 10) {
+					segundos = "0" + segundos;
+				}
+
+				pHoras.textContent = horas;
+				pAMPM.textContent = ampm;
+				pMinutos.textContent = minutos;
+				pSegundos.textContent = segundos;
+
+			};
+
+
+
+			actualizarHora();
+
+			var intervalo = setInterval(actualizarHora, 1000);
+		}())
+	</script>
+
+	<?php ?>

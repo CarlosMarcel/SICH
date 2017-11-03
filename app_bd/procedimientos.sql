@@ -474,6 +474,7 @@ DELIMITER ;
 DROP PROCEDURE if exists modificarAlimento;
 DELIMITER |
 	CREATE PROCEDURE modificarAlimento(
+		actualiza_alimentoID int(11),
 	    actualiza_alimentoNombre varchar(45),
 		actualiza_alimentoPeso varchar(45),
 		actualiza_alimentoPuntoReorden varchar(45),
@@ -481,7 +482,7 @@ DELIMITER |
 		actualiza_alimentotipoMedida varchar(45))
 	BEGIN		
 		UPDATE tbl_alimentos set Nombre = actualiza_alimentoNombre, peso = actualiza_alimentoPeso, puntoReorden = actualiza_alimentoPuntoReorden, cantidad = actualiza_alimentoCantidad, tipoMedida = actualiza_alimentotipoMedida
-		 WHERE tbl_alimentos.Nombre = actualiza_alimentoNombre;
+		 WHERE tbl_alimentos.idAlimentos = actualiza_alimentoID;
 	END |
 DELIMITER ;
 
@@ -509,3 +510,15 @@ DELIMITER |
 		WHERE tbl_alimentos.estado = 'A' AND tbl_alimentos.idAlimentos = actualiza_alimentoID GROUP BY Nombre;
 	END |
 DELIMITER ;
+
+------------------Inactivar AlimentoxID------------
+
+DROP PROCEDURE if exists inactivarAlimento;
+DELIMITER |
+	CREATE PROCEDURE inactivarAlimento(
+		eliminar_idAlimentos int(11))
+	BEGIN		
+		UPDATE tbl_alimentos set estado = 'I' WHERE tbl_alimentos.idAlimentos = eliminar_idAlimentos;
+	END |
+DELIMITER ;
+----------------

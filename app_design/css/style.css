@@ -19,6 +19,7 @@ body{
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-size: 16px;
 }
 
 main{
@@ -41,6 +42,51 @@ nav{
   background-color: #ffffff;
   border-top: 3px solid rgba(30, 136, 229, 1);
 
+}
+
+.wrap {
+  width: 100%;
+  
+}
+
+.widget p {
+  display:  inline-block;
+  line-height: 1em;
+}
+
+.fecha {
+  font-family: Oswald, Arial;
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 0.3125rem;
+  margin-bottom: 5px;
+  padding: 20px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.reloj {
+  font-family: Oswald, Arial;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 4em;
+}
+
+.card-panel {
+  border-top: 4px solid #1565c0;
+  border-radius: 4px;
+  width: 100%;
+
+}
+.reloj .caja-segundos {
+  display: inline-block;
+}
+
+.reloj .segundos,
+.reloj .ampm {
+  font-size: 2rem;
+  display: block;
 }
 
 .container_login {
