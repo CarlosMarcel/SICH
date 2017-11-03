@@ -469,3 +469,43 @@ DELIMITER |
 		WHERE tbl_alimentos.estado = 'A'  GROUP BY Nombre;
 	END |
 DELIMITER ;
+
+-----------------Modificar Alimento---------------------
+DROP PROCEDURE if exists modificarAlimento;
+DELIMITER |
+	CREATE PROCEDURE modificarAlimento(
+	    actualiza_alimentoNombre varchar(45),
+		actualiza_alimentoPeso varchar(45),
+		actualiza_alimentoPuntoReorden varchar(45),
+		actualiza_alimentoCantidad int(11),
+		actualiza_alimentotipoMedida varchar(45))
+	BEGIN		
+		UPDATE tbl_alimentos set Nombre = actualiza_alimentoNombre, peso = actualiza_alimentoPeso, puntoReorden = actualiza_alimentoPuntoReorden, cantidad = actualiza_alimentoCantidad, tipoMedida = actualiza_alimentotipoMedida
+		 WHERE tbl_alimentos.Nombre = actualiza_alimentoNombre;
+	END |
+DELIMITER ;
+
+------------------Consultar Alimento------------
+
+DROP PROCEDURE if exists consultarNombresAlimentos;
+DELIMITER |
+	CREATE PROCEDURE consultarNombresAlimentos()
+  
+	BEGIN		
+		SELECT idAlimentos, Nombre
+		FROM tbl_alimentos 
+		WHERE tbl_alimentos.estado = 'A'  GROUP BY Nombre;
+	END |
+DELIMITER ;
+------------------Consultar AlimentoxID------------
+
+DROP PROCEDURE if exists consultarAlimentoXid;
+DELIMITER |
+	CREATE PROCEDURE consultarAlimentoXid(actualiza_alimentoID varchar(45))
+  
+	BEGIN		
+		SELECT  Nombre, peso, puntoReorden, cantidad, tipoMedida
+		FROM tbl_alimentos 
+		WHERE tbl_alimentos.estado = 'A' AND tbl_alimentos.idAlimentos = actualiza_alimentoID GROUP BY Nombre;
+	END |
+DELIMITER ;

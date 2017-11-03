@@ -18,9 +18,12 @@
     public function listar_alimentos(){
         return $this->postdata->listar_alimentos();
     }
+    public function cargar_alimentos(){
+        return $this->postdata->cargar_alimentos();
+    }
 
-    public function actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario){
-        return $this->postdata->actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario);
+    public function actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
+        return $this->postdata->actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
     }
 
     public function buscar_empleado($ced){
@@ -38,6 +41,9 @@
       $ctr_Alimentos->listar_alimentos();
     }
 
+   if (isset($_GET['cargarcmbAlimentos'])) {
+      $ctr_Alimentos->cargar_alimentos();
+    }
   //Keys de los distintos eventos POST.
   if(isset($_POST['key'])){
 

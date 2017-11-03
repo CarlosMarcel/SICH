@@ -343,6 +343,22 @@ function listar_alimentos(){
 	});
 }
 
+function cargarCmbAlimentos(){
+	$.ajax({
+			type: 'GET',
+			dataType: "json",
+			url: 'app_core/controllers/ctr_alimentos.php',
+			data: {cargarcmbAlimentos: "lol"}
+		}).done(function(datos){
+			//Cargar Talleres de Estudiante
+			$("#ComboAlimentos").html(datos.combo); //Carga los datos en el combo.
+			//Cargar Datos de Estudiante
+			//$("#ComboAlimentos").change();
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			//Error y notificacion.
+		});
+}
+
 		/* Funciones de ---*/
 
 

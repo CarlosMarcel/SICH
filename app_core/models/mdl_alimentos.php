@@ -14,8 +14,8 @@
 			$this->conexion->consulta("CALL insertarAlimento('".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$tipoMedida."')");
 		}
 
-		public function actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario){
-			$this->conexion->consulta("CALL modificarEmpleado('".$cedula."','".$nombre."','".$ap1."','".$ap2."','".$tel."','".$correo."','".$fechaNacimiento."','".$direccion."','".$codigoAcceso."','Empleado','".$puesto."','".$salario."','".$fechaIngreso."','".$horario."')");
+		public function actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
+			$this->conexion->consulta("CALL consultarAlimentoXid('".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$tipoMedida."')");
 		}
 		public function comprobar_Alimento($ced){
 			$this->conexion->consulta("SELECT nombre FROM tbl_alimentos WHERE nombre = ". $ced);
@@ -37,6 +37,18 @@
 			}
 
 			$listaDatos['tabla']=$datos;
+			echo json_encode($listaDatos);
+		}
+		public function cargar_alimentos(){
+			$this->conexion->consulta("CALL consultarNombresAlimentos");
+			$datos="";
+			$listaDatos = array();
+
+			while ($fila = $this->conexion->extraer_registro()) {
+				$datos.= "<option value='" .$fila[0]."'>".$fila[1]."</option>";
+			}
+
+			$listaDatos['combo']=$datos;
 			echo json_encode($listaDatos);
 		}
 

@@ -9,6 +9,13 @@
 			<div class="row">
 				<form class="col s12" name="frm_mantenimiento_alimentos" method="post">
 					<div class="row">
+						 <div class="input-field col s6">
+						    <select id="ComboAlimentos">
+						      <option value="" disabled selected>Seleccione el alimento</option>
+						      
+						    </select>
+						    <label>Nombre del Alimento</label>
+						  </div>
 						<div class="input-field col s9 m9 l9">
 							<input placeholder="Ingrese la Cédula" id="txt_cedula_buscar" type="text" class="validate">
 							<label for="txt_cedula_buscar">Cédula</label>
@@ -23,69 +30,34 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">account_circle</i>
+							<i class="material-icons prefix">content_paste</i>
 							<input value=" " id="txt_nombre_upd" type="text" class="validate">
 							<label class="active" for="txt_nombre_upd">Nombre</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">account_circle</i>
-							<input value=" " id="txt_apellido1_upd" type="text" class="validate">
-							<label class="active" for="txt_apellido1_upd">Apellido</label>
+							<i class="material-icons prefix">slow_motion_video</i>
+							<input value=" " id="txt_peso_upd" type="text" class="validate">
+							<label class="active" for="txt_peso_upd">Peso</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">account_circle</i>
-							<input value=" " id="txt_apellido2_upd" type="text" class="validate">
-							<label for="txt_apellido2_upd">Apellido2</label>
+							<i class="material-icons prefix">replay_10</i>
+							<input value=" " id="txt_puntoReorden_upd" type="text" class="validate">
+							<label for="txt_puntoReorden_upd">Punto Reorden</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">phone</i>
-							<input value=" " id="txt_telefono_upd" type="text" class="validate">
-							<label for="txt_telefono_upd">Teléfono</label>
+							<i class="material-icons prefix">exposure</i>
+							<input value=" " id="txt_cantidad_upd" type="text" class="validate">
+							<label for="txt_cantidad_upd">Cantidad</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">email</i>
+							<i class="material-icons prefix">straighten</i>
 							<input value=" " id="txt_correo_upd" type="text" class="validate">
-							<label for="txt_correo_upd">Correo</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">date_range</i>
-							<input value=" " type="text" class="datepicker" id="dtp_fecha_nacimiento_upd">
-							<label for="dtp_fecha_nacimiento_upd">Fecha Nacimiento</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">home</i>
-							<input value=" " id="txt_direccion_upd" type="text" class="validate">
-							<label for="txt_direccion_upd">Dirección</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">fiber_pin</i>
-							<input value=" " id="txt_codigo_acceso_upd" type="text" class="validate">
-							<label for="txt_codigo_acceso_upd">Código Acceso</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">work</i>
-							<input value=" " id="txt_puesto_upd" type="text" class="validate">
-							<label for="txt_puesto_upd">Puesto</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">monetization_on</i>
-							<input value=" " id="txt_salario_upd" type="text" class="validate">
-							<label for="txt_salario_upd">Salario</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">insert_invitation</i>
-							<input value=" " type="text" class="datepicker" id="dtp_fecha_ingreso_upd">
-							<label for="dtp_fecha_ingreso_upd">Fecha Ingreso</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">schedule</i>
-							<input value=" " id="txt_horario_upd" type="text" class="validate">
-							<label for="txt_horario_upd">Horario</label>
+							<label for="txt_correo_upd">Tipo de Medida</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col s6 m6 l6 center">
-							<button class="btn-large waves-effect waves-light" type="button" name="btn_actualizarEmpleado" id="btn_actualizarEmpleado" onclick="actualizar_empleado();">ACTUALIZAR<i class="material-icons right">send</i></button>
+							<button class="btn-large waves-effect waves-light" type="button" name="btn_actualizarAlimento" id="btn_actualizarAlimento" onclick="actualizar_alimento();">ACTUALIZAR<i class="material-icons right">send</i></button>
 						</div>
 						<div class="col s6 m6 l6 center">
 							<button class="btn-large waves-effect waves-light red modal-trigger" type="button" name="btn_eliminarEmpleado" href="#modal1" id="btn_eliminarEmpleado">ELIMINAR<i class="material-icons right">delete</i></button>
@@ -116,7 +88,10 @@
 <script type="text/javascript">
   $(document).ready(function() {
     Materialize.updateTextFields();
+    $('select').material_select();
+    cargarCmbAlimentos();
   });
+  
 </script>
 
 <?php ?>
