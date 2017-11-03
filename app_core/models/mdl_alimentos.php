@@ -14,8 +14,17 @@
 			$this->conexion->consulta("CALL insertarAlimento('".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$tipoMedida."')");
 		}
 
-		public function actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
-			$this->conexion->consulta("CALL consultarAlimentoXid('".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$tipoMedida."')");
+		public function cargar_datos_alimentos($id){
+			$this->conexion->consulta("CALL consultarAlimentoXid('".$id."')");
+			$listaDatos = array();
+			while($fila = $this->conexion->extraer_registro()){
+				$listaDatos['nombre'] = $fila[0];
+				$listaDatos['peso'] = $fila[1];
+				$listaDatos['puntoReorden'] = $fila[2];
+				$listaDatos['cantidad'] = $fila[3];
+				$listaDatos['tipoMedida'] = $fila[4];
+			}
+			echo json_encode($listaDatos);
 		}
 		public function comprobar_Alimento($ced){
 			$this->conexion->consulta("SELECT nombre FROM tbl_alimentos WHERE nombre = ". $ced);

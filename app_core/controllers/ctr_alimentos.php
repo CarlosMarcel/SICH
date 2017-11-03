@@ -22,6 +22,10 @@
         return $this->postdata->cargar_alimentos();
     }
 
+    public function cargar_datos_alimentos($id){
+        return $this->postdata->cargar_datos_alimentos($id);
+    }
+
     public function actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
         return $this->postdata->actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
     }
@@ -44,6 +48,10 @@
    if (isset($_GET['cargarcmbAlimentos'])) {
       $ctr_Alimentos->cargar_alimentos();
     }
+
+  if (isset($_GET['cargarDatosAlimentos'])) {
+      $ctr_Alimentos->cargar_datos_alimentos($_GET['cargarDatosAlimentos']);
+    }
   //Keys de los distintos eventos POST.
   if(isset($_POST['key'])){
 
@@ -54,6 +62,14 @@
       $cantidad = $_POST['alimento_cantidad'];
       $tipoMedida = $_POST['alimento_tipoMedida'];
       $ctr_Alimentos->registrar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+    }
+    if($_POST['key']=='actualizar_empleado'){
+      $nombre = $_POST['alimento_nombre'];
+      $peso = $_POST['alimento_peso'];
+      $puntoReorden = $_POST['alimento_puntoReorden'];
+      $cantidad = $_POST['alimento_cantidad'];
+      $tipoMedida = $_POST['alimento_tipoMedida'];
+      $ctr_Alimentos->actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
     }
   }
 ?>

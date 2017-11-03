@@ -10,7 +10,7 @@
 				<form class="col s12" name="frm_mantenimiento_alimentos" method="post">
 					<div class="row">
 						 <div class="input-field col s6">
-						    <select id="combo_alimentos" onchange="">
+						    <select id="combo_alimentos" onchange="cargarDatosAlimentos()">
 						    	<option value="0" disabled selected>Alimentos</option>
 						    </select>
 						    <label>Nombre del Alimento</label>
@@ -43,8 +43,8 @@
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">straighten</i>
-							<input value=" " id="txt_correo_upd" type="text" class="validate">
-							<label for="txt_correo_upd">Tipo de Medida</label>
+							<input value=" " id="txt_tipoMedida_upd" type="text" class="validate">
+							<label for="txt_tipoMedida_upd">Tipo de Medida</label>
 						</div>
 					</div>
 					<div class="row">
