@@ -10,19 +10,11 @@
 				<form class="col s12" name="frm_mantenimiento_alimentos" method="post">
 					<div class="row">
 						 <div class="input-field col s6">
-						    <select id="ComboAlimentos">
-						      <option value="" disabled selected>Seleccione el alimento</option>
-						      
+						    <select id="combo_alimentos" onchange="">
+						    	<option value="0" disabled selected>Alimentos</option>
 						    </select>
 						    <label>Nombre del Alimento</label>
 						  </div>
-						<div class="input-field col s9 m9 l9">
-							<input placeholder="Ingrese la Cédula" id="txt_cedula_buscar" type="text" class="validate">
-							<label for="txt_cedula_buscar">Cédula</label>
-						</div>
-						<div class="input-field col s3 m3 l3">
-							<button class="btn waves-effect waves-light" type="button" name="btn_buscarEmpleado" id="btn_buscarEmpleado" onclick="buscar_empleado();">BUSCAR<i class="material-icons right">search</i></button>
-						</div>
 					</div>
 
 					<div class="row">

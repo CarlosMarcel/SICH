@@ -45,7 +45,7 @@
 			$listaDatos = array();
 
 			while ($fila = $this->conexion->extraer_registro()) {
-				$datos.= "<option value='" .$fila[0]."'>".$fila[1]."</option>";
+				$datos .= "<option value='".$fila[0]."'>".$fila[1]."</option>";
 			}
 
 			$listaDatos['combo']=$datos;

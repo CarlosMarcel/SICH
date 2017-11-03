@@ -351,11 +351,15 @@ function cargarCmbAlimentos(){
 			data: {cargarcmbAlimentos: "lol"}
 		}).done(function(datos){
 			//Cargar Talleres de Estudiante
-			$("#ComboAlimentos").html(datos.combo); //Carga los datos en el combo.
+			Materialize.toast('Combo cargado correctamente!', 4000);
+			$("#combo_alimentos").html(datos.combo); //Carga los datos en el combo.
 			//Cargar Datos de Estudiante
-			//$("#ComboAlimentos").change();
+			$("#combo_alimentos").change();
+
+			$('select').material_select();
 		}).fail(function(jqXHR, textStatus, errorThrown){
 			//Error y notificacion.
+			Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
 		});
 }
 
