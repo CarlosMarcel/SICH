@@ -9,7 +9,7 @@
 			<div class="row">
 				<form class="col s12" name="frm_mantenimiento_alimentos" method="post">
 					<div class="row">
-						 <div class="input-field col s6">
+						 <div class="input-field col s12 m12 l12">
 						    <select id="combo_alimentos" onchange="cargarDatosAlimentos()">
 						    	<option value="0" disabled selected>Alimentos</option>
 						    </select>
@@ -18,7 +18,7 @@
 					</div>
 
 					<div class="row">
-						<h5 class="center-align">DATOS DEL EMPLEADO</h5>
+						<h5 class="center-align">DATOS DEL PRODUCTO</h5>
 					</div>
 					<div class="row">
 						<div class="input-field col s12 m12 l6">
@@ -49,25 +49,25 @@
 					</div>
 					<div class="row">
 						<div class="col s6 m6 l6 center">
-							<button class="btn-large waves-effect waves-light" type="button" name="btn_actualizarAlimento" id="btn_actualizarAlimento" onclick="actualizar_alimento();">ACTUALIZAR<i class="material-icons right">send</i></button>
+							<button class="btn-large waves-effect waves-light" type="button" name="btn_actualizarAlimento" id="btn_actualizarAlimento" onclick="actualizar_alimentos();">ACTUALIZAR<i class="material-icons right">send</i></button>
 						</div>
 						<div class="col s6 m6 l6 center">
-							<button class="btn-large waves-effect waves-light red modal-trigger" type="button" name="btn_eliminarEmpleado" href="#modal1" id="btn_eliminarEmpleado">ELIMINAR<i class="material-icons right">delete</i></button>
+							<button class="btn-large waves-effect waves-light red modal-trigger" type="button" href="#modal2" name="btn_eliminarProducto" id="btn_eliminarProducto">ELIMINAR<i class="material-icons right">delete</i></button>
 
 							
 						</div>
                 	</div>
 
                 	<!-- Modal Structure -->
-					<div id="modal1" class="modal">
+					<div id="modal2" class="modal">
 						<div class="modal-content">
-							<h4 class="center">Eliminar Empleado</h4>
-							<p class="center-align">¿Realmente desea eliminar el empleado?</p>
+							<h4 class="center">Eliminar Alimento</h4>
+							<p class="center-align">¿Realmente desea eliminar el producto?</p>
 						</div>
 						<div class="modal-footer">
-							<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick="desactivar_empleado(txt_cedula_buscar.value)">Eliminar<i class="material-icons right">delete</i></button>
+							<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal2" type="button" name="btn_inactivarProducto" id="btn_inactivarProducto" onclick="eliminar_alimento()">Eliminar<i class="material-icons right">delete</i></button>
 	
-							<button class="btn waves-effect waves-light blue btn modal-action modal-close" href="#modal1" type="button" name="btn_registrarEmpleado" id="btn_registrarEmpleado" onclick="">Cancelar<i class="material-icons right">reply</i></button>
+							<button class="btn waves-effect waves-light blue btn modal-action modal-close" href="#modal2" type="button" name="btn_cancelar" id="btn_cancelar" onclick="">Cancelar<i class="material-icons right">reply</i></button>
 						</div>
 					</div>
 

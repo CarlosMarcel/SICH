@@ -14,6 +14,10 @@
 			$this->conexion->consulta("CALL insertarAlimento('".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$tipoMedida."')");
 		}
 
+		public function actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
+			$this->conexion->consulta("CALL modificarAlimento('".$id."','".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$tipoMedida."')");
+		}
+
 		public function cargar_datos_alimentos($id){
 			$this->conexion->consulta("CALL consultarAlimentoXid('".$id."')");
 			$listaDatos = array();
@@ -87,8 +91,8 @@
 			echo json_encode($listaDatos);
 		}
 
-		public function desactivar_empleado($cedula){
-			$this->conexion->consulta("CALL inactivarEmpleado('".$cedula."')");
+		public function eliminar_alimento($id){
+			$this->conexion->consulta("CALL inactivarAlimento('".$id."')");
 		}
 	}
 

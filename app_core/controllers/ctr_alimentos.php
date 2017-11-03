@@ -26,8 +26,12 @@
         return $this->postdata->cargar_datos_alimentos($id);
     }
 
-    public function actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
-        return $this->postdata->actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+    public function actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
+        return $this->postdata->actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+    }
+
+    public function eliminar_alimento($id){
+        return $this->postdata->eliminar_alimento($id);
     }
 
     public function buscar_empleado($ced){
@@ -63,13 +67,19 @@
       $tipoMedida = $_POST['alimento_tipoMedida'];
       $ctr_Alimentos->registrar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
     }
-    if($_POST['key']=='actualizar_empleado'){
+    if($_POST['key']=='actualizar_alimento'){
+      $id = $_POST['alimento_id'];
       $nombre = $_POST['alimento_nombre'];
       $peso = $_POST['alimento_peso'];
       $puntoReorden = $_POST['alimento_puntoReorden'];
       $cantidad = $_POST['alimento_cantidad'];
       $tipoMedida = $_POST['alimento_tipoMedida'];
-      $ctr_Alimentos->actualizar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+      $ctr_Alimentos->actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+    }
+
+    if($_POST['key']=='eliminar_alimento'){
+      $id = $_POST['alimento_id'];
+      $ctr_Alimentos->eliminar_alimento($id);
     }
   }
 ?>

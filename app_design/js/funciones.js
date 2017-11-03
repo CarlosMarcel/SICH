@@ -317,17 +317,17 @@ function registrar_alimento(){
 			alimento_cantidad:cantidad, alimento_tipoMedida:tipoMedida}
 		}).done(function(datos){
 			Materialize.toast('Registro Alimento Exitoso!', 4000);
-					//Variables para el registro del empleado
-					$('#txt_nombreAlimento').val("");
-					$('#txt_peso').val("");
-					$('#txt_puntoReorden').val("");
-					$('#txt_cantidad').val("");
-					$('#txt_tipoMedida').val("");
-				}).fail(function(jqXHR, textStatus, errorThrown){
-					Materialize.toast('Error al intentar registrar el nuevo alimento!', 4000);
-				});
-			}
-		}
+			//Variables para el registro del empleado
+			$('#txt_nombreAlimento').val("");
+			$('#txt_peso').val("");
+			$('#txt_puntoReorden').val("");
+			$('#txt_cantidad').val("");
+			$('#txt_tipoMedida').val("");
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			Materialize.toast('Error al intentar registrar el nuevo alimento!', 4000);
+		});
+	}
+}
 
 function listar_alimentos(){
 	$.ajax({
@@ -336,8 +336,7 @@ function listar_alimentos(){
 		url: 'app_core/controllers/ctr_alimentos.php',
 		data: {listar_alimentos: "lol"}
 	}).done(function(datos){
-		$("#grid_alimentos").html(datos.tabla); //Carga los datos en la tabla.
-
+		$("#grid_alimentos").html(datos.tabla);
 	}).fail(function(jqXHR, textStatus, errorThrown){
 		//Error y notificacion.
 	});
@@ -345,59 +344,124 @@ function listar_alimentos(){
 
 function cargarCmbAlimentos(){
 	$.ajax({
-			type: 'GET',
-			dataType: "json",
-			url: 'app_core/controllers/ctr_alimentos.php',
-			data: {cargarcmbAlimentos: "lol"}
-		}).done(function(datos){
-			//Cargar Talleres de Estudiante
-			$("#combo_alimentos").html(datos.combo); //Carga los datos en el combo.
-			//Cargar Datos de Estudiante
-			$("#combo_alimentos").change();
-
-			$('select').material_select();
-		}).fail(function(jqXHR, textStatus, errorThrown){
-			//Error y notificacion.
-			Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
-		});
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_alimentos.php',
+		data: {cargarcmbAlimentos: "lol"}
+	}).done(function(datos){
+		$("#combo_alimentos").html(datos.combo);
+		$("#combo_alimentos").change();
+		$('select').material_select();
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+		Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
+	});
 }
 
 function cargarDatosAlimentos(){
 	var idAlimento = document.getElementById("combo_alimentos");
 	var selectedID = idAlimento.options[idAlimento.selectedIndex].value;
-	//Materialize.toast(selectedID, 4000);
 	$.ajax({
-			type: 'GET',
-			dataType: "json",
-			url: 'app_core/controllers/ctr_alimentos.php',
-			data: {cargarDatosAlimentos: selectedID}
-		}).done(function(datos){
-			//Cargar Talleres de Estudiante
-			Materialize.toast('Combo cargado correctamente!', 4000);
-			//Variables para el registro del alimento
-					$('#txt_nombre_upd').val(datos.nombre);
-					$('#txt_peso_upd').val(datos.peso);
-					$('#txt_puntoReorden_upd').val(datos.puntoReorden);
-					$('#txt_cantidad_upd').val(datos.cantidad);
-					$('#txt_tipoMedida_upd').val(datos.tipoMedida);
-
-			$('select').material_select();
-		}).fail(function(jqXHR, textStatus, errorThrown){
-			//Error y notificacion.
-			Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
-		});
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_alimentos.php',
+		data: {cargarDatosAlimentos: selectedID}
+	}).done(function(datos){
+		$('#txt_nombre_upd').val(datos.nombre);
+		$('#txt_peso_upd').val(datos.peso);
+		$('#txt_puntoReorden_upd').val(datos.puntoReorden);
+		$('#txt_cantidad_upd').val(datos.cantidad);
+		$('#txt_tipoMedida_upd').val(datos.tipoMedida);
+		$('select').material_select();
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+		Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
+	});
 }
 
-		/* Funciones de ---*/
+//Funcion de Actualizar Alimentos
+function actualizar_alimentos(){
+	//Variables para actualizar los alimentos
+	var nombre = $('#txt_nombre_upd').val();
+	var peso = $('#txt_peso_upd').val();
+	var puntoReorden = $('#txt_puntoReorden_upd').val();
+	var cantidad = $('#txt_cantidad_upd').val();
+	var tipoMedida = $('#txt_tipoMedida_upd').val();
+
+	var idAlimento = document.getElementById("combo_alimentos");
+	var selectedID = idAlimento.options[idAlimento.selectedIndex].value;
+
+	if ($('#txt_nombre_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el nombre de alimento!', 4000);
+		$('#txt_nombre_upd').focus();
+	}else if ($('#txt_peso_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el peso!', 4000);
+		$('#txt_peso_upd').focus();
+	}else if ($('#txt_puntoReorden_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el punto de reorden!', 4000);
+		$('#txt_puntoReorden_upd').focus();
+	}else if ($('#txt_cantidad_upd').val().trim() == "") {
+		Materialize.toast('Ingrese la cantidad!', 4000);
+		$('#txt_cantidad_upd').focus();
+	}else if($('#txt_tipoMedida_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el Tipo de medida!', 4000);
+		$('#txt_tipoMedida_upd').focus();
+	}else{
+		$.ajax({
+			type: 'POST',
+			url: 'app_core/controllers/ctr_alimentos.php',
+			data: {key: 'actualizar_alimento', alimento_id:selectedID,alimento_nombre:nombre,alimento_peso:peso,alimento_puntoReorden:puntoReorden,
+			alimento_cantidad:cantidad, alimento_tipoMedida:tipoMedida}
+		}).done(function(datos){
+			Materialize.toast('Se ha actualizado el producto exitosamente!', 4000);
+			//Variables para el registro del empleado
+			$('#txt_nombre_upd').val("");
+			$('#txt_peso_upd').val("");
+			$('#txt_puntoReorden_upd').val("");
+			$('#txt_cantidad_upd').val("");
+			$('#txt_tipoMedida_upd').val("");
+			$("#combo_alimentos").change();
+			$('select').material_select();
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			Materialize.toast('Error al intentar actualizar el alimento!', 4000);
+		});
+	}
+}
+
+function eliminar_alimento(){
+	var idAlimento = document.getElementById("combo_alimentos");
+	var selectedID = idAlimento.options[idAlimento.selectedIndex].value;
+
+	$.ajax({
+		type: 'POST',
+		url: 'app_core/controllers/ctr_alimentos.php',
+		data: {key: 'eliminar_alimento', alimento_id:selectedID}
+	}).done(function(datos){
+		Materialize.toast('Se ha eliminado el producto exitosamente!', 4000);
+		cargarCmbAlimentos();
+		$("#combo_alimentos").change();
+		$('select').material_select();
+		$('#modal2').modal('close');
+		$('#txt_nombre_upd').val("");
+		$('#txt_peso_upd').val("");
+		$('#txt_puntoReorden_upd').val("");
+		$('#txt_cantidad_upd').val("");
+		$('#txt_tipoMedida_upd').val("");
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		Materialize.toast('Error al intentar eliminar el producto!', 4000);
+	});
+}
+
+	/* Funciones de ---*/
 
 
-		function cargar_dias_taller(cedula){
-			$.ajax({
-				type: 'GET',
-				dataType: "json",
-				url: 'app_core/controllers/ctr_controlador_tutor.php',
-				data: {cedulaTutor: cedula}
-			}).done(function(datos){
+	function cargar_dias_taller(cedula){
+		$.ajax({
+			type: 'GET',
+			dataType: "json",
+			url: 'app_core/controllers/ctr_controlador_tutor.php',
+			data: {cedulaTutor: cedula}
+		}).done(function(datos){
 		$("#combo_dias").html(datos.combo); //Carga los datos en el combo.
 		//Cargar Datos de Estudiante
 		$("#combo_dias").change();
