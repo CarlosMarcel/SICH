@@ -417,13 +417,18 @@ function actualizar_alimentos(){
 		Materialize.toast('Ingrese el Tipo de medida!', 4000);
 		$('#txt_tipoMedida_upd').focus();
 	}else{
+		if(cantidad <= puntoReorden)
+		{
+			cantidad = cantidadPedido;
+			Materialize.toast('Se ha realizado el pedido del producto al supermercado!', 4000);
+		}
 		$.ajax({
 			type: 'POST',
 			url: 'app_core/controllers/ctr_alimentos.php',
 			data: {key: 'actualizar_alimento', alimento_id:selectedID,alimento_nombre:nombre,alimento_peso:peso,alimento_puntoReorden:puntoReorden,
 			alimento_cantidad:cantidad, alimento_cantidadPedido: cantidadPedido, alimento_tipoMedida:tipoMedida}
 		}).done(function(datos){
-			Materialize.toast('Se ha actualizado el producto exitosamente!', 4000);
+			Materialize.toast('Se ha actualizado el producto exitosamente!', 8000);
 			//Variables para el registro del empleado
 			$('#txt_nombre_upd').val("");
 			$('#txt_peso_upd').val("");
