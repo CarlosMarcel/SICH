@@ -451,10 +451,11 @@ DELIMITER |
 		alimentoPeso varchar(45),
 		alimentoPuntoReorden varchar(45),
 		alimentoCantidad int(11),
+		alimentoCantidadPedido int(11),
 		alimentoTipoMedida varchar(45))
 	BEGIN		
-		INSERT INTO tbl_alimentos(Nombre, peso, puntoReorden, cantidad,tipoMedida, Estado)
-		VALUES(alimentoNombre, alimentoPeso,alimentoPuntoReorden, alimentoCantidad,alimentoTipoMedida, 'A');
+		INSERT INTO tbl_alimentos(Nombre, peso, puntoReorden, cantidad,cantidadPedido,tipoMedida, Estado)
+		VALUES(alimentoNombre, alimentoPeso,alimentoPuntoReorden, alimentoCantidad,alimentoCantidadPedido,alimentoTipoMedida, 'A');
 	END |
 DELIMITER ;
 
@@ -464,7 +465,7 @@ DELIMITER |
 	CREATE PROCEDURE consultarAlimento()
   
 	BEGIN		
-		SELECT Nombre, peso, puntoReorden, cantidad as Cantidad_Existente, tipoMedida
+		SELECT Nombre, peso, puntoReorden, cantidad as Cantidad_Existente, cantidadPedido, tipoMedida
 		FROM tbl_alimentos 
 		WHERE tbl_alimentos.estado = 'A'  GROUP BY Nombre;
 	END |
@@ -479,9 +480,10 @@ DELIMITER |
 		actualiza_alimentoPeso varchar(45),
 		actualiza_alimentoPuntoReorden varchar(45),
 		actualiza_alimentoCantidad int(11),
+		actualiza_alimentoCantidadPedido int(11),
 		actualiza_alimentotipoMedida varchar(45))
 	BEGIN		
-		UPDATE tbl_alimentos set Nombre = actualiza_alimentoNombre, peso = actualiza_alimentoPeso, puntoReorden = actualiza_alimentoPuntoReorden, cantidad = actualiza_alimentoCantidad, tipoMedida = actualiza_alimentotipoMedida
+		UPDATE tbl_alimentos set Nombre = actualiza_alimentoNombre, peso = actualiza_alimentoPeso, puntoReorden = actualiza_alimentoPuntoReorden, cantidad = actualiza_alimentoCantidad, cantidadPedido = actualiza_alimentoCantidadPedido,  tipoMedida = actualiza_alimentotipoMedida
 		 WHERE tbl_alimentos.idAlimentos = actualiza_alimentoID;
 	END |
 DELIMITER ;
@@ -505,7 +507,7 @@ DELIMITER |
 	CREATE PROCEDURE consultarAlimentoXid(actualiza_alimentoID varchar(45))
   
 	BEGIN		
-		SELECT  Nombre, peso, puntoReorden, cantidad, tipoMedida
+		SELECT  Nombre, peso, puntoReorden, cantidad, cantidadPedido, tipoMedida
 		FROM tbl_alimentos 
 		WHERE tbl_alimentos.estado = 'A' AND tbl_alimentos.idAlimentos = actualiza_alimentoID GROUP BY Nombre;
 	END |

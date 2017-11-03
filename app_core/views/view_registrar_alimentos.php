@@ -30,6 +30,11 @@
 							<label for="txt_cantidad">Cantidad</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
+							<i class="material-icons prefix">exposure</i>
+							<input  id="txt_cantidadPedido" type="text" class="validate">
+							<label for="txt_cantidadPedido">Cantidad Pedido</label>
+						</div>
+						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">straighten</i>
 							<input id="txt_tipoMedida" type="text" class="validate">
 							<label for="txt_tipoMedida">Tipo de Medida</label>

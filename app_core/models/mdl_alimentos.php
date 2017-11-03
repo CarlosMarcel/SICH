@@ -10,12 +10,12 @@
 			$this->conexion = new mdl_Conexion();	   
 		}
 
-		public function insertar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
-			$this->conexion->consulta("CALL insertarAlimento('".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$tipoMedida."')");
+		public function insertar_alimento($nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida){
+			$this->conexion->consulta("CALL insertarAlimento('".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$cantidadPedido."','".$tipoMedida."')");
 		}
 
-		public function actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
-			$this->conexion->consulta("CALL modificarAlimento('".$id."','".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$tipoMedida."')");
+		public function actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida){
+			$this->conexion->consulta("CALL modificarAlimento('".$id."','".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$cantidadPedido."','".$tipoMedida."')");
 		}
 
 		public function cargar_datos_alimentos($id){
@@ -26,7 +26,8 @@
 				$listaDatos['peso'] = $fila[1];
 				$listaDatos['puntoReorden'] = $fila[2];
 				$listaDatos['cantidad'] = $fila[3];
-				$listaDatos['tipoMedida'] = $fila[4];
+				$listaDatos['cantidadPedido'] = $fila[4];
+				$listaDatos['tipoMedida'] = $fila[5];
 			}
 			echo json_encode($listaDatos);
 		}
@@ -46,7 +47,7 @@
 			$listaDatos = array();
 
 			while ($fila = $this->conexion->extraer_registro()) {
-				$datos.= "<tr><td>$fila[0]</td><td>$fila[1]</td><td>$fila[2]</td><td>$fila[3]</td><td>$fila[4]</td></tr>";
+				$datos.= "<tr><td>$fila[0]</td><td>$fila[1]</td><td>$fila[2]</td><td>$fila[3]</td><td>$fila[4]</td><td>$fila[5]</td></tr>";
 			}
 
 			$listaDatos['tabla']=$datos;
@@ -62,32 +63,6 @@
 			}
 
 			$listaDatos['combo']=$datos;
-			echo json_encode($listaDatos);
-		}
-
-		public function buscar_empleado($cedula){
-			$this->conexion->consulta("CALL `empleadoXcedula`('".$cedula."')");
-			$listaDatos=array(); //matriz
-			$listaDatos['existe'] = 0;
-
-			while($fila = $this->conexion->extraer_registro()){
-				$listaDatos['cedula'] = $fila[0];
-				$listaDatos['nombre'] = $fila[1];
-				$listaDatos['ap1'] = $fila[2];
-				$listaDatos['ap2'] = $fila[3];
-				$listaDatos['telefono'] = $fila[4];
-				$listaDatos['correo'] = $fila[5];
-				$listaDatos['fechaNacimiento'] = $fila[6];
-				$listaDatos['direccion'] = $fila[7];
-				$listaDatos['codigoAcceso'] = $fila[8];
-				$listaDatos['tipoRol'] = $fila[9];
-				$listaDatos['puesto'] = $fila[10];
-				$listaDatos['salario'] = $fila[11];
-				$listaDatos['fechaIngreso'] = $fila[12];
-				$listaDatos['horario'] = $fila[13];
-				$listaDatos['existe'] = 1;
-			}
-			 
 			echo json_encode($listaDatos);
 		}
 

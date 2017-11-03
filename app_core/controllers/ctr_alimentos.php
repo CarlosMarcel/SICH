@@ -8,8 +8,8 @@
       $this->postdata = new mdl_alimentos();
     }
 
-    public function registrar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
-      return $this->postdata->insertar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+    public function registrar_alimento($nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida){
+      return $this->postdata->insertar_alimento($nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida);
     }
     public function comprobar_alimento($nom){
       return $this->postdata->comprobar_Alimento($nom);
@@ -26,8 +26,8 @@
         return $this->postdata->cargar_datos_alimentos($id);
     }
 
-    public function actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$tipoMedida){
-        return $this->postdata->actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+    public function actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida){
+        return $this->postdata->actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida);
     }
 
     public function eliminar_alimento($id){
@@ -64,8 +64,9 @@
       $peso = $_POST['alimento_peso'];
       $puntoReorden = $_POST['alimento_puntoReorden'];
       $cantidad = $_POST['alimento_cantidad'];
+      $cantidadPedido = $_POST['alimento_cantidadPedido'];
       $tipoMedida = $_POST['alimento_tipoMedida'];
-      $ctr_Alimentos->registrar_alimento($nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+      $ctr_Alimentos->registrar_alimento($nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida);
     }
     if($_POST['key']=='actualizar_alimento'){
       $id = $_POST['alimento_id'];
@@ -73,8 +74,9 @@
       $peso = $_POST['alimento_peso'];
       $puntoReorden = $_POST['alimento_puntoReorden'];
       $cantidad = $_POST['alimento_cantidad'];
+      $cantidadPedido = $_POST['alimento_cantidadPedido'];
       $tipoMedida = $_POST['alimento_tipoMedida'];
-      $ctr_Alimentos->actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$tipoMedida);
+      $ctr_Alimentos->actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida);
     }
 
     if($_POST['key']=='eliminar_alimento'){

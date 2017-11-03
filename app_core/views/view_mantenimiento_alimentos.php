@@ -42,6 +42,11 @@
 							<label for="txt_cantidad_upd">Cantidad</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
+							<i class="material-icons prefix">exposure</i>
+							<input value=" " id="txt_cantidadPedido_upd" type="text" class="validate">
+							<label for="txt_cantidadPedido_upd">Cantidad Pedido</label>
+						</div>
+						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">straighten</i>
 							<input value=" " id="txt_tipoMedida_upd" type="text" class="validate">
 							<label for="txt_tipoMedida_upd">Tipo de Medida</label>

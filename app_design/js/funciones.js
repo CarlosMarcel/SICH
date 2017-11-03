@@ -292,6 +292,7 @@ function registrar_alimento(){
 	var peso = $('#txt_peso').val();
 	var puntoReorden = $('#txt_puntoReorden').val();
 	var cantidad = $('#txt_cantidad').val();
+	var cantidadPedido = $('#txt_cantidadPedido').val();
 	var tipoMedida = $('#txt_tipoMedida').val();
 
 	if ($('#txt_nombreAlimento').val().trim() == "") {
@@ -306,6 +307,9 @@ function registrar_alimento(){
 	}else if ($('#txt_cantidad').val().trim() == "") {
 		Materialize.toast('Ingrese la cantidad!', 4000);
 		$('#txt_cantidad').focus();
+	}else if ($('#txt_cantidadPedido').val().trim() == "") {
+		Materialize.toast('Ingrese la cantidad del Pedido!', 4000);
+		$('#txt_cantidadPedido').focus();
 	}else if($('#txt_tipoMedida').val().trim() == ""){
 		Materialize.toast('Ingrese el Tipo de medida!', 4000);
 		$('#txt_tipoMedida').focus();
@@ -314,7 +318,7 @@ function registrar_alimento(){
 			type: 'POST',
 			url: 'app_core/controllers/ctr_alimentos.php',
 			data: {key: 'registrar_alimento', alimento_nombre:nombre,alimento_peso:peso,alimento_puntoReorden:puntoReorden,
-			alimento_cantidad:cantidad, alimento_tipoMedida:tipoMedida}
+			alimento_cantidad:cantidad,alimento_cantidadPedido: cantidadPedido, alimento_tipoMedida:tipoMedida}
 		}).done(function(datos){
 			Materialize.toast('Registro Alimento Exitoso!', 4000);
 			//Variables para el registro del empleado
@@ -322,6 +326,7 @@ function registrar_alimento(){
 			$('#txt_peso').val("");
 			$('#txt_puntoReorden').val("");
 			$('#txt_cantidad').val("");
+			$('#txt_cantidadPedido').val("");
 			$('#txt_tipoMedida').val("");
 		}).fail(function(jqXHR, textStatus, errorThrown){
 			Materialize.toast('Error al intentar registrar el nuevo alimento!', 4000);
@@ -371,6 +376,7 @@ function cargarDatosAlimentos(){
 		$('#txt_peso_upd').val(datos.peso);
 		$('#txt_puntoReorden_upd').val(datos.puntoReorden);
 		$('#txt_cantidad_upd').val(datos.cantidad);
+		$('#txt_cantidadPedido_upd').val(datos.cantidadPedido);
 		$('#txt_tipoMedida_upd').val(datos.tipoMedida);
 		$('select').material_select();
 	}).fail(function(jqXHR, textStatus, errorThrown){
@@ -386,6 +392,7 @@ function actualizar_alimentos(){
 	var peso = $('#txt_peso_upd').val();
 	var puntoReorden = $('#txt_puntoReorden_upd').val();
 	var cantidad = $('#txt_cantidad_upd').val();
+	var cantidadPedido = $('#txt_cantidadPedido_upd').val();
 	var tipoMedida = $('#txt_tipoMedida_upd').val();
 
 	var idAlimento = document.getElementById("combo_alimentos");
@@ -403,6 +410,9 @@ function actualizar_alimentos(){
 	}else if ($('#txt_cantidad_upd').val().trim() == "") {
 		Materialize.toast('Ingrese la cantidad!', 4000);
 		$('#txt_cantidad_upd').focus();
+	}else if ($('#txt_cantidadPedido_upd').val().trim() == "") {
+		Materialize.toast('Ingrese la cantidad del Pedido!', 4000);
+		$('#txt_cantidadPedido_upd').focus();
 	}else if($('#txt_tipoMedida_upd').val().trim() == ""){
 		Materialize.toast('Ingrese el Tipo de medida!', 4000);
 		$('#txt_tipoMedida_upd').focus();
@@ -411,7 +421,7 @@ function actualizar_alimentos(){
 			type: 'POST',
 			url: 'app_core/controllers/ctr_alimentos.php',
 			data: {key: 'actualizar_alimento', alimento_id:selectedID,alimento_nombre:nombre,alimento_peso:peso,alimento_puntoReorden:puntoReorden,
-			alimento_cantidad:cantidad, alimento_tipoMedida:tipoMedida}
+			alimento_cantidad:cantidad, alimento_cantidadPedido: cantidadPedido, alimento_tipoMedida:tipoMedida}
 		}).done(function(datos){
 			Materialize.toast('Se ha actualizado el producto exitosamente!', 4000);
 			//Variables para el registro del empleado
@@ -419,6 +429,7 @@ function actualizar_alimentos(){
 			$('#txt_peso_upd').val("");
 			$('#txt_puntoReorden_upd').val("");
 			$('#txt_cantidad_upd').val("");
+			$('#txt_cantidadPedido_upd').val("");
 			$('#txt_tipoMedida_upd').val("");
 			$("#combo_alimentos").change();
 			$('select').material_select();
@@ -446,6 +457,7 @@ function eliminar_alimento(){
 		$('#txt_peso_upd').val("");
 		$('#txt_puntoReorden_upd').val("");
 		$('#txt_cantidad_upd').val("");
+		$('#txt_cantidadPedido_upd').val("");
 		$('#txt_tipoMedida_upd').val("");
 	}).fail(function(jqXHR, textStatus, errorThrown){
 		Materialize.toast('Error al intentar eliminar el producto!', 4000);
