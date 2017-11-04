@@ -396,6 +396,18 @@ function listar_alimentos(){
 		//Error y notificacion.
 	});
 }
+function listar_tareas(){
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_empleados.php',
+		data: {listar_tareas: "lol"}
+	}).done(function(datos){
+		$("#grid_tareas").html(datos.tabla);
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+	});
+}
 
 function cargarCmbAlimentos(){
 	$.ajax({

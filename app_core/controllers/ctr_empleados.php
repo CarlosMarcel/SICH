@@ -18,6 +18,9 @@
     public function listar_empleados(){
         return $this->postdata->listar_empleados();
     }
+     public function listar_tareas(){
+        return $this->postdata->listar_tareas();
+    }
 
     public function actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario){
         return $this->postdata->actualizar_empleado($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso,$puesto,$salario,$fechaIngreso,$horario);
@@ -48,6 +51,10 @@
 
     if (isset($_GET['listar_empleados'])) {
       $ctr_Empleados->listar_empleados();
+    }
+
+    if (isset($_GET['listar_tareas'])) {
+      $ctr_Empleados->listar_tareas();
     }
 
     if (isset($_GET['cargar_empleado'])) {

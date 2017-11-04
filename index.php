@@ -105,7 +105,12 @@
    if(isset($_POST['link_consultarAlimentos'])){ 
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }
+
   if(isset($_POST['link_mantenimientoAlimentos'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+
+  if(isset($_POST['link_consultar_tareas'])){ 
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }
 
