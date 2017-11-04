@@ -95,7 +95,7 @@ if(isset($_POST['btn_logout'])){
 											<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Consultar tareas" tabindex="" type="submit"></a></li>
 										</ul>
 										<ul>
-											<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Actualizar Tareas" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_actualizarTareasEmpleado" id="link_actualizarTareasEmpleado" class="boton_link transparent" value="Actualizar Tareas" tabindex="" type="submit"></a></li>
 										</ul>
 									</div>
 								</li>
@@ -138,6 +138,10 @@ if(isset($_POST['btn_logout'])){
 
 	if(isset($_POST['link_asignarTareasEmpleado'])){ 
 		include_once(__VWS_PATH . "view_asignar_tareas.php");
+	}
+
+	if(isset($_POST['link_actualizarTareasEmpleado'])){ 
+		include_once(__VWS_PATH . "view_actualizar_tareas.php");
 	}
 
 	if(isset($_POST['link_luces'])){ 
