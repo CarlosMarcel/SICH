@@ -69,6 +69,23 @@
 		public function desactivar_empleado($cedula){
 			$this->conexion->consulta("CALL inactivarEmpleado('".$cedula."')");
 		}
+
+		public function cargar_empleados(){
+			$this->conexion->consulta("CALL cargarCmbTareas");
+			$datos="";
+			$listaDatos = array();
+
+			while ($fila = $this->conexion->extraer_registro()) {
+				$datos .= "<option value='".$fila[0]."'>".$fila[1].' '.$fila[2].' '.$fila[3]."</option>";
+			}
+
+			$listaDatos['combo']=$datos;
+			echo json_encode($listaDatos);
+		}
+
+		public function asignar_tareas($cedula,$descripcion,$fechaTarea){
+			$this->conexion->consulta("CALL insertarTarea('".$cedula."','".$descripcion."','".$fechaTarea."')");
+		}
 	}
 
 ?>

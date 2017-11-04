@@ -23,32 +23,32 @@
 					<div class="row">
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">content_paste</i>
-							<input value=" " id="txt_nombre_upd" type="text" class="validate">
+							<input placeholder="Nombre" id="txt_nombre_upd" type="text" class="validate">
 							<label class="active" for="txt_nombre_upd">Nombre</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">slow_motion_video</i>
-							<input value=" " id="txt_peso_upd" type="text" class="validate">
+							<input placeholder="Peso" id="txt_peso_upd" type="text" class="validate">
 							<label class="active" for="txt_peso_upd">Peso</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">replay_10</i>
-							<input value=" " id="txt_puntoReorden_upd" type="text" class="validate">
+							<input placeholder="Punto Reorden" id="txt_puntoReorden_upd" type="text" class="validate">
 							<label for="txt_puntoReorden_upd">Punto Reorden</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">exposure</i>
-							<input value=" " id="txt_cantidad_upd" type="text" class="validate">
+							<input placeholder="Cantidad" id="txt_cantidad_upd" type="text" class="validate">
 							<label for="txt_cantidad_upd">Cantidad</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">exposure</i>
-							<input value=" " id="txt_cantidadPedido_upd" type="text" class="validate">
+							<input placeholder="Cantidad Pedido" id="txt_cantidadPedido_upd" type="text" class="validate">
 							<label for="txt_cantidadPedido_upd">Cantidad Pedido</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">straighten</i>
-							<input value=" " id="txt_tipoMedida_upd" type="text" class="validate">
+							<input placeholder="Medida" id="txt_tipoMedida_upd" type="text" class="validate">
 							<label for="txt_tipoMedida_upd">Tipo de Medida</label>
 						</div>
 					</div>
@@ -84,9 +84,9 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    Materialize.updateTextFields();
     $('select').material_select();
     cargarCmbAlimentos();
+    Materialize.updateTextFields();
   });
   
 </script>

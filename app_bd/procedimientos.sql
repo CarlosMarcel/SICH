@@ -478,7 +478,7 @@ DELIMITER |
 		actualiza_alimentoID int(11),
 	    actualiza_alimentoNombre varchar(45),
 		actualiza_alimentoPeso varchar(45),
-		actualiza_alimentoPuntoReorden varchar(45),
+		actualiza_alimentoPuntoReorden int(11),
 		actualiza_alimentoCantidad int(11),
 		actualiza_alimentoCantidadPedido int(11),
 		actualiza_alimentotipoMedida varchar(45))

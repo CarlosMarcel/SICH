@@ -16,6 +16,7 @@
 					              <th>Peso</th>
 					              <th>Cantidad minima</th>
 					              <th>Cantidad Actual</th>
+					              <th>Cantidad Pedido</th>
 					              <th>Tipo de Medida</th>
 					          </tr>
 					        </thead>

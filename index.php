@@ -90,6 +90,10 @@
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }
 
+  if(isset($_POST['link_asignarTareasEmpleado'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+
   if(isset($_POST['link_luces'])){ 
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }

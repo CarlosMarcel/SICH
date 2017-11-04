@@ -286,6 +286,56 @@ function desactivar_empleado(cedula){
 	}
 }
 
+function cargarCmbEmpleados(){
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_empleados.php',
+		data: {cargarcmbEmpleados: "lol"}
+	}).done(function(datos){
+		$("#combo_empleados").html(datos.combo);
+		$("#combo_empleados").change();
+		$('select').material_select();
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+		Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
+	});
+}
+
+//Funcion para registrar las tareas de los empleados
+function registarTareaEmpleado(){
+	
+	Materialize.updateTextFields();
+	var descripcion = document.getElementById("txt_descripcion_tarea").value;
+	var fechaTarea = document.getElementById("dtp_fecha_tarea").value;
+
+	var idEmpleado = document.getElementById("combo_empleados");
+	var selectedID = idEmpleado.options[idEmpleado.selectedIndex].value;
+
+	if (descripcion == "") {
+		Materialize.toast('Ingrese la descripción de la tarea!', 4000);
+		$('#txt_descripcion_tarea').focus();
+	}else if (fechaTarea == "") {
+		Materialize.toast('Seleccione la fecha para asignar la tarea', 4000);
+		$('#dtp_fecha_tarea').focus();
+	}else{
+		$.ajax({
+			type: 'POST',
+			url: 'app_core/controllers/ctr_empleados.php',
+			data: {key: 'asignar_tareas', tarea_empleado_id:selectedID,tarea_empleado_descripcion:descripcion,tarea_empleado_fecha:fechaTarea}
+		}).done(function(datos){
+			Materialize.toast('Se ha registrado la nueva tarea exitosamente!', 4000);
+			//Variables para el registro del empleado
+			$('#txt_descripcion_tarea').val("");
+			$('#dtp_fecha_tarea').val("");
+			$("#combo_empleados").change();
+			$('select').material_select();
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			Materialize.toast('Error al intentar actualizar el alimento!', 4000);
+		});
+	}
+}
+
 function registrar_alimento(){
 	//Variables para el registro del alimento
 	var nombre = $('#txt_nombreAlimento').val();
@@ -388,40 +438,56 @@ function cargarDatosAlimentos(){
 //Funcion de Actualizar Alimentos
 function actualizar_alimentos(){
 	//Variables para actualizar los alimentos
-	var nombre = $('#txt_nombre_upd').val();
-	var peso = $('#txt_peso_upd').val();
-	var puntoReorden = $('#txt_puntoReorden_upd').val();
-	var cantidad = $('#txt_cantidad_upd').val();
-	var cantidadPedido = $('#txt_cantidadPedido_upd').val();
-	var tipoMedida = $('#txt_tipoMedida_upd').val();
+	Materialize.updateTextFields();
+	var nombre = document.getElementById("txt_nombre_upd").value;
+	var peso = document.getElementById("txt_peso_upd").value;
+	var puntoReorden = parseInt(document.getElementById("txt_puntoReorden_upd").value,10);
+	var cantidad = parseInt(document.getElementById("txt_cantidad_upd").value,10);
+	var cantidadPedido = parseInt(document.getElementById("txt_cantidadPedido_upd").value,10);
+	var tipoMedida = document.getElementById("txt_tipoMedida_upd").value;
 
 	var idAlimento = document.getElementById("combo_alimentos");
 	var selectedID = idAlimento.options[idAlimento.selectedIndex].value;
 
-	if ($('#txt_nombre_upd').val().trim() == "") {
+	if (nombre == "") {
 		Materialize.toast('Ingrese el nombre de alimento!', 4000);
 		$('#txt_nombre_upd').focus();
-	}else if ($('#txt_peso_upd').val().trim() == "") {
+	}else if (peso == "") {
 		Materialize.toast('Ingrese el peso!', 4000);
 		$('#txt_peso_upd').focus();
-	}else if ($('#txt_puntoReorden_upd').val().trim() == "") {
+	}else if (puntoReorden == "") {
 		Materialize.toast('Ingrese el punto de reorden!', 4000);
 		$('#txt_puntoReorden_upd').focus();
-	}else if ($('#txt_cantidad_upd').val().trim() == "") {
+	}else if (cantidad == "") {
 		Materialize.toast('Ingrese la cantidad!', 4000);
 		$('#txt_cantidad_upd').focus();
-	}else if ($('#txt_cantidadPedido_upd').val().trim() == "") {
+	}else if (cantidadPedido == "") {
 		Materialize.toast('Ingrese la cantidad del Pedido!', 4000);
 		$('#txt_cantidadPedido_upd').focus();
-	}else if($('#txt_tipoMedida_upd').val().trim() == ""){
+	}else if(tipoMedida == ""){
 		Materialize.toast('Ingrese el Tipo de medida!', 4000);
 		$('#txt_tipoMedida_upd').focus();
+		Materialize.updateTextFields();
+	}else if(puntoReorden == 0){
+		Materialize.toast('El punto de reorden no puede ser cero!', 4000);
+		$('#txt_puntoReorden_upd').focus();
+		Materialize.updateTextFields();
+	}else if(cantidadPedido == 0){
+		Materialize.toast('La cantidad del pedido debe ser mayor a cero!', 4000);
+		$('#txt_cantidadPedido_upd').focus();
+		Materialize.updateTextFields();
+	}else if(cantidadPedido <= puntoReorden){
+		Materialize.toast('La cantidad del pedido debe ser mayor al del Punto de Reorden!', 4000);
+		$('#txt_cantidadPedido_upd').focus();
+		Materialize.updateTextFields();
 	}else{
+
 		if(cantidad <= puntoReorden)
 		{
 			cantidad = cantidadPedido;
 			Materialize.toast('Se ha realizado el pedido del producto al supermercado!', 4000);
 		}
+
 		$.ajax({
 			type: 'POST',
 			url: 'app_core/controllers/ctr_alimentos.php',

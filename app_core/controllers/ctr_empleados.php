@@ -30,6 +30,14 @@
     public function desactivar_empleado($ced){
         return $this->postdata->desactivar_empleado($ced);
     }
+
+    public function cargar_empleados(){
+        return $this->postdata->cargar_empleados();
+    }
+
+    public function asignar_tareas($cedula,$descripcion,$fechaTarea){
+      return $this->postdata->asignar_tareas($cedula,$descripcion,$fechaTarea);
+    }
   }
 
   $ctr_Empleados = new ctr_Empleados();
@@ -44,6 +52,10 @@
 
     if (isset($_GET['cargar_empleado'])) {
       $ctr_Empleados->buscar_empleado($_GET['cargar_empleado']);
+    }
+
+    if (isset($_GET['cargarcmbEmpleados'])) {
+      $ctr_Empleados->cargar_empleados();
     }
 
   //Keys de los distintos eventos POST.
@@ -86,6 +98,13 @@
     if($_POST['key']=='desactivar_empleado'){
       $cedula = $_POST['cedula_empleado'];
       $ctr_Empleados->desactivar_empleado($cedula);
+    }
+
+    if($_POST['key']=='asignar_tareas'){
+      $cedula = $_POST['tarea_empleado_id'];
+      $descripcion = $_POST['tarea_empleado_descripcion'];
+      $fechaTarea = $_POST['tarea_empleado_fecha'];
+      $ctr_Empleados->asignar_tareas($cedula,$descripcion,$fechaTarea);
     }
   }
 ?>
