@@ -251,6 +251,17 @@ DELIMITER |
     END |
 DELIMITER ;
 -------------------------------------------------------------
+DROP PROCEDURE if exists consultaTareaXFechayEmpleado;
+DELIMITER |
+	CREATE PROCEDURE consultaTareaXFechayEmpleado(
+		tareacedulaPersona int (11))
+	BEGIN		
+		SELECT tbl_empleado.cedulaPersona, descripcion, estadoTarea, fecha
+        FROM tbl_tareas inner join tbl_empleado on tbl_tareas.cedulaPersona = tbl_empleado.cedulaPersona 
+        WHERE tbl_tareas.estado ='A' AND tbl_tareas.cedulaPersona = tareacedulaPersona AND tbl_tareas.fecha = CURDATE() GROUP BY fecha;
+    END |
+DELIMITER ;
+-------------------------------------------------------------
 DROP PROCEDURE if exists cargarCmbTareas;
 DELIMITER |
 	CREATE PROCEDURE cargarCmbTareas()

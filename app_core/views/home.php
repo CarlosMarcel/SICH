@@ -197,7 +197,6 @@ if(isset($_POST['btn_logout'])){
 						<div class="card-panel">
 							<div class="wrap">
 								<div class="widget">
-
 								</div>
 							</div>
 						</div>
