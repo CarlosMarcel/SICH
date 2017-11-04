@@ -82,6 +82,7 @@ if(isset($_POST['btn_logout'])){
 											<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Registar Empleados" tabindex="" type="submit"></a></li>
 											<li><a href=""><input name="link_consultarEmpleado" id="link_consultarEmpleado" class="boton_link transparent" value="Consultar Empleados" tabindex="" type="submit"></a></li>
 											<li><a href=""><input name="link_mantenimientoEmpleado" id="link_mantenimientoEmpleado" class="boton_link transparent" value="Mantenimiento Empleados" tabindex="" type="submit"></a></li>
+											<li><div class="divider"></div></li>
 											<li><a href=""><input name="link_asignarTareasEmpleado" id="link_asignarTareasEmpleado" class="boton_link transparent" value="Asignar Tareas" tabindex="" type="submit"></a></li>
 											<li><a href=""><input name="link_consultar_tareas" id="link_consultar_tareas" class="boton_link transparent" value="Consultar Tareas" tabindex="" type="submit"></a></li>
 										</ul>
