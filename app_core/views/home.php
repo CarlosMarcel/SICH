@@ -72,6 +72,7 @@ if(isset($_POST['btn_logout'])){
 									<div class="collapsible-body">
 										<ul>
 											<li><a href=""><input name="link_luces" id="link_luces" class="boton_link transparent" value="Luces" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_consultar_tareas" id="link_consultar_tareas" class="boton_link transparent" value="Consultar Tareas" tabindex="" type="submit"></a></li>
 										</ul>
 									</div>
 								</li>
@@ -146,6 +147,9 @@ if(isset($_POST['btn_logout'])){
 
 	if(isset($_POST['link_mantenimientoAlimentos'])){ 
 		include_once(__VWS_PATH . "view_mantenimiento_alimentos.php");
+	}
+	if(isset($_POST['link_consultar_tareas'])){ 
+		include_once(__VWS_PATH . "view_consultar_tareas.php");
 	}
 
 	?>

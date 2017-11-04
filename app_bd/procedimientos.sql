@@ -234,8 +234,9 @@ DELIMITER |
 	CREATE PROCEDURE consultarTareas()
   
 	BEGIN		
-		SELECT cedulaPersona, descripcion, fecha, estadoTarea
-		FROM tbl_tareas;
+		SELECT tbl_tareas.fecha, tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2,tbl_tareas.descripcion,tbl_tareas.estadoTarea
+		FROM tbl_persona inner join tbl_tareas on tbl_tareas.cedulaPersona = tbl_persona.cedulaPersona
+		WHERE tbl_tareas.estado ='A'  ORDER BY fecha ASC;
 	END |
 DELIMITER ;
 ---------------------------------------------------------------
@@ -248,6 +249,17 @@ DELIMITER |
         FROM tbl_tareas inner join tbl_empleado on tbl_tareas.cedulaPersona = tbl_empleado.cedulaPersona 
         WHERE tbl_tareas.estado ='A' AND tbl_tareas.cedulaPersona = tareacedulaPersona GROUP BY fecha;
     END |
+DELIMITER ;
+-------------------------------------------------------------
+DROP PROCEDURE if exists cargarCmbTareas;
+DELIMITER |
+	CREATE PROCEDURE cargarCmbTareas()
+  
+	BEGIN		
+		SELECT tbl_persona.cedulaPersona , tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2
+		FROM tbl_persona inner join tbl_tareas on tbl_tareas.cedulaPersona = tbl_persona.cedulaPersona 
+		WHERE tbl_tareas.estado = 'A'  GROUP BY tbl_tareas.fecha;
+	END |
 DELIMITER ;
 
 
@@ -523,4 +535,4 @@ DELIMITER |
 		UPDATE tbl_alimentos set estado = 'I' WHERE tbl_alimentos.idAlimentos = eliminar_idAlimentos;
 	END |
 DELIMITER ;
-----------------
+--------------------------------------------------
