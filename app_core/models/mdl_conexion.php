@@ -44,6 +44,11 @@
 
 			echo mysqli_error($this->conexion);
 		}
+
+		public function disconnect()
+		{
+			mysqli_close($this->conexion);
+		}
 	}
 ?>
 

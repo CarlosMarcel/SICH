@@ -99,6 +99,37 @@
 		public function asignar_tareas($cedula,$descripcion,$fechaTarea){
 			$this->conexion->consulta("CALL insertarTarea('".$cedula."','".$descripcion."','".$fechaTarea."')");
 		}
+
+		public function obtener_tareas_hoy($cedula){
+			$this->conexion->consulta("CALL consultaTareaXFechayEmpleado('".$cedula."')");
+			$datos = "";
+			$listaDatos = array();
+			$listaDatos['numeroTareas'] = 0;
+			while($fila = $this->conexion->extraer_registro()){
+				$listaDatos['numeroTareas'] = 1;
+
+				if($fila[3]=="Completa"){
+					$datos .= "<tr><td><input type='checkbox' id='$fila[1]' onclick='eventoCheckBoxTarea($fila[1], this)' class='filled-in' checked='checked' /><label  for='$fila[1]'></label></td><td>$fila[2]</td><td>$fila[3]</td></tr>";
+				}else{
+					$datos .= "<tr><td><input type='checkbox' id='$fila[1]' onclick='eventoCheckBoxTarea($fila[1], this)' class='filled-in' /><label  for='$fila[1]'></label></td><td>$fila[2]</td><td>$fila[3]</td></tr>";
+				}
+				
+			}
+
+			$listaDatos['tabla']=$datos;
+
+
+			echo json_encode($listaDatos);
+		}
+
+		public function actualizar_tarea_C($id){
+			$this->conexion->consulta("UPDATE tbl_tareas SET estadoTarea = 'Completa' WHERE tbl_tareas.tareas_id = ". $id);
+		}
+
+		public function actualizar_tarea_I($id){
+			$this->conexion->consulta("UPDATE tbl_tareas SET estadoTarea = 'Incompleta' WHERE tbl_tareas.tareas_id = ". $id);
+		}
+
 	}
 
 ?>

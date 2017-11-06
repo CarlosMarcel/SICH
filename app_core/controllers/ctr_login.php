@@ -59,6 +59,10 @@
 				$_SESSION['SICH_HOGAR']="NO";
 				echo "<script>Materialize.toast('Datos incorrectos!', 4000);</script>";
 			}
+
+			if($_SESSION['SICH_HOGAR']=="YES"){
+				$this->login_exec->log_bitacora($cedula);
+			}
 		}
 
 		function btn_logout_click(){

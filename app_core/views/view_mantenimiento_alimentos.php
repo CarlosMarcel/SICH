@@ -21,15 +21,10 @@
 						<h5 class="center-align">DATOS DEL PRODUCTO</h5>
 					</div>
 					<div class="row">
-						<div class="input-field col s12 m12 l6">
+						<div class="input-field col s12 m12 l12">
 							<i class="material-icons prefix">content_paste</i>
 							<input placeholder="Nombre" id="txt_nombre_upd" type="text" class="validate">
 							<label class="active" for="txt_nombre_upd">Nombre</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">slow_motion_video</i>
-							<input placeholder="Peso" id="txt_peso_upd" type="text" class="validate">
-							<label class="active" for="txt_peso_upd">Peso</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">replay_10</i>

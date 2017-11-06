@@ -41,6 +41,18 @@
     public function asignar_tareas($cedula,$descripcion,$fechaTarea){
       return $this->postdata->asignar_tareas($cedula,$descripcion,$fechaTarea);
     }
+
+    public function cargar_tareas_hoy($ced){
+        return $this->postdata->obtener_tareas_hoy($ced);
+    }
+
+    public function actualizar_tarea_C($id){
+        return $this->postdata->actualizar_tarea_C($id);
+    }
+
+    public function actualizar_tarea_I($id){
+        return $this->postdata->actualizar_tarea_I($id);
+    }
   }
 
   $ctr_Empleados = new ctr_Empleados();
@@ -63,6 +75,10 @@
 
     if (isset($_GET['cargarcmbEmpleados'])) {
       $ctr_Empleados->cargar_empleados();
+    }
+
+    if (isset($_GET['cargarMisTareas'])) {
+      $ctr_Empleados->cargar_tareas_hoy($_GET['cargarMisTareas']);
     }
 
   //Keys de los distintos eventos POST.
@@ -112,6 +128,16 @@
       $descripcion = $_POST['tarea_empleado_descripcion'];
       $fechaTarea = $_POST['tarea_empleado_fecha'];
       $ctr_Empleados->asignar_tareas($cedula,$descripcion,$fechaTarea);
+    }
+
+    if($_POST['key']=='update_tarea_C'){
+      $id = $_POST['ID'];
+      $ctr_Empleados->actualizar_tarea_C($id);
+    }
+
+    if($_POST['key']=='update_tarea_I'){
+      $id = $_POST['ID'];
+      $ctr_Empleados->actualizar_tarea_I($id);
     }
   }
 ?>

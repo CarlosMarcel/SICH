@@ -9,15 +9,10 @@
 			<div class="row">
 				<form class="col s12" name="frm_registro_alimento" method="post">
 					<div class="row">
-						<div class="input-field col s12 m12 l6">
+						<div class="input-field col s12 m12 l12">
 							<i class="material-icons prefix">content_paste</i>
 							<input id="txt_nombreAlimento" type="text" class="validate">
 							<label for="txt_nombreAlimento">Nombre Alimento</label>
-						</div>
-						<div class="input-field col s12 m12 l6">
-							<i class="material-icons prefix">slow_motion_video</i>
-							<input id="txt_peso" type="text" class="validate">
-							<label for="txt_peso">Peso</label>
 						</div>
 						<div class="input-field col s12 m12 l6">
 							<i class="material-icons prefix">replay_10</i>

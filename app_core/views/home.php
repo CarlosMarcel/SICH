@@ -13,7 +13,7 @@ if(isset($_POST['btn_logout'])){
 <header>
 	<!-- Barra de Navegacion -->
 	<div class="navbar-fixed ">
-		<nav>
+		<nav class="gradient-45deg-indigo-blue">
 			<div class="container">
 				<div class=""><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a></div>
 				<div class="nav-wrapper">
@@ -37,9 +37,9 @@ if(isset($_POST['btn_logout'])){
 			<li>
 				<div class="card">
 					<div class="card-image">
-						<img class="responsive-img" src="app_design/img/panel.jpg">
+						<img class="responsive-img" src="app_design/img/panel-3.jpg">
 						<div class="card-title">
-							<span class="name"><?php echo $_SESSION['NOMBRE']." ".$_SESSION['APELLIDO1']." ".$_SESSION['APELLIDO2'];?></span>
+							<span class="name"><?php echo $_SESSION['NOMBRE']." ".$_SESSION['APELLIDO1']." ".$_SESSION['APELLIDO2'];?></span><br>
 							<span class="email"><?php echo $_SESSION['CORREO'];?></span>
 						</div>
 					</div>
@@ -91,9 +91,6 @@ if(isset($_POST['btn_logout'])){
 							<?php else : ?>
 								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Mis Tareas<i class="material-icons"><i class="material-icons">assignment</i></i></a>
 									<div class="collapsible-body">
-										<ul>
-											<li><a href=""><input name="link_registarEmpleado" id="link_registarEmpleado" class="boton_link transparent" value="Consultar tareas" tabindex="" type="submit"></a></li>
-										</ul>
 										<ul>
 											<li><a href=""><input name="link_actualizarTareasEmpleado" id="link_actualizarTareasEmpleado" class="boton_link transparent" value="Actualizar Tareas" tabindex="" type="submit"></a></li>
 										</ul>
@@ -167,9 +164,6 @@ if(isset($_POST['btn_logout'])){
 	<div id="vistas">
 		<div class="container">
 			<div class="row">
-				<div class="row">
-					<h5 class="center-align">Bienvenido</h5>
-				</div>
 				<div class="row center-align">
 					<div class="col s12 l6 m6 ">
 						<div class="card-panel">

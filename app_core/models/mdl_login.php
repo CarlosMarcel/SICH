@@ -84,6 +84,12 @@
 			}else{
 				$this->conn_status = false;
 			}
+			$this->conexion->disconnect();
+		}
+
+		public function log_bitacora($ced){
+			$this->conexion->consulta("CALL insertarPersonaBitacora('".$ced."')");
+			$this->conexion->disconnect();
 		}
 
 		public function logout(){

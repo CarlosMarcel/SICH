@@ -7,13 +7,12 @@
 			</div>
 			
 			<div class="row">
-				<form class="col s12" name="frm_registro_empleado" method="post">
+				<form class="col s12" name="frm_consultar_alimentos" method="post">
 					<div class="row">
 						<table class="striped">
 					        <thead>
 					          <tr>
 					              <th>Nombre</th>
-					              <th>Peso</th>
 					              <th>Cantidad minima</th>
 					              <th>Cantidad Actual</th>
 					              <th>Cantidad Pedido</th>

@@ -291,14 +291,14 @@ function cargarCmbEmpleados(){
 		type: 'GET',
 		dataType: "json",
 		url: 'app_core/controllers/ctr_empleados.php',
-		data: {cargarcmbEmpleados: "lol"}
+		data: {cargarcmbEmpleados: "info"}
 	}).done(function(datos){
 		$("#combo_empleados").html(datos.combo);
 		$("#combo_empleados").change();
 		$('select').material_select();
 	}).fail(function(jqXHR, textStatus, errorThrown){
 		//Error y notificacion.
-		Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
+		Materialize.toast('Error al intentar cargar el combo de empleados!', 4000);
 	});
 }
 
@@ -336,10 +336,82 @@ function registarTareaEmpleado(){
 	}
 }
 
+function cargar_mis_tareas_hoy(){
+	var cedula = $('#empleado_cedula').text();
+	if(cedula == ""){
+		Materialize.toast('Se ha producido un error, imposible cargar tareas del empleado', 4000);
+	}else{
+		$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_empleados.php',
+		data: {cargarMisTareas: cedula}
+		}).done(function(datos){
+			if(datos.numeroTareas > 0){
+				$('#tabla_tareas').empty();
+				$("#tabla_tareas").html(datos.tabla); //Carga los datos en la tabla.
+			}else{
+				Materialize.toast("Usted no tiene tareas para el día de Hoy!", 4000);
+			}
+			
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			//Error y notificacion.
+			Materialize.toast('Error al intentar cargar las tareas del empleado!', 4000);
+		});
+	}
+}
+
+function eventoCheckBoxTarea(id, check){
+	if (check.checked) {
+		actualizar_estado_tarea_C(id);
+	}else{
+		actualizar_estado_tarea_I(id);
+	}
+
+	
+}
+
+function actualizar_estado_tarea_C(id){
+	$.ajax({
+		type: 'POST',
+		url: 'app_core/controllers/ctr_empleados.php',
+		data: {key: 'update_tarea_C', ID: id}
+	}).done(function(datos){
+		Materialize.toast('La tarea se ha actualizado exitosamente!', 2000);
+		cargar_mis_tareas_hoy();
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+	});
+}
+
+function actualizar_estado_tarea_I(id){
+	$.ajax({
+		type: 'POST',
+		url: 'app_core/controllers/ctr_empleados.php',
+		data: {key: 'update_tarea_I', ID: id}
+	}).done(function(datos){
+		Materialize.toast('La tarea se ha actualizado exitosamente!', 2000);
+		cargar_mis_tareas_hoy();
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+	});
+}
+
+/*function inactivarAsistencia(ced){
+	$.ajax({
+		type: 'POST',
+		url: 'app_core/controllers/ctr_controlador_tutor.php',
+		data: {key: 'inactivarAsistencia', cedulaE: ced, cedulaTutor: $('#user_cedula').text(), fechaRegistro: $('#fecha_actual').text()}
+	}).done(function(datos){
+		Materialize.toast('Desactivado', 4000);
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+	});
+}*/
+
 function registrar_alimento(){
 	//Variables para el registro del alimento
 	var nombre = $('#txt_nombreAlimento').val();
-	var peso = $('#txt_peso').val();
 	var puntoReorden = $('#txt_puntoReorden').val();
 	var cantidad = $('#txt_cantidad').val();
 	var cantidadPedido = $('#txt_cantidadPedido').val();
@@ -348,9 +420,6 @@ function registrar_alimento(){
 	if ($('#txt_nombreAlimento').val().trim() == "") {
 		Materialize.toast('Ingrese el nombre de alimento!', 4000);
 		$('#txt_nombreAlimento').focus();
-	}else if ($('#txt_peso').val().trim() == "") {
-		Materialize.toast('Ingrese el peso!', 4000);
-		$('#txt_peso').focus();
 	}else if ($('#txt_puntoReorden').val().trim() == "") {
 		Materialize.toast('Ingrese el punto de reorden!', 4000);
 		$('#txt_puntoReorden').focus();
@@ -367,13 +436,12 @@ function registrar_alimento(){
 		$.ajax({
 			type: 'POST',
 			url: 'app_core/controllers/ctr_alimentos.php',
-			data: {key: 'registrar_alimento', alimento_nombre:nombre,alimento_peso:peso,alimento_puntoReorden:puntoReorden,
+			data: {key: 'registrar_alimento', alimento_nombre:nombre,alimento_puntoReorden:puntoReorden,
 			alimento_cantidad:cantidad,alimento_cantidadPedido: cantidadPedido, alimento_tipoMedida:tipoMedida}
 		}).done(function(datos){
 			Materialize.toast('Registro Alimento Exitoso!', 4000);
 			//Variables para el registro del empleado
 			$('#txt_nombreAlimento').val("");
-			$('#txt_peso').val("");
 			$('#txt_puntoReorden').val("");
 			$('#txt_cantidad').val("");
 			$('#txt_cantidadPedido').val("");
@@ -389,7 +457,7 @@ function listar_alimentos(){
 		type: 'GET',
 		dataType: "json",
 		url: 'app_core/controllers/ctr_alimentos.php',
-		data: {listar_alimentos: "lol"}
+		data: {listar_alimentos: "info"}
 	}).done(function(datos){
 		$("#grid_alimentos").html(datos.tabla);
 	}).fail(function(jqXHR, textStatus, errorThrown){
@@ -401,7 +469,7 @@ function listar_tareas(){
 		type: 'GET',
 		dataType: "json",
 		url: 'app_core/controllers/ctr_empleados.php',
-		data: {listar_tareas: "lol"}
+		data: {listar_tareas: "info"}
 	}).done(function(datos){
 		$("#grid_tareas").html(datos.tabla);
 	}).fail(function(jqXHR, textStatus, errorThrown){
@@ -435,7 +503,6 @@ function cargarDatosAlimentos(){
 		data: {cargarDatosAlimentos: selectedID}
 	}).done(function(datos){
 		$('#txt_nombre_upd').val(datos.nombre);
-		$('#txt_peso_upd').val(datos.peso);
 		$('#txt_puntoReorden_upd').val(datos.puntoReorden);
 		$('#txt_cantidad_upd').val(datos.cantidad);
 		$('#txt_cantidadPedido_upd').val(datos.cantidadPedido);
@@ -452,7 +519,6 @@ function actualizar_alimentos(){
 	//Variables para actualizar los alimentos
 	Materialize.updateTextFields();
 	var nombre = document.getElementById("txt_nombre_upd").value;
-	var peso = document.getElementById("txt_peso_upd").value;
 	var puntoReorden = parseInt(document.getElementById("txt_puntoReorden_upd").value,10);
 	var cantidad = parseInt(document.getElementById("txt_cantidad_upd").value,10);
 	var cantidadPedido = parseInt(document.getElementById("txt_cantidadPedido_upd").value,10);
@@ -464,9 +530,6 @@ function actualizar_alimentos(){
 	if (nombre == "") {
 		Materialize.toast('Ingrese el nombre de alimento!', 4000);
 		$('#txt_nombre_upd').focus();
-	}else if (peso == "") {
-		Materialize.toast('Ingrese el peso!', 4000);
-		$('#txt_peso_upd').focus();
 	}else if (puntoReorden == "") {
 		Materialize.toast('Ingrese el punto de reorden!', 4000);
 		$('#txt_puntoReorden_upd').focus();
@@ -503,13 +566,12 @@ function actualizar_alimentos(){
 		$.ajax({
 			type: 'POST',
 			url: 'app_core/controllers/ctr_alimentos.php',
-			data: {key: 'actualizar_alimento', alimento_id:selectedID,alimento_nombre:nombre,alimento_peso:peso,alimento_puntoReorden:puntoReorden,
+			data: {key: 'actualizar_alimento', alimento_id:selectedID,alimento_nombre:nombre,alimento_puntoReorden:puntoReorden,
 			alimento_cantidad:cantidad, alimento_cantidadPedido: cantidadPedido, alimento_tipoMedida:tipoMedida}
 		}).done(function(datos){
 			Materialize.toast('Se ha actualizado el producto exitosamente!', 8000);
 			//Variables para el registro del empleado
 			$('#txt_nombre_upd').val("");
-			$('#txt_peso_upd').val("");
 			$('#txt_puntoReorden_upd').val("");
 			$('#txt_cantidad_upd').val("");
 			$('#txt_cantidadPedido_upd').val("");
@@ -660,9 +722,9 @@ function mostrar_lista_estudiantes(idTaller){
 
 function eventoCheckBox(ced, check){
 	if (check.checked) {
-		insertarAsistencia(ced);
+		//insertarAsistencia(ced);
 	}else{
-		inactivarAsistencia(ced)
+		//inactivarAsistencia(ced)
 	}
 }
 

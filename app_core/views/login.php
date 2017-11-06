@@ -6,7 +6,7 @@ $ctr_Login=new ctr_Login();
 <div id="login">
 
   <div class="navbar-fixed ">
-    <nav>
+    <nav class="gradient-45deg-indigo-blue">
       <div class="container">
         <div class="nav-wrapper">
           <a href="" class="brand-logo">SICH</a>

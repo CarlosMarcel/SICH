@@ -10,12 +10,12 @@
 			$this->conexion = new mdl_Conexion();	   
 		}
 
-		public function insertar_alimento($nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida){
-			$this->conexion->consulta("CALL insertarAlimento('".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$cantidadPedido."','".$tipoMedida."')");
+		public function insertar_alimento($nombre,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida){
+			$this->conexion->consulta("CALL insertarAlimento('".$nombre."','".$puntoReorden."','".$cantidad."','".$cantidadPedido."','".$tipoMedida."')");
 		}
 
-		public function actualizar_alimento($id,$nombre,$peso,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida){
-			$this->conexion->consulta("CALL modificarAlimento('".$id."','".$nombre."','".$peso."','".$puntoReorden."','".$cantidad."','".$cantidadPedido."','".$tipoMedida."')");
+		public function actualizar_alimento($id,$nombre,$puntoReorden,$cantidad,$cantidadPedido,$tipoMedida){
+			$this->conexion->consulta("CALL modificarAlimento('".$id."','".$nombre."','".$puntoReorden."','".$cantidad."','".$cantidadPedido."','".$tipoMedida."')");
 		}
 
 		public function cargar_datos_alimentos($id){
@@ -23,20 +23,10 @@
 			$listaDatos = array();
 			while($fila = $this->conexion->extraer_registro()){
 				$listaDatos['nombre'] = $fila[0];
-				$listaDatos['peso'] = $fila[1];
-				$listaDatos['puntoReorden'] = $fila[2];
-				$listaDatos['cantidad'] = $fila[3];
-				$listaDatos['cantidadPedido'] = $fila[4];
-				$listaDatos['tipoMedida'] = $fila[5];
-			}
-			echo json_encode($listaDatos);
-		}
-		public function comprobar_Alimento($ced){
-			$this->conexion->consulta("SELECT nombre FROM tbl_alimentos WHERE nombre = ". $ced);
-			$listaDatos = array();
-			$listaDatos['valor'] = 0;
-			while($fila = $this->conexion->extraer_registro()){
-				$listaDatos['valor'] = 1;
+				$listaDatos['puntoReorden'] = $fila[1];
+				$listaDatos['cantidad'] = $fila[2];
+				$listaDatos['cantidadPedido'] = $fila[3];
+				$listaDatos['tipoMedida'] = $fila[4];
 			}
 			echo json_encode($listaDatos);
 		}
@@ -47,7 +37,7 @@
 			$listaDatos = array();
 
 			while ($fila = $this->conexion->extraer_registro()) {
-				$datos.= "<tr><td>$fila[0]</td><td>$fila[1]</td><td>$fila[2]</td><td>$fila[3]</td><td>$fila[4]</td><td>$fila[5]</td></tr>";
+				$datos.= "<tr><td>$fila[0]</td><td>$fila[1]</td><td>$fila[2]</td><td>$fila[3]</td><td>$fila[4]</td></tr>";
 			}
 
 			$listaDatos['tabla']=$datos;
