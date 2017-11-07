@@ -44,6 +44,15 @@ nav{
 
 }
 
+ #icon i{
+  font-size: 8rem;
+  color: #000;
+ }
+
+ #title_card p{
+font-weight: 800;
+ }
+
 .wrap {
   width: 100%;
   
@@ -56,6 +65,7 @@ nav{
 
 .fecha {
   font-family: Oswald, Arial;
+  color: #fff;
   text-align: center;
   font-size: 1.5em;
   margin-bottom: 0.3125rem;
@@ -66,6 +76,7 @@ nav{
 }
 
 .reloj {
+  color: #fff;
   font-family: Oswald, Arial;
   padding: 20px;
   width: 100%;
@@ -79,6 +90,14 @@ nav{
   width: 100%;
 
 }
+
+.card-panel-widget{
+  
+  border-radius: 4px;
+  width: 100%;
+
+}
+
 .reloj .caja-segundos {
   display: inline-block;
 }

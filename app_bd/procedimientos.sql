@@ -1,4 +1,4 @@
--- --------------------------------------------
+c-- --------------------------------------------
 -- Procedimiento almacenado para LOGIN 
 -- --------------------------------------------
 DROP PROCEDURE if exists loginSICH;
@@ -101,6 +101,17 @@ DELIMITER |
         WHERE estado='A' AND tbl_persona.cedulaPersona = personaCedula group by personaCedula;
 	
     END |
+DELIMITER ;
+----------------------------------------------------------
+DROP PROCEDURE if exists consultarPersonasUsuarios;
+DELIMITER |
+	CREATE PROCEDURE consultarPersonasUsuarios()
+  
+	BEGIN		
+		SELECT cedulaPersona, nombre, apellido, apellido2, telefono, correo, fechaNacimiento, direccion, codigoAcceso
+		FROM tbl_persona 
+		WHERE tbl_persona.estado ='A' and tbl_persona.tipoRol = 'Usuarios'  GROUP BY nombre ;
+	END |
 DELIMITER ;
 
 
