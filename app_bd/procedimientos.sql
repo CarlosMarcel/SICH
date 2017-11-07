@@ -91,14 +91,11 @@ DELIMITER ;
 DROP PROCEDURE if exists personasXcedula;
 DELIMITER |
 	CREATE PROCEDURE personasXcedula(
-		personaCedula int(11),
-		personaNombre varchar(45),
-		personaApellido varchar(45),
-		personaApellido2 varchar(45))
+		personaCedula int(11))
 	BEGIN		
-		SELECT *
+		SELECT nombre, apellido, apellido2, telefono, correo, fechaNacimiento, codigoAcceso
         FROM tbl_persona 
-        WHERE estado='A' AND tbl_persona.cedulaPersona = personaCedula group by personaCedula;
+        WHERE estado='A' and tbl_persona.cedulaPersona = personaCedula;
 	
     END |
 DELIMITER ;
@@ -111,6 +108,18 @@ DELIMITER |
 		SELECT cedulaPersona, nombre, apellido, apellido2, telefono, correo, fechaNacimiento, direccion, codigoAcceso
 		FROM tbl_persona 
 		WHERE tbl_persona.estado ='A' and tbl_persona.tipoRol = 'Usuarios'  GROUP BY nombre ;
+	END |
+DELIMITER ;
+-------------------------------------------------------------
+
+DROP PROCEDURE if exists cargarCmbPersonasUsuarios;
+DELIMITER |
+	CREATE PROCEDURE cargarCmbPersonasUsuarios()
+  
+	BEGIN		
+		SELECT tbl_persona.cedulaPersona , tbl_persona.nombre, tbl_persona.apellido, tbl_persona.apellido2
+		FROM tbl_persona  
+		WHERE tbl_persona.estado = 'A' and tbl_persona.tipoRol = 'Usuarios' ;
 	END |
 DELIMITER ;
 

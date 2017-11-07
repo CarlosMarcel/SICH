@@ -210,19 +210,14 @@ if(isset($_POST['btn_logout'])){
 								<div class="widget">
 									<div class="row">
 										<div class="col s12 m12">
-											<div class="card">
-												<div class="card-image">
-													<img src="app_design/img/panel-2.jpg">
-													<span class="card-title">Card Title</span>
-												</div>
-												<div class="card-content" id="title_card">
-													<p class="center-align">I am a very simple card. I am good at containing small bits of information.
-													I am convenient because I require little markup to use effectively.</p>
-												</div>
-												<div class="card-action">
-													<a href="#">This is a link</a>
-												</div>
-											</div>
+											<div class="card-panel weather-card-static blue-grey lighten-1 white-text">
+  <div class="row">
+    <div class="temp col s7">-3°C <span class="alt">27°F</span></div>
+    <div class="city col s5"><i class="material-icons center-align" ></i> Costa Rica</div>
+  </div>
+  <div class="icon"><i class="wi wi-cloud"></i></div>cloud
+  <div class="currently">Cloudy</div>
+</div>
 										</div>
 									</div>
 								</div>
