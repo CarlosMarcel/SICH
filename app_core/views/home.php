@@ -179,7 +179,7 @@ if(isset($_POST['btn_logout'])){
 			<div class="row">
 				<div class="row center-align">
 					<div class="col s12 l6 m6 ">
-						<div class="card-panel-widget gradient-45deg-indigo-light-blue">
+						<div class="card-panel-widget gradient-45deg-indigo-light-blue z-depth-1">
 							<div class="wrap">
 								<div class="widget">
 									<div class="fecha">

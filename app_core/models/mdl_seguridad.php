@@ -21,7 +21,11 @@
 		}
 
 		public function insertar_persona($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso){
-			$this->conexion->consulta("CALL ('".$cedula."','".$nombre."','".$ap1."','".$ap2."','".$tel."','".$correo."','".$fechaNacimiento."','".$direccion."','".$codigoAcceso."','Usuarios')");
+			$this->conexion->consulta("CALL insertarPersona('".$cedula."','".$nombre."','".$ap1."','".$ap2."','".$tel."','".$correo."','".$fechaNacimiento."','".$direccion."','".$codigoAcceso."','Usuarios')");
+		}
+
+		public function actualizar_persona($cedula,$nombre,$ap1,$ap2,$tel,$correo,$fechaNacimiento,$direccion,$codigoAcceso){
+			$this->conexion->consulta("CALL modificarPersona('".$cedula."','".$nombre."','".$ap1."','".$ap2."','".$tel."','".$correo."','".$fechaNacimiento."','".$direccion."','".$codigoAcceso."','Usuarios')");
 		}
 
 		public function listar_autorizados(){
@@ -35,6 +39,39 @@
 
 			$listaDatos['tabla']=$datos;
 			echo json_encode($listaDatos);
+		}
+
+		public function cargar_cmb_personas(){
+			$this->conexion->consulta("CALL cargarCmbPersonasUsuarios");
+			$datos="";
+			$listaDatos = array();
+
+			while ($fila = $this->conexion->extraer_registro()) {
+				$datos .= "<option value='".$fila[0]."'>".$fila[1].' '.$fila[2].' '.$fila[3]."</option>";
+			}
+
+			$listaDatos['combo']=$datos;
+			echo json_encode($listaDatos);
+		}
+
+		public function cargar_datos_autorizado($ced){
+			$this->conexion->consulta("CALL personasXcedula('".$ced."')");
+			$listaDatos = array();
+			while($fila = $this->conexion->extraer_registro()){
+				$listaDatos['nombre'] = $fila[0];
+				$listaDatos['ap1'] = $fila[1];
+				$listaDatos['ap2'] = $fila[2];
+				$listaDatos['telefono'] = $fila[3];
+				$listaDatos['correo'] = $fila[4];
+				$listaDatos['fechaNacimiento'] = $fila[5];
+				$listaDatos['direccion'] = $fila[6];
+				$listaDatos['codigoAcceso'] = $fila[7];
+			}
+			echo json_encode($listaDatos);
+		}
+
+		public function eliminar_persona($id){
+			$this->conexion->consulta("CALL inactivarPersona('".$id."')");
 		}
 	}
 

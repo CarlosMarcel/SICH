@@ -57,7 +57,7 @@
 					</div>
                 	<div class="row">
 						<div class="col s12 m12 l12 center">
-							<button class="btn-large waves-effect waves-light" type="button" name="btn_registrarAutorizado" id="btn_registrarAutorizado" onclick="">REGISTRAR<i class="material-icons right">send</i></button>
+							<button class="btn-large waves-effect waves-light" type="button" name="btn_registrarAutorizado" id="btn_registrarAutorizado" onclick="registrar_autorizado();">REGISTRAR<i class="material-icons right">send</i></button>
 						</div>
                 	</div>
 				</form>

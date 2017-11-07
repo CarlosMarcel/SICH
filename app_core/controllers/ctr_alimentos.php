@@ -42,17 +42,17 @@
 
   $ctr_Alimentos = new ctr_Alimentos();
   //keys de los distintos eventos GET.
- if (isset($_GET['listar_alimentos'])) {
-      $ctr_Alimentos->listar_alimentos();
-    }
+  if (isset($_GET['listar_alimentos'])) {
+    $ctr_Alimentos->listar_alimentos();
+  }
 
-   if (isset($_GET['cargarcmbAlimentos'])) {
-      $ctr_Alimentos->cargar_alimentos();
-    }
+  if (isset($_GET['cargarcmbAlimentos'])) {
+    $ctr_Alimentos->cargar_alimentos();
+  }
 
   if (isset($_GET['cargarDatosAlimentos'])) {
-      $ctr_Alimentos->cargar_datos_alimentos($_GET['cargarDatosAlimentos']);
-    }
+    $ctr_Alimentos->cargar_datos_alimentos($_GET['cargarDatosAlimentos']);
+  }
   //Keys de los distintos eventos POST.
   if(isset($_POST['key'])){
 
