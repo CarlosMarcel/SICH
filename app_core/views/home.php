@@ -53,9 +53,9 @@ if(isset($_POST['btn_logout'])){
 
 							<?php if($_SESSION['TIPOROL'] == 'Administrador') : ?>
 								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Hogar<i class="material-icons left">home</i></a>
-									<div class="collapsible-body">
+									<div class="collapsible-body" type="submit">
 										<ul>
-											<li><a href=""><input name="" id="" class="boton_link transparent" value="-NOMRE VISTA-" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="" id="" class="boton_link transparent" value="Inicio" tabindex="" type="submit"></a></li>
 										</ul>
 									</div> 
 								</li>
@@ -166,7 +166,7 @@ if(isset($_POST['btn_logout'])){
 			<div class="row">
 				<div class="row center-align">
 					<div class="col s12 l6 m6 ">
-						<div class="card-panel">
+						<div class="card-panel-widget gradient-45deg-indigo-light-blue">
 							<div class="wrap">
 								<div class="widget">
 									<div class="fecha">
@@ -195,38 +195,104 @@ if(isset($_POST['btn_logout'])){
 						<div class="card-panel">
 							<div class="wrap">
 								<div class="widget">
+									<div class="row">
+										<div class="col s12 m12">
+											<div class="card">
+												<div class="card-image">
+													<img src="app_design/img/panel-2.jpg">
+													<span class="card-title">Card Title</span>
+												</div>
+												<div class="card-content" id="title_card">
+													<p class="center-align">I am a very simple card. I am good at containing small bits of information.
+													I am convenient because I require little markup to use effectively.</p>
+												</div>
+												<div class="card-action">
+													<a href="#">This is a link</a>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col s12 m4 l4 ">
-							<div class="card-panel">
-								<div class="wrap">
-									<div class="widget">
-										
+					<div class="col s12 m12 l4 ">
+						<div class="card-panel">
+							<div class="wrap">
+								<div class="widget">
+									<div class="row">
+										<div class="col s12 m12 ">
+											<div class="card">
+												<div class="card-image">
+													<div id="icon" class="center-align">
+														<i class="material-icons center-align" >kitchen</i>
+													</div>
+												</div>
+												<div class="card-action">
+													<div class="card-title center-align" id="title_card">
+														<p >Alimentos</p>
+													</div><br>
+
+													<p class="center-align">Este modulo permite la gestion del consumo de los alimentos existentes, realizar pedidos de alimentos que se acerquen al rango minínimo y ver los alimentos existentes.</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
+						</div>
 					</div>
-					<div class="col s12 m4 l4 ">
-							<div class="card-panel">
-								<div class="wrap">
-									<div class="widget">
-										
+					<div class="col s12 m12 l4 ">
+						<div class="card-panel">
+							<div class="wrap">
+								<div class="widget">
+									<div class="row">
+										<div class="col s12 m12 ">
+											<div class="card">
+												<div class="card-image">
+													<div id="icon" class="center-align">
+														<i class="material-icons center-align" >security</i>
+													</div>
+												</div>
+												<div class="card-action">
+													<div class="card-title center-align" id="title_card">
+														<p>Seguridad</p>
+													</div><br>
+													<p class="center-align">Este modulo permite gestionar registros de personas autorizadas a ingresar, asi como la administracion de las horas de encendido y apagado de luces al hogar.</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
+						</div>
 					</div>
-					<div class="col s12 m4 l4 ">
-							<div class="card-panel">
-								<div class="wrap">
-									<div class="widget">
-										
+					<div class="col s12 m12 l4 ">
+						<div class="card-panel">
+							<div class="wrap">
+								<div class="widget">
+									<div class="row">
+										<div class="col s12 m12 ">
+											<div class="card">
+												<div class="card-image">
+													<div id="icon" class="center-align">
+														<i class="material-icons center-align" >people</i>
+													</div>
+												</div>
+												<div class="card-action">
+													<div class="card-title center-align" id="title_card">
+														<p >Empleados</p>
+													</div><br>
+													<p class="center-align">Este modulo permite el manejo del personal de limpieza y mantenimiento del hogar, y la asignación de sus respectivas tareas para su posterior consulta.</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
+						</div>
 					</div>
 				</div>
 			</div>
