@@ -36,13 +36,13 @@ function registrar_autorizado(){
 		Materialize.toast('Ingrese el Correo!', 4000);
 		$('#txt_correo').focus();
 	}else if($('#dtp_fecha_nacimiento').val().trim() == ""){
-		Materialize.toast('Ingrese la Fceha de Nacimiento!', 4000);
+		Materialize.toast('Ingrese la Fecha de Nacimiento!', 4000);
 		$('#dtp_fecha_nacimiento').focus();
 	}else if($('#txt_direccion').val().trim() == ""){
 		Materialize.toast('Ingrese la dirección!', 4000);
 		$('#txt_direccion').focus();
 	}else if($('#txt_codigo_acceso').val().trim() == ""){
-		Materialize.toast('Ingrese el código de acceso para el empleado!', 4000);
+		Materialize.toast('Ingrese el código de acceso para el usuario!', 4000);
 		$('#txt_codigo_acceso').focus();
 	}else{
 		$.ajax({
@@ -82,6 +82,74 @@ function registrar_autorizado(){
 	}
 }
 
+function actualizar_autorizado(){
+	var idPersona = document.getElementById("combo_personas");
+	if(idPersona.value == null || idPersona.value ==""){
+		var cedula = null;
+	}else{
+	var cedula = idPersona.options[idPersona.selectedIndex].value;
+	
+	}
+	var nombre = $('#txt_nombre_upd').val();
+	var ap1 = $('#txt_apellido1_upd').val();
+	var ap2 = $('#txt_apellido2_upd').val();
+	var tel = $('#txt_telefono_upd').val();
+	var correo = $('#txt_correo_upd').val();
+	var fechaNacimiento = $('#dtp_fecha_nacimiento_upd').val();
+	var direccion = $('#txt_direccion_upd').val();
+	var codigoAcceso = $('#txt_codigo_acceso_upd').val();
+
+	if (cedula == null) {
+		Materialize.toast('No hay usuarios registrados!', 4000);
+	}else if ($('#txt_nombre_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el Nombre!', 4000);
+		$('#txt_nombre_upd').focus();
+	}else if ($('#txt_apellido1_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el primer apellido!', 4000);
+		$('#txt_apellido1_upd').focus();
+	}else if ($('#txt_apellido2_upd').val().trim() == "") {
+		Materialize.toast('Ingrese el segundo apellido!', 4000);
+		$('#txt_apellido2_upd').focus();
+	}else if($('#txt_telefono_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el Teléfono!', 4000);
+		$('#txt_telefono_upd').focus();
+	}else if($('#txt_correo_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el Correo!', 4000);
+		$('#txt_correo_upd').focus();
+	}else if($('#dtp_fecha_nacimiento_upd').val().trim() == ""){
+		Materialize.toast('Ingrese la Fecha de Nacimiento!', 4000);
+		$('#dtp_fecha_nacimiento_upd').focus();
+	}else if($('#txt_direccion_upd').val().trim() == ""){
+		Materialize.toast('Ingrese la dirección!', 4000);
+		$('#txt_direccion_upd').focus();
+	}else if($('#txt_codigo_acceso_upd').val().trim() == ""){
+		Materialize.toast('Ingrese el código de acceso para el usuario!', 4000);
+		$('#txt_codigo_acceso_upd').focus();
+	}else{
+
+		$.ajax({
+			type: 'POST',
+			url: 'app_core/controllers/ctr_seguridad.php',
+			data: {key: 'actualizar_persona', ced:cedula,nombre:nombre,ap1:ap1, 
+			ap2:ap2, tel:tel, correo:correo, fechaNacimiento:fechaNacimiento,
+			direccion:direccion, codigoAcceso:codigoAcceso}
+		}).done(function(datos){
+			Materialize.toast('Usuario Actualizado Exitosamente!', 4000);
+			$('#txt_nombre_upd').val("");
+			$('#txt_apellido1_upd').val("");
+			$('#txt_apellido2_upd').val("");
+			$('#txt_telefono_upd').val("");
+			$('#txt_correo_upd').val("");
+			$('#dtp_fecha_nacimiento_upd').val("");
+			$('#txt_direccion_upd').val("");
+			$('#txt_codigo_acceso_upd').val("");
+			cargarCmbPersonas();
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			Materialize.toast('Error al intentar actualizar el empleado!', 4000);
+		});
+	}
+}
+
 //CONSULTAR USUARIOS
 function listar_autorizados(){
 	$.ajax({
@@ -96,6 +164,95 @@ function listar_autorizados(){
 		//Error y notificacion.
 	});
 }
+
+//CARGAR COMBO AUTORIZADOS
+function cargarCmbPersonas(){
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_seguridad.php',
+		data: {cargarCmbPersonas: "info"}
+	}).done(function(datos){
+		$("#combo_personas").html(datos.combo);
+		$("#combo_personas").change();
+		$('select').material_select();
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+		Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
+	});
+}
+
+//CARGAR DATOS SEGUN SELECCION DE PERSONA
+function cargarDatosPersona(){
+	var idPersona = document.getElementById("combo_personas");
+	if(idPersona.value == null || idPersona.value ==""){
+		var selectedID = null;
+	}else{
+		var selectedID = idPersona.options[idPersona.selectedIndex].value;
+	}
+
+	if(selectedID == null){
+		Materialize.toast('No hay usuarios registrados!', 4000);
+	}else{
+		$.ajax({
+			type: 'GET',
+			dataType: "json",
+			url: 'app_core/controllers/ctr_seguridad.php',
+			data: {cargarDatosAutorizado: selectedID}
+		}).done(function(datos){
+			$('#txt_nombre_upd').val(datos.nombre);
+			$('#txt_apellido1_upd').val(datos.ap1);
+			$('#txt_apellido2_upd').val(datos.ap2);
+			$('#txt_telefono_upd').val(datos.telefono);
+			$('#txt_correo_upd').val(datos.correo);
+			$('#dtp_fecha_nacimiento_upd').val(datos.fechaNacimiento);
+			$('#txt_direccion_upd').val(datos.direccion);
+			$('#txt_codigo_acceso_upd').val(datos.codigoAcceso);
+			$('select').material_select();
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			//Error y notificacion.
+			Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
+		});
+	}
+	
+}
+
+function eliminar_persona(){
+	var idPersona = document.getElementById("combo_personas");
+
+	if(idPersona.value == null || idPersona.value ==""){
+		var selectedID = null;
+	}else{
+		var selectedID = idPersona.options[idPersona.selectedIndex].value;
+	}
+
+	if(selectedID == null){
+		Materialize.toast('No hay usuarios registrados!', 4000);
+	}else{
+		$.ajax({
+			type: 'POST',
+			url: 'app_core/controllers/ctr_seguridad.php',
+			data: {key: 'eliminar_persona', id:selectedID}
+		}).done(function(datos){
+			Materialize.toast('Se ha eliminado el acceso al usuario exitosamente!', 4000);
+			cargarCmbPersonas();
+			$("#combo_personas").change();
+			$('select').material_select();
+			$('#modal_autorizado').modal('close');
+			$('#txt_nombre_upd').val("");
+			$('#txt_apellido1_upd').val("");
+			$('#txt_apellido2_upd').val("");
+			$('#txt_telefono_upd').val("");
+			$('#txt_correo_upd').val("");
+			$('#dtp_fecha_nacimiento_upd').val("");
+			$('#txt_direccion_upd').val("");
+			$('#txt_codigo_acceso_upd').val("");
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			Materialize.toast('Error al intentar eliminar el acceso del usuario!', 4000);
+		});
+	}
+}
+
 /*Funciones de Empleado*/
 
 function registrar_empleado(){
@@ -337,7 +494,7 @@ function listar_empleados(){
 		type: 'GET',
 		dataType: "json",
 		url: 'app_core/controllers/ctr_empleados.php',
-		data: {listar_empleados: "lol"}
+		data: {listar_empleados: "info"}
 	}).done(function(datos){
 		$("#grid_empleados").html(datos.tabla); //Carga los datos en la tabla.
 
@@ -564,7 +721,7 @@ function cargarCmbAlimentos(){
 		type: 'GET',
 		dataType: "json",
 		url: 'app_core/controllers/ctr_alimentos.php',
-		data: {cargarcmbAlimentos: "lol"}
+		data: {cargarcmbAlimentos: "info"}
 	}).done(function(datos){
 		$("#combo_alimentos").html(datos.combo);
 		$("#combo_alimentos").change();
@@ -577,23 +734,33 @@ function cargarCmbAlimentos(){
 
 function cargarDatosAlimentos(){
 	var idAlimento = document.getElementById("combo_alimentos");
-	var selectedID = idAlimento.options[idAlimento.selectedIndex].value;
-	$.ajax({
-		type: 'GET',
-		dataType: "json",
-		url: 'app_core/controllers/ctr_alimentos.php',
-		data: {cargarDatosAlimentos: selectedID}
-	}).done(function(datos){
-		$('#txt_nombre_upd').val(datos.nombre);
-		$('#txt_puntoReorden_upd').val(datos.puntoReorden);
-		$('#txt_cantidad_upd').val(datos.cantidad);
-		$('#txt_cantidadPedido_upd').val(datos.cantidadPedido);
-		$('#txt_tipoMedida_upd').val(datos.tipoMedida);
-		$('select').material_select();
-	}).fail(function(jqXHR, textStatus, errorThrown){
-		//Error y notificacion.
-		Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
-	});
+
+	if(idAlimento.value == null || idAlimento.value ==""){
+		var selectedID = null;
+	}else{
+		var selectedID = idAlimento.options[idAlimento.selectedIndex].value;
+	}
+
+	if(selectedID == null){
+		Materialize.toast('No hay alimentos registrados!', 4000);
+	}else{
+		$.ajax({
+			type: 'GET',
+			dataType: "json",
+			url: 'app_core/controllers/ctr_alimentos.php',
+			data: {cargarDatosAlimentos: selectedID}
+		}).done(function(datos){
+			$('#txt_nombre_upd').val(datos.nombre);
+			$('#txt_puntoReorden_upd').val(datos.puntoReorden);
+			$('#txt_cantidad_upd').val(datos.cantidad);
+			$('#txt_cantidadPedido_upd').val(datos.cantidadPedido);
+			$('#txt_tipoMedida_upd').val(datos.tipoMedida);
+			$('select').material_select();
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			//Error y notificacion.
+			Materialize.toast('Error al intentar cargar el combo de alimentos!', 4000);
+		});
+	}
 }
 
 //Funcion de Actualizar Alimentos
@@ -607,9 +774,17 @@ function actualizar_alimentos(){
 	var tipoMedida = document.getElementById("txt_tipoMedida_upd").value;
 
 	var idAlimento = document.getElementById("combo_alimentos");
-	var selectedID = idAlimento.options[idAlimento.selectedIndex].value;
 
-	if (nombre == "") {
+	if(idAlimento.value == null || idAlimento.value ==""){
+		var selectedID = null;
+	}else{
+		var selectedID = idAlimento.options[idAlimento.selectedIndex].value;
+	}
+	
+
+	if(selectedID == null){
+		Materialize.toast('No hay alimentos registrados!', 4000);
+	}else if (nombre == "") {
 		Materialize.toast('Ingrese el nombre de alimento!', 4000);
 		$('#txt_nombre_upd').focus();
 	}else if (puntoReorden == "") {
@@ -658,7 +833,7 @@ function actualizar_alimentos(){
 			$('#txt_cantidad_upd').val("");
 			$('#txt_cantidadPedido_upd').val("");
 			$('#txt_tipoMedida_upd').val("");
-			$("#combo_alimentos").change();
+			cargarCmbAlimentos();
 			$('select').material_select();
 		}).fail(function(jqXHR, textStatus, errorThrown){
 			Materialize.toast('Error al intentar actualizar el alimento!', 4000);

@@ -10,7 +10,7 @@
 				<form class="col s12" name="frm_mantenimiento_autorizados" method="post">
 					<div class="row">
 						 <div class="input-field col s12 m12 l12">
-						    <select id="combo_personas" onchange="">
+						    <select id="combo_personas" onchange="cargarDatosPersona()">
 						    	<option value="0" disabled selected>Personas</option>
 						    </select>
 						    <label>Nombre del Autorizado</label>
@@ -64,7 +64,7 @@
 					</div>
 					<div class="row">
 						<div class="col s6 m6 l6 center">
-							<button class="btn-large waves-effect waves-light" type="button" name="btn_actualizarAutorizado" id="btn_actualizarAutorizado" onclick="">ACTUALIZAR<i class="material-icons right">send</i></button>
+							<button class="btn-large waves-effect waves-light" type="button" name="btn_actualizarAutorizado" id="btn_actualizarAutorizado" onclick="actualizar_autorizado()">ACTUALIZAR<i class="material-icons right">send</i></button>
 						</div>
 						<div class="col s6 m6 l6 center">
 							<button class="btn-large waves-effect waves-light red modal-trigger" type="button" href="#modal_autorizado" name="btn_eliminarAutorizado" id="btn_eliminarAutorizado">ELIMINAR<i class="material-icons right">delete</i></button>
@@ -80,7 +80,7 @@
 							<p class="center-align">¿Realmente desea eliminarle el acceso?</p>
 						</div>
 						<div class="modal-footer">
-							<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal_autorizado" type="button" name="btn_inactivarAutorizado" id="btn_inactivarAutorizado" onclick="">Eliminar<i class="material-icons right">delete</i></button>
+							<button class="btn waves-effect waves-light red btn modal-trigger" href="#modal_autorizado" type="button" name="btn_inactivarAutorizado" id="btn_inactivarAutorizado" onclick="eliminar_persona()">Eliminar<i class="material-icons right">delete</i></button>
 	
 							<button class="btn waves-effect waves-light blue btn modal-action modal-close" href="#modal_autorizado" type="button" name="btn_cancelar" id="btn_cancelar" onclick="">Cancelar<i class="material-icons right">reply</i></button>
 						</div>
@@ -95,7 +95,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('select').material_select();
-    //cargarCmbPersonas();
+    cargarCmbPersonas();
     Materialize.updateTextFields();
   });
   
