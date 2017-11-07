@@ -71,7 +71,10 @@ if(isset($_POST['btn_logout'])){
 								<li class="bold"><a class="collapsible-header  waves-effect waves-teal">Seguridad<i class="material-icons">security</i></a>
 									<div class="collapsible-body">
 										<ul>
-											<li><a href=""><input name="link_luces" id="link_luces" class="boton_link transparent" value="Luces" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_registrarAutorizados" id="link_registrarAutorizados" class="boton_link transparent" value="Registrar Personas Autorizadas" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_gestionarAutorizados" id="link_gestionarAutorizados" class="boton_link transparent" value="Gestionar Personas Autorizadas" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_consultarAutorizados" id="link_consultarAutorizados" class="boton_link transparent" value="Consultar Personas Autorizadas" tabindex="" type="submit"></a></li>
+											<li><div class="divider"></div></li>
 											
 										</ul>
 									</div>
@@ -141,10 +144,20 @@ if(isset($_POST['btn_logout'])){
 		include_once(__VWS_PATH . "view_actualizar_tareas.php");
 	}
 
-	if(isset($_POST['link_luces'])){ 
-		include_once(__VWS_PATH . "view_luces.php");
+	//MODULO DE SEGURIDAD
+	if(isset($_POST['link_registrarAutorizados'])){ 
+		include_once(__VWS_PATH . "view_registrar_autorizados.php");
 	}
 
+	if(isset($_POST['link_gestionarAutorizados'])){ 
+		include_once(__VWS_PATH . "view_mantenimiento_autorizados.php");
+	}
+
+	if(isset($_POST['link_consultarAutorizados'])){ 
+		include_once(__VWS_PATH . "view_consultar_autorizados.php");
+	}
+	
+	//MODULO DE ALIMENTOS
 	if(isset($_POST['link_registrarAlimentos'])){ 
 		include_once(__VWS_PATH . "view_registrar_alimentos.php");
 	}
@@ -243,7 +256,7 @@ if(isset($_POST['btn_logout'])){
 
 			$('.datepicker').pickadate({
 		    selectMonths: true, // Crea combo de meses
-		    selectYears: 15, // Crea combo con de años con la cantidad especificada,
+		    selectYears: 20, // Crea combo con de años con la cantidad especificada,
 		    today: 'Today',
 		    clear: 'Clear',
 		    close: 'Ok',

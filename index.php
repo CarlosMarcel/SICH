@@ -98,9 +98,20 @@
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }
 
-  if(isset($_POST['link_luces'])){ 
+  //EVENTOS DE SEGURIDAD
+  if(isset($_POST['link_registrarAutorizados'])){ 
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }
+
+  if(isset($_POST['link_gestionarAutorizados'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+
+  if(isset($_POST['link_consultarAutorizados'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+
+  //EVENTOS DE ALIMENTOS
 
   if(isset($_POST['link_registrarAlimentos'])){ 
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
