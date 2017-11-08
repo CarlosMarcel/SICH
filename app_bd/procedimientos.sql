@@ -481,7 +481,17 @@ DELIMITER |
         WHERE estado ='A' ;
     END |
     DELIMITER ;
-
+-----------------------------------------------------
+DROP PROCEDURE if exists insertarBitacoraLuces;
+DELIMITER |
+	CREATE PROCEDURE insertarBitacoraLuces(
+		BitacoraIdLuces int (11),
+		BitacoraAccion enum('ON','OFF'))
+	BEGIN		
+		INSERT INTO tbl_bitacoraluces(idluces, accion, bitacora_fecha,bitacora_hora, estado)
+		VALUES(BitacoraIdLuces,BitacoraAccion,CURDATE(), CURTIME(), 'A');
+	END |
+DELIMITER ;
 -- --------------------------------------------
 -- Procedimientos almacenados para Alimentos
 -- --------------------------------------------
