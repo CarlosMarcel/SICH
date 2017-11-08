@@ -54,6 +54,19 @@
 			echo json_encode($listaDatos);
 		}
 
+		public function listar_llamadas(){
+			$this->conexion->consulta("CALL consultarLlamadaspolicia");
+			$datos="";
+			$listaDatos = array();
+
+			while ($fila = $this->conexion->extraer_registro()) {
+				$datos.= "<tr><td>$fila[0]</td><td>$fila[1]</td><td>$fila[2]</td></tr>";
+			}
+
+			$listaDatos['tabla']=$datos;
+			echo json_encode($listaDatos);
+		}
+
 		public function cargar_cmb_personas(){
 			$this->conexion->consulta("CALL cargarCmbPersonasUsuarios");
 			$datos="";
@@ -85,6 +98,24 @@
 
 		public function eliminar_persona($id){
 			$this->conexion->consulta("CALL inactivarPersona('".$id."')");
+		}
+
+		public function comprobar_usuario($ced,$pin){
+			$this->conexion->consulta("CALL loginCodigoAccesoSICH('".$ced."','".$pin."')");
+			$listaDatos = array();
+			$listaDatos['valor'] = 0;
+			while($fila = $this->conexion->extraer_registro()){
+				$listaDatos['valor'] = 1;
+			}
+			echo json_encode($listaDatos);
+		}
+
+		public function registrar_bitacora($cedula){
+			$this->conexion->consulta("CALL insertarPersonaBitacora('".$cedula."')");
+		}
+
+		public function registrar_llamadas(){
+			$this->conexion->consulta("CALL insertarLlamadaPolicia");
 		}
 	}
 

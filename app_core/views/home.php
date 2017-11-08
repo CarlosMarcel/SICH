@@ -79,7 +79,8 @@ if(isset($_POST['btn_logout'])){
 											<li><a href=""><input name="link_consultarLuces" id="link_consultarLuces" class="boton_link transparent" value="Consultar Luces" tabindex="" type="submit"></a></li>
 											<li><div class="divider"></div></li>
 											<li><a href=""><input name="link_consultarBitacora" id="link_consultarBitacora" class="boton_link transparent" value="Consultar Bitácora Hogar" tabindex="" type="submit"></a></li>
-											
+											<li><div class="divider"></div></li>
+											<li><a href=""><input name="link_consultarLlamadas" id="link_consultarLlamadas" class="boton_link transparent" value="Consultar Llamadas Policía" tabindex="" type="submit"></a></li>
 										</ul>
 									</div>
 								</li>
@@ -168,6 +169,10 @@ if(isset($_POST['btn_logout'])){
 	if(isset($_POST['link_consultarBitacora'])){ 
 		include_once(__VWS_PATH . "view_consultar_bitacora.php");
 	}
+
+	if(isset($_POST['link_consultarLlamadas'])){ 
+		include_once(__VWS_PATH . "view_consultar_llamadas.php");
+	}
 	
 	//MODULO DE ALIMENTOS
 	if(isset($_POST['link_registrarAlimentos'])){ 
@@ -191,6 +196,21 @@ if(isset($_POST['btn_logout'])){
 			<div class="row">
 				<div class="row center-align">
 					<div class="col s12 l6 m6 ">
+						<div class="card-panel-widget gradient-45deg-amber-amber z-depth-1">
+							<div class="wrap">
+								<div class="widget">
+									<h5>BIENVENIDO</h5>
+									<br>
+									<h5 class=""><?php echo $_SESSION['NOMBRE']." ".$_SESSION['APELLIDO1']." ".$_SESSION['APELLIDO2'];?></h5>
+									<br>
+									<span class=""><?php echo "CORREO: ".$_SESSION['CORREO'];?></span>
+									<br>
+									<span class=""><?php echo "TELÉFONO: ".$_SESSION['TELEFONO'];?></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 l6 m6 ">
 						<div class="card-panel-widget gradient-45deg-indigo-light-blue z-depth-1">
 							<div class="wrap">
 								<div class="widget">
@@ -210,26 +230,6 @@ if(isset($_POST['btn_logout'])){
 										<div class="caja-segundos">
 											<p id="ampm" class="ampm"></p>
 											<p id="segundos" class="segundos"></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col s12 m6 l6 ">
-						<div class="card-panel">
-							<div class="wrap">
-								<div class="widget">
-									<div class="row">
-										<div class="col s12 m12">
-											<div class="card-panel weather-card-static blue-grey lighten-1 white-text">
-												<div class="row">
-													<div class="temp col s7">-3°C <span class="alt">27°F</span></div>
-													<div class="city col s5"><i class="fa fa-map-marker"></i> Costa Rica</div>
-												</div>
-												<div class="icon"><i class="wi wi-cloud"></i></div>cloud
-												<div class="currently">Cloudy</div>
-											</div>
 										</div>
 									</div>
 								</div>
