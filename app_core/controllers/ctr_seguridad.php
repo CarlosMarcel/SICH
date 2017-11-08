@@ -27,10 +27,6 @@
     public function listar_bitacora(){
         return $this->postdata->listar_bitacora();
     }
-
-    public function listar_llamadas(){
-        return $this->postdata->listar_llamadas();
-    }
     
     public function cargar_cmb_personas(){
         return $this->postdata->cargar_cmb_personas();
@@ -42,18 +38,6 @@
 
      public function eliminar_persona($id){
         return $this->postdata->eliminar_persona($id);
-    }
-
-    public function comprobar_usuario($ced,$pin){
-        return $this->postdata->comprobar_usuario($ced,$pin);
-    }
-
-    public function registrar_bitacora($cedula){
-        return $this->postdata->registrar_bitacora($cedula);
-    }
-
-    public function registrar_llamadas(){
-        return $this->postdata->registrar_llamadas();
     }
   }
 
@@ -72,20 +56,12 @@
     $ctr_Seguridad->listar_bitacora();
   }
 
-  if (isset($_GET['listar_llamadas'])) {
-    $ctr_Seguridad->listar_llamadas();
-  }
-
   if (isset($_GET['cargarCmbPersonas'])) {
     $ctr_Seguridad->cargar_cmb_personas();
   }
 
   if (isset($_GET['cargarDatosAutorizado'])) {
     $ctr_Seguridad->cargar_datos_autorizado($_GET['cargarDatosAutorizado']);
-  }
-
-  if (isset($_GET['comprobar_usuario']) AND isset($_GET['PIN'])) {
-    $ctr_Seguridad->comprobar_usuario($_GET['comprobar_usuario'],$_GET['PIN']);
   }
 
   //Keys de los distintos eventos POST.
@@ -120,15 +96,6 @@
     if($_POST['key']=='eliminar_persona'){
       $id = $_POST['id'];
       $ctr_Seguridad->eliminar_persona($id);
-    }
-
-     if($_POST['key']=='registrar_bitacora'){
-      $cedula = $_POST['ced'];
-      $ctr_Seguridad->registrar_bitacora($cedula);
-    }
-
-     if($_POST['key']=='registrar_llamadas'){
-      $ctr_Seguridad->registrar_llamadas();
     }
   }
 ?>

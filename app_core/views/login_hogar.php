@@ -53,7 +53,7 @@ $ctr_Login=new ctr_Login();
                 <label for="txt_pin">PIN</label>
               </div>
               <div class="center">
-                <button class="btn-large waves-effect waves light blue" name="btn_login_hogar" id="btn_login_hogar" type="button" onclick="login_hogar()" tabindex="3">Login<i class="material-icons right">lock_open</i></button>
+                <button class="btn-large waves-effect waves light blue" name="btn_login_hogar" id="btn_login_hogar" type="submit" tabindex="3">Login<i class="material-icons right">lock_open</i></button>
               </div>
             </div>
           </form>
@@ -68,68 +68,11 @@ $ctr_Login=new ctr_Login();
   $(document).ready(function(){
     $(".button-collapse").sideNav();
   });
-
-  var intentos = 0;
-
-  function login_hogar(){
-    if($('#txt_cedula').val().trim() == ""){
-      Materialize.toast('Ingrese la Cédula!', 4000);
-      $('#txt_cedula').focus();
-    }else if($('#txt_pin').val().trim() == ""){
-      Materialize.toast('Ingrese el PIN!', 4000);
-      $('#txt_pin').focus();
-    }else{
-        $.ajax({
-          type: 'GET',
-          dataType: "json",
-          url: 'app_core/controllers/ctr_seguridad.php',
-          data: {comprobar_usuario: $('#txt_cedula').val(), PIN:$('#txt_pin').val()}
-        }).done(function(datos){
-          var resultado = datos.valor;
-          if (resultado == 1) {
-            Materialize.toast('USTED HA INGRESADO EXITOSAMENTE AL HOGAR!', 8000);
-            intentos = 0;
-            $.ajax({
-              type: 'POST',
-              url: 'app_core/controllers/ctr_seguridad.php',
-              data: {key: 'registrar_bitacora', ced:$('#txt_cedula').val()}
-            }).done(function(datos){
-              Materialize.toast('SE HA GENERADO UN LOG DE ACCESO!', 4000);
-              $('#txt_cedula').val("");
-              $('#txt_pin').val("");
-            }).fail(function(jqXHR, textStatus, errorThrown){
-              Materialize.toast('Error al intentar registrar en la bitácora!', 4000);
-            });
-          }else{
-            intentos = intentos + 1;
-            Materialize.toast('La Cédula o PIN suministrados son incorrectos!', 4000);
-
-            if(intentos == 3){
-              $.ajax({
-                type: 'POST',
-                url: 'app_core/controllers/ctr_seguridad.php',
-                data: {key: 'registrar_llamadas'}
-              }).done(function(datos){
-                Materialize.toast('SE HA LLAMADO A LA POLICÍA!', 4000);
-                $('#txt_cedula').val("");
-                $('#txt_pin').val("");
-                intentos = 0;
-              }).fail(function(jqXHR, textStatus, errorThrown){
-                Materialize.toast('Error al intentar registrar en el log de llamadas a la policía!', 4000);
-              });
-              
-            }
-          }
-        }).fail(function(jqXHR, textStatus, errorThrown){
-          //Error y notificacion.
-        });
-    }
-  }
 </script>
 
 <?php
   //Eventos click del login
-/*if(isset($_POST['btn_login_hogar'])){
+if(isset($_POST['btn_login_hogar'])){
   $ctr_Login->btn_login_home_click();
-}*/
+}
 ?>
