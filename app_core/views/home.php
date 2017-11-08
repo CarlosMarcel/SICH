@@ -216,6 +216,26 @@ if(isset($_POST['btn_logout'])){
 							</div>
 						</div>
 					</div>
+					<div class="col s12 m6 l6 ">
+						<div class="card-panel">
+							<div class="wrap">
+								<div class="widget">
+									<div class="row">
+										<div class="col s12 m12">
+											<div class="card-panel weather-card-static blue-grey lighten-1 white-text">
+												<div class="row">
+													<div class="temp col s7">-3°C <span class="alt">27°F</span></div>
+													<div class="city col s5"><i class="fa fa-map-marker"></i> Costa Rica</div>
+												</div>
+												<div class="icon"><i class="wi wi-cloud"></i></div>cloud
+												<div class="currently">Cloudy</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col s12 m12 l4 ">
