@@ -110,6 +110,19 @@
   if(isset($_POST['link_consultarAutorizados'])){ 
     echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
   }
+  
+  if(isset($_POST['link_gestionarLuces'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+
+  if(isset($_POST['link_consultarLuces'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+  
+  if(isset($_POST['link_consultarBitacora'])){ 
+    echo "<script type='text/javascript'>$('#vistas').css('display','none');</script>";
+  }
+  
 
   //EVENTOS DE ALIMENTOS
 

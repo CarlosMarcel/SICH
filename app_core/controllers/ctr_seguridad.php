@@ -24,6 +24,10 @@
         return $this->postdata->listar_autorizados();
     }
 
+    public function listar_bitacora(){
+        return $this->postdata->listar_bitacora();
+    }
+    
     public function cargar_cmb_personas(){
         return $this->postdata->cargar_cmb_personas();
     }
@@ -46,6 +50,10 @@
 
   if (isset($_GET['listar_autorizados'])) {
     $ctr_Seguridad->listar_autorizados();
+  }
+
+  if (isset($_GET['listar_bitacora'])) {
+    $ctr_Seguridad->listar_bitacora();
   }
 
   if (isset($_GET['cargarCmbPersonas'])) {

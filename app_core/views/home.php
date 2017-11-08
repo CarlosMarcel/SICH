@@ -75,6 +75,10 @@ if(isset($_POST['btn_logout'])){
 											<li><a href=""><input name="link_gestionarAutorizados" id="link_gestionarAutorizados" class="boton_link transparent" value="Gestionar Personas Autorizadas" tabindex="" type="submit"></a></li>
 											<li><a href=""><input name="link_consultarAutorizados" id="link_consultarAutorizados" class="boton_link transparent" value="Consultar Personas Autorizadas" tabindex="" type="submit"></a></li>
 											<li><div class="divider"></div></li>
+											<li><a href=""><input name="link_gestionarLuces" id="link_gestionarLuces" class="boton_link transparent" value="Gestionar Luces" tabindex="" type="submit"></a></li>
+											<li><a href=""><input name="link_consultarLuces" id="link_consultarLuces" class="boton_link transparent" value="Consultar Luces" tabindex="" type="submit"></a></li>
+											<li><div class="divider"></div></li>
+											<li><a href=""><input name="link_consultarBitacora" id="link_consultarBitacora" class="boton_link transparent" value="Consultar Bitácora Hogar" tabindex="" type="submit"></a></li>
 											
 										</ul>
 									</div>
@@ -120,10 +124,6 @@ if(isset($_POST['btn_logout'])){
 <main class="home" id="home">
 	<?php 
 		//Hacer aqui los llamados a las vistas y recordar ocultar todo en el index
-	if(isset($_POST['btn_aja2'])){ 
-		include_once(__VWS_PATH . "registrarHoras.php");
-	}
-
 	if(isset($_POST['link_registarEmpleado'])){ 
 		include_once(__VWS_PATH . "view_registrar_empleados.php");
 	}
@@ -155,6 +155,18 @@ if(isset($_POST['btn_logout'])){
 
 	if(isset($_POST['link_consultarAutorizados'])){ 
 		include_once(__VWS_PATH . "view_consultar_autorizados.php");
+	}
+
+	if(isset($_POST['link_gestionarLuces'])){ 
+		include_once(__VWS_PATH . "view_mantenimiento_luces.php");
+	}
+
+	if(isset($_POST['link_consultarLuces'])){ 
+		include_once(__VWS_PATH . "view_consultar_luces.php");
+	}
+
+	if(isset($_POST['link_consultarBitacora'])){ 
+		include_once(__VWS_PATH . "view_consultar_bitacora.php");
 	}
 	
 	//MODULO DE ALIMENTOS
@@ -204,26 +216,6 @@ if(isset($_POST['btn_logout'])){
 							</div>
 						</div>
 					</div>
-					<div class="col s12 m6 l6 ">
-						<div class="card-panel">
-							<div class="wrap">
-								<div class="widget">
-									<div class="row">
-										<div class="col s12 m12">
-											<div class="card-panel weather-card-static blue-grey lighten-1 white-text">
-  <div class="row">
-    <div class="temp col s7">-3°C <span class="alt">27°F</span></div>
-    <div class="city col s5"><i class="material-icons center-align" ></i> Costa Rica</div>
-  </div>
-  <div class="icon"><i class="wi wi-cloud"></i></div>cloud
-  <div class="currently">Cloudy</div>
-</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="row">
 					<div class="col s12 m12 l4 ">
@@ -232,7 +224,7 @@ if(isset($_POST['btn_logout'])){
 								<div class="widget">
 									<div class="row">
 										<div class="col s12 m12 ">
-											<div class="card">
+											<div class="card card-info">
 												<div class="card-image">
 													<div id="icon" class="center-align">
 														<i class="material-icons center-align" >kitchen</i>
@@ -243,7 +235,7 @@ if(isset($_POST['btn_logout'])){
 														<p >Alimentos</p>
 													</div><br>
 
-													<p class="center-align">Este modulo permite la gestion del consumo de los alimentos existentes, realizar pedidos de alimentos que se acerquen al rango minínimo y ver los alimentos existentes.</p>
+													<p class="center-align">Este módulo permite la gestión del consumo de los alimentos existentes, realizar pedidos de alimentos que se acerquen al rango minínimo y ver los alimentos existentes.</p>
 												</div>
 											</div>
 										</div>
@@ -258,7 +250,7 @@ if(isset($_POST['btn_logout'])){
 								<div class="widget">
 									<div class="row">
 										<div class="col s12 m12 ">
-											<div class="card">
+											<div class="card card-info">
 												<div class="card-image">
 													<div id="icon" class="center-align">
 														<i class="material-icons center-align" >security</i>
@@ -283,7 +275,7 @@ if(isset($_POST['btn_logout'])){
 								<div class="widget">
 									<div class="row">
 										<div class="col s12 m12 ">
-											<div class="card">
+											<div class="card card-info">
 												<div class="card-image">
 													<div id="icon" class="center-align">
 														<i class="material-icons center-align" >people</i>

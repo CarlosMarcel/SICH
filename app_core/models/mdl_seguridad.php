@@ -41,6 +41,19 @@
 			echo json_encode($listaDatos);
 		}
 
+		public function listar_bitacora(){
+			$this->conexion->consulta("CALL consultarBitacora");
+			$datos="";
+			$listaDatos = array();
+
+			while ($fila = $this->conexion->extraer_registro()) {
+				$datos.= "<tr><td>$fila[0]</td><td>$fila[1]</td><td>$fila[2]</td><td>$fila[3]</td><td>$fila[4]</td><td>$fila[5]</td></tr>";
+			}
+
+			$listaDatos['tabla']=$datos;
+			echo json_encode($listaDatos);
+		}
+
 		public function cargar_cmb_personas(){
 			$this->conexion->consulta("CALL cargarCmbPersonasUsuarios");
 			$datos="";

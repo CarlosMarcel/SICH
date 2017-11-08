@@ -253,6 +253,21 @@ function eliminar_persona(){
 	}
 }
 
+function listar_bitacora(){
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: 'app_core/controllers/ctr_seguridad.php',
+		data: {listar_bitacora: "info"}
+	}).done(function(datos){
+		$("#grid_bitacora").html(datos.tabla); //Carga los datos en la tabla.
+
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		//Error y notificacion.
+	});
+}
+
+
 /*Funciones de Empleado*/
 
 function registrar_empleado(){

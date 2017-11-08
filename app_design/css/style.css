@@ -58,6 +58,9 @@ font-weight: 800;
   
 }
 
+.widget{
+  padding: 20px;
+}
 .widget p {
   display:  inline-block;
   line-height: 1em;
@@ -70,7 +73,6 @@ font-weight: 800;
   font-size: 1.5em;
   margin-bottom: 0.3125rem;
   margin-bottom: 5px;
-  padding: 20px;
   width: 100%;
   border-radius: 4px;
 }
@@ -78,7 +80,6 @@ font-weight: 800;
 .reloj {
   color: #fff;
   font-family: Oswald, Arial;
-  padding: 20px;
   width: 100%;
   text-align: center;
   font-size: 4em;
@@ -88,14 +89,17 @@ font-weight: 800;
   border-top: 4px solid #1565c0;
   border-radius: 4px;
   width: 100%;
-
 }
 
 .card-panel-widget{
   
   border-radius: 4px;
   width: 100%;
+  height: 200px;
+}
 
+.card-info{
+  height: 300px;
 }
 
 .reloj .caja-segundos {
